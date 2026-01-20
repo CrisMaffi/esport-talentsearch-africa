@@ -6,16 +6,13 @@
     <title>Esport Talent Search Africa – Work in Progress</title>
 
     <style>
-        /* Base layout */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background: #ffffff;
             color: #000000;
-            text-align: center;
             overflow-x: hidden;
-            position: relative;
         }
 
         /* Fade-in animation */
@@ -29,7 +26,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Top-left ETSA label */
+        /* ETSA top-left */
         .navbar {
             width: 100%;
             padding: 15px 25px;
@@ -47,147 +44,140 @@
             font-weight: bold;
         }
 
-        /* Africa background — ALWAYS fully visible */
-        .background-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 100%;
+        /* Africa map container with ratio protection */
+        .africa-wrapper {
+            position: relative;
+            width: 90%;
             max-width: 900px;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-            display: flex;
-            justify-content: center;
-            pointer-events: none;
+            margin: 140px auto 0 auto;
         }
 
-        .background-map {
+        .africa-map {
             width: 100%;
-            height: auto;
+            height: auto;          /* maintains perfect ratio */
+            display: block;
             opacity: 0.22;
             filter: brightness(0.4);
         }
 
-        /* Content wrapper */
-        .content {
-            margin-top: 140px;
-            padding: 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Logo row */
-        .logo-row {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .logo-block {
+        /* Centered content inside Africa map */
+        .center-content {
+            position: absolute;
+            top: 50%;               /* always centered vertically */
+            left: 50%;              /* always centered horizontally */
+            transform: translate(-50%, -50%);
+            width: 80%;             /* scales with Africa map */
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
 
-        /* Individual logo sizes */
-        .logo-fia { height: 75px; width: auto; object-fit: contain; }
-        .logo-maffi { height: 85px; width: auto; object-fit: contain; }
-        .logo-emsa { height: 80px; width: auto; object-fit: contain; }
+        /* Logos scale proportionally */
+        .logo-row {
+            display: flex;
+            gap: 4vw;               /* responsive spacing */
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2vw;
+        }
+
+        .logo-fia { height: 8vw; max-height: 75px; width: auto; }
+        .logo-maffi { height: 9vw; max-height: 85px; width: auto; }
+        .logo-emsa { height: 8.5vw; max-height: 80px; width: auto; }
 
         .fia-text {
-            font-size: 14px;
+            font-size: 1.4vw;
+            min-font-size: 12px;
             font-weight: bold;
             margin-top: 5px;
         }
 
-        /* Typography */
+        /* Text under logos */
         h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            font-size: 3vw;
+            max-font-size: 32px;
+            margin: 10px 0 5px 0;
         }
 
         p {
-            font-size: 18px;
+            font-size: 2vw;
+            max-font-size: 18px;
             opacity: 0.85;
         }
 
-        /* Powered by Maffi Racing badge */
+        /* Powered by */
         .powered-by {
             margin-top: 40px;
             font-size: 16px;
             font-weight: bold;
             opacity: 0.8;
+            text-align: center;
         }
 
-        /* Footer bar */
+        /* Footer */
         footer {
-            margin-top: 40px;
+            margin-top: 20px;
             padding: 20px;
-            background: #000;
-            color: #fff;
             font-size: 14px;
+            color: #000;
+            text-align: center;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .logo-fia { height: 60px; }
-            .logo-maffi { height: 70px; }
-            .logo-emsa { height: 65px; }
-            .background-container { max-width: 700px; }
-        }
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .logo-fia { height: 14vw; }
+            .logo-maffi { height: 16vw; }
+            .logo-emsa { height: 15vw; }
 
-        @media (max-width: 480px) {
-            .logo-fia { height: 50px; }
-            .logo-maffi { height: 60px; }
-            .logo-emsa { height: 55px; }
-            .background-container { max-width: 550px; }
+            h1 { font-size: 6vw; }
+            p { font-size: 4vw; }
+            .fia-text { font-size: 3.5vw; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Top-left ETSA label -->
+    <!-- ETSA top-left -->
     <div class="navbar fade-in">
         <div class="navbar-title">ETSA</div>
     </div>
 
-    <!-- Africa Background (always fully visible) -->
-    <div class="background-container">
-        <img src="africa-map.png" alt="Africa Map Background" class="background-map">
+    <!-- Africa map with centered content -->
+    <div class="africa-wrapper fade-in">
+        <img src="africa-map.png" alt="Africa Map" class="africa-map">
+
+        <div class="center-content">
+
+            <div class="logo-row">
+                <div class="logo-block">
+                    <img src="fia-logo.png" alt="FIA Logo" class="logo-fia">
+                    <div class="fia-text">Member of</div>
+                </div>
+
+                <div class="logo-block">
+                    <img src="maffi-esports-logo.png" alt="Maffi Esports Logo" class="logo-maffi">
+                </div>
+
+                <div class="logo-block">
+                    <img src="emsa-logo.png" alt="EMSA Logo" class="logo-emsa">
+                </div>
+            </div>
+
+            <h1>Official Platform Under Construction</h1>
+            <p>The African Esports & Motorsport Talent Pathway is being built.</p>
+
+        </div>
     </div>
 
-    <div class="content fade-in">
-
-        <div class="logo-row">
-            <div class="logo-block">
-                <img src="fia-logo.png" alt="FIA Logo" class="logo-fia">
-                <div class="fia-text">Member of</div>
-            </div>
-
-            <div class="logo-block">
-                <img src="maffi-esports-logo.png" alt="Maffi Esports Logo" class="logo-maffi">
-            </div>
-
-            <div class="logo-block">
-                <img src="emsa-logo.png" alt="EMSA Logo" class="logo-emsa">
-            </div>
-        </div>
-
-        <h1 class="fade-in">Official Platform Under Construction</h1>
-        <p class="fade-in">The African Esports & Motorsport Talent Pathway is being built.</p>
-
-        <!-- Powered by Maffi Racing -->
-        <div class="powered-by fade-in">
-            Powered by Maffi Racing
-        </div>
-
+    <!-- Powered by -->
+    <div class="powered-by fade-in">
+        Powered by Maffi Racing
     </div>
 
-    <!-- Footer Bar -->
+    <!-- Footer -->
     <footer>
         © Maffi Racing — Contact: c.maffi@maffiracing.com
     </footer>

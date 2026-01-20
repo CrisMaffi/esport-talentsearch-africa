@@ -17,6 +17,27 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Africa Map */
+        .background-map {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            max-width: 900px;
+            opacity: 0.08;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
         }
 
         .logo-row {
@@ -52,7 +73,7 @@
 
         p {
             font-size: 18px;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         footer {
@@ -64,27 +85,34 @@
 </head>
 <body>
 
-    <div class="logo-row">
-        <div class="logo-block">
-            <img src="fia-logo.png" alt="FIA Logo">
-            <div class="fia-text">Member of FIA</div>
+    <!-- Background Africa Map -->
+    <img src="africa-map.png" alt="Africa Map Background" class="background-map">
+
+    <div class="content">
+
+        <div class="logo-row">
+            <div class="logo-block">
+                <img src="fia-logo.png" alt="FIA Logo">
+                <div class="fia-text">Member of FIA</div>
+            </div>
+
+            <div class="logo-block">
+                <img src="maffi-esports-logo.png" alt="Maffi Esports Logo">
+            </div>
+
+            <div class="logo-block">
+                <img src="emsa-logo.png" alt="EMSA Logo">
+            </div>
         </div>
 
-        <div class="logo-block">
-            <img src="maffi-esports-logo.png" alt="Maffi Esports Logo">
-        </div>
+        <h1>Official Platform Under Construction</h1>
+        <p>The African Esports & Motorsport Talent Pathway is being built.</p>
 
-        <div class="logo-block">
-            <img src="emsa-logo.png" alt="EMSA Logo">
-        </div>
+        <footer>
+            © Maffi Racing — Contact: c.maffi@maffiracing.com
+        </footer>
+
     </div>
-
-    <h1>Official Platform Under Construction</h1>
-    <p>The African Esports & Motorsport Talent Pathway is being built.</p>
-
-    <footer>
-        © Maffi Racing — Contact: c.maffi@maffiracing.com
-    </footer>
 
 </body>
 </html>

@@ -22,16 +22,24 @@
         }
 
         /* Background Africa Map */
-        .background-map {
+.background-map {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 90%;
     max-width: 900px;
-    opacity: 0.08;
+    opacity: 0.18;              /* increased visibility */
+    filter: brightness(0.4);    /* darkens the map */
     transform: translate(-50%, -50%);
-    z-index: -1; /* ensures it stays behind everything */
+    z-index: -1;                /* ensures it stays behind everything */
     pointer-events: none;
+}
+
+/* Equal logo sizes */
+.logo-block img {
+    height: 80px;      /* equal height for all logos */
+    width: auto;       /* maintain proportions */
+    object-fit: contain;
 }
 
         .content {

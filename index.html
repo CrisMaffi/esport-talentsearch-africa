@@ -4,53 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esport Talent Search Africa – Work in Progress</title>
+
     <style>
+        /* Base layout */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background: #ffffff;
             color: #000000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Background Africa Map */
-.background-map {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
-    max-width: 900px;
-    opacity: 0.18;              /* increased visibility */
-    filter: brightness(0.4);    /* darkens the map */
-    transform: translate(-50%, -50%);
-    z-index: -1;                /* ensures it stays behind everything */
-    pointer-events: none;
-}
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.2s ease-in-out forwards;
+        }
 
-/* Equal logo sizes */
-.logo-block img {
-    height: 80px;      /* equal height for all logos */
-    width: auto;       /* maintain proportions */
-    object-fit: contain;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
+        /* Responsive top menu */
+        .navbar {
+            width: 100%;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffffcc;
+            backdrop-filter: blur(6px);
+            position: fixed;
+            top: 0;
+            z-index: 50;
+        }
+
+        .navbar-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Mobile menu */
+        @media (max-width: 600px) {
+            .navbar-menu {
+                display: none;
+            }
+        }
+
+        /* Africa background */
+        .background-map {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 95%;
+            max-width: 1100px;
+            opacity: 0.22;
+            filter: brightness(0.4);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Content wrapper */
         .content {
+            margin-top: 120px;
+            padding: 20px;
             position: relative;
             z-index: 10;
-            padding: 20px;
         }
 
+        /* Logo row */
         .logo-row {
             display: flex;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
@@ -63,46 +104,96 @@
             align-items: center;
         }
 
-        .logo-block img {
-            max-height: 80px;
-            margin-bottom: 8px;
-        }
+        /* Individual logo sizes */
+        .logo-fia { height: 75px; width: auto; }
+        .logo-maffi { height: 85px; width: auto; }
+        .logo-emsa { height: 80px; width: auto; }
 
         .fia-text {
             font-size: 14px;
             font-weight: bold;
-            margin-top: -5px;
+            margin-top: 5px;
         }
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+        /* Countdown timer */
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
         }
 
-        p {
-            font-size: 18px;
-            opacity: 0.85;
+        /* Notify Me form */
+        .notify-box {
+            margin-top: 30px;
         }
 
+        .notify-box input {
+            padding: 12px;
+            width: 260px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .notify-box button {
+            padding: 12px 20px;
+            border: none;
+            background: #000;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        /* Footer bar */
         footer {
             margin-top: 60px;
+            padding: 20px;
+            background: #000;
+            color: #fff;
             font-size: 14px;
-            opacity: 0.7;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-fia { height: 60px; }
+            .logo-maffi { height: 70px; }
+            .logo-emsa { height: 65px; }
+            .background-map { width: 130%; opacity: 0.25; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-fia { height: 50px; }
+            .logo-maffi { height: 60px; }
+            .logo-emsa { height: 55px; }
+            .background-map { width: 160%; opacity: 0.28; }
         }
     </style>
-    
 </head>
+
 <body>
+
+    <!-- Top Navigation -->
+    <div class="navbar fade-in">
+        <div class="navbar-title">ETSA</div>
+        <div class="navbar-menu">
+            <a href="#">Home</a>
+            <a href="#">Program</a>
+            <a href="#">Partners</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
 
     <!-- Background Africa Map -->
     <img src="africa-map.png" alt="Africa Map Background" class="background-map">
 
-    <div class="content">
+    <div class="content fade-in">
 
         <div class="logo-row">
             <div class="logo-block">
                 <img src="fia-logo.png" alt="FIA Logo" class="logo-fia">
-                <div class="fia-text">Member of </div>
+                <div class="fia-text">Member of</div>
             </div>
 
             <div class="logo-block">
@@ -114,14 +205,57 @@
             </div>
         </div>
 
-        <h1>Official Platform Under Construction</h1>
-        <p>The African Esports & Motorsport Talent Pathway is being built.</p>
+        <h1 class="fade-in">Official Platform Under Construction</h1>
+        <p class="fade-in">The African Esports & Motorsport Talent Pathway is being built.</p>
 
-        <footer>
-            © Maffi Racing — Contact: c.maffi@maffiracing.com
-        </footer>
+        <!-- Countdown Timer -->
+        <div class="countdown fade-in" id="countdown">Loading countdown…</div>
+
+        <!-- Notify Me Form -->
+        <div class="notify-box fade-in">
+            <input type="email" id="email" placeholder="Enter your email">
+            <button onclick="notify()">Notify Me</button>
+        </div>
 
     </div>
+
+    <!-- Footer Bar -->
+    <footer>
+        © Maffi Racing — Contact: c.maffi@maffiracing.com
+    </footer>
+
+    <!-- Countdown Script -->
+    <script>
+        const launchDate = new Date("2025-06-01T00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "We are live!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("countdown").innerHTML =
+                days + " days • " + hours + " hours • " + minutes + " minutes";
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        function notify() {
+            const email = document.getElementById("email").value;
+            if (!email) {
+                alert("Please enter a valid email.");
+                return;
+            }
+            alert("Thank you! We will notify you.");
+        }
+    </script>
 
 </body>
 </html>

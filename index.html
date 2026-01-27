@@ -10,8 +10,8 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: #ffffff;
-            color: #000000;
+            background: #05060a;
+            color: #ffffff;
             overflow-x: hidden;
         }
 
@@ -32,32 +32,33 @@
             padding: 15px 25px;
             display: flex;
             align-items: center;
-            background: #ffffffcc;
+            background: #05060acc;
             backdrop-filter: blur(6px);
             position: fixed;
             top: 0;
-            z-index: 50;
+            z-index: 100;
         }
 
         .navbar-title {
             font-size: 22px;
             font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        /* Africa map container — FULL VIEWPORT WIDTH */
+        /* Africa map container — full viewport width */
         .africa-wrapper {
             position: relative;
-            width: 100vw;        /* full viewport width */
-            margin-top: 120px;   /* space under ETSA bar */
+            width: 100vw;
+            margin-top: 120px;
         }
 
-        /* Africa map — dynamic scaling */
+        /* Africa map */
         .africa-map {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0.13;          /* lighter for readability */
-            filter: brightness(0.65);
+            opacity: 0.16;
+            filter: brightness(0.8);
         }
 
         /* Content centered inside Africa map */
@@ -66,8 +67,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 70vw;            /* scales with viewport */
-            max-height: 75vh;       /* prevents overflow */
+            width: 70vw;
+            max-height: 75vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -92,7 +93,6 @@
             align-items: center;
         }
 
-        /* Logos scale with viewport */
         .logo-fia { height: 6vw; max-height: 70px; width: auto; }
         .logo-maffi { height: 7vw; max-height: 80px; width: auto; }
         .logo-emsa { height: 6.5vw; max-height: 75px; width: auto; }
@@ -139,14 +139,14 @@
             text-align: center;
             font-size: 15px;
             font-weight: bold;
-            opacity: 0.85;
+            opacity: 0.9;
             margin-top: 10px;
         }
 
         footer {
             text-align: center;
             font-size: 14px;
-            color: #000;
+            color: #d0d0d0;
             padding: 10px 20px 20px 20px;
         }
 
@@ -170,6 +170,74 @@
 </head>
 
 <body>
+
+    <!-- Digital background layers -->
+    <div class="digital-bg"></div>
+    <div class="binary-overlay" style="
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        opacity: 0.18;
+        background-image: url('binary-pattern.svg');
+        background-size: 260px auto;
+        background-repeat: repeat;
+        pointer-events: none;
+    "></div>
+
+    <!-- Esport icons around Africa -->
+    <img src="icon-steeringwheel.svg" class="esport-icon" style="
+        position: fixed;
+        top: 18%;
+        left: 6%;
+        width: 90px;
+        opacity: 0.35;
+        pointer-events: none;
+    ">
+
+    <img src="icon-headset.svg" class="esport-icon" style="
+        position: fixed;
+        top: 72%;
+        left: 8%;
+        width: 90px;
+        opacity: 0.35;
+        pointer-events: none;
+    ">
+
+    <img src="icon-crosshair.svg" class="esport-icon" style="
+        position: fixed;
+        top: 22%;
+        right: 10%;
+        width: 90px;
+        opacity: 0.35;
+        pointer-events: none;
+    ">
+
+    <img src="icon-car.svg" class="esport-icon" style="
+        position: fixed;
+        top: 65%;
+        right: 12%;
+        width: 100px;
+        opacity: 0.35;
+        pointer-events: none;
+    ">
+
+    <img src="icon-trophy.svg" class="esport-icon" style="
+        position: fixed;
+        bottom: 12%;
+        left: 45%;
+        width: 90px;
+        opacity: 0.35;
+        pointer-events: none;
+    ">
+
+    <img src="icon-vr.svg" class="esport-icon" style="
+        position: fixed;
+        bottom: 18%;
+        right: 40%;
+        width: 100px;
+        opacity: 0.35;
+        pointer-events: none;
+    ">
 
     <!-- ETSA top-left -->
     <div class="navbar fade-in">

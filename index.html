@@ -44,7 +44,7 @@
             font-weight: bold;
         }
 
-        /* Africa map container — balanced size */
+        /* Africa wrapper — balanced and mobile-safe */
         .africa-wrapper {
             position: relative;
             width: 90%;
@@ -52,7 +52,7 @@
             margin: 140px auto 40px auto;
         }
 
-        /* Africa map */
+        /* Africa map — never cut on mobile */
         .africa-map {
             width: 100%;
             height: auto;
@@ -61,22 +61,23 @@
             filter: brightness(0.7);
         }
 
-        /* Fixed logos inside Africa map */
+        /* FIXED LOGO BAR — works on all devices */
         .logo-fixed-container {
             position: absolute;
-            top: 6%;
+            top: 4%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 20;
             display: flex;
-            gap: 24px;
+            gap: 16px;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.65);
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.75);
             backdrop-filter: blur(6px);
-            border-radius: 12px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
         }
 
         .logo-block {
@@ -85,24 +86,24 @@
             align-items: center;
         }
 
-        .logo-fia { height: 60px; width: auto; }
-        .logo-maffi { height: 70px; width: auto; }
-        .logo-emsa { height: 65px; width: auto; }
+        .logo-fia { height: 45px; width: auto; }
+        .logo-maffi { height: 55px; width: auto; }
+        .logo-emsa { height: 50px; width: auto; }
 
         .fia-text {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
-        /* Scrollable content inside Africa map */
+        /* Scrollable content */
         .center-content {
             position: absolute;
-            top: 22%; /* pushed down so logos stay visible */
+            top: 22%;
             left: 50%;
             transform: translateX(-50%);
             width: 78%;
-            max-height: 70%;
+            max-height: 70vh;
             overflow-y: auto;
             padding-right: 6px;
         }
@@ -134,7 +135,7 @@
             margin-bottom: 2px;
         }
 
-        /* Powered by + footer */
+        /* Footer */
         .powered-by {
             text-align: center;
             font-size: 15px;
@@ -150,21 +151,41 @@
             padding: 10px 20px 20px 20px;
         }
 
-        /* Mobile adjustments */
+        /* MOBILE FIXES */
         @media (max-width: 600px) {
-            .logo-fia { height: 40px; }
-            .logo-maffi { height: 50px; }
-            .logo-emsa { height: 45px; }
+
+            .logo-fixed-container {
+                top: 3%;
+                width: 90%;
+                gap: 10px;
+                padding: 6px 10px;
+            }
+
+            .logo-fia { height: 32px; }
+            .logo-maffi { height: 38px; }
+            .logo-emsa { height: 34px; }
 
             .center-content {
-                width: 82%;
-                max-height: 68%;
+                top: 26%;
+                width: 86%;
+                max-height: 64vh;
             }
 
             .center-content h1 { font-size: 18px; }
             .center-content h2 { font-size: 15px; }
             .center-content p,
             .center-content li { font-size: 12px; }
+        }
+
+        /* LANDSCAPE FIX */
+        @media (max-height: 500px) {
+            .center-content {
+                max-height: 58vh;
+                top: 30%;
+            }
+            .logo-fixed-container {
+                top: 2%;
+            }
         }
     </style>
 </head>

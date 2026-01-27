@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esport Talent Search Africa – Work in Progress</title>
+    <title>ETSA – Esport Talent Search Africa</title>
 
     <style>
         body {
@@ -44,96 +44,133 @@
             font-weight: bold;
         }
 
-        /* Africa map container with ratio protection */
+        /* Africa map container */
         .africa-wrapper {
             position: relative;
             width: 90%;
             max-width: 900px;
-            margin: 140px auto 0 auto;
+            margin: 140px auto 40px auto;
         }
 
         .africa-map {
             width: 100%;
-            height: auto;          /* maintains perfect ratio */
+            height: auto;
             display: block;
             opacity: 0.22;
             filter: brightness(0.4);
         }
 
-        /* Centered content inside Africa map */
+        /* Content centered inside Africa map */
         .center-content {
             position: absolute;
-            top: 50%;               /* always centered vertically */
-            left: 50%;              /* always centered horizontally */
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;             /* scales with Africa map */
+            width: 78%;
+            max-height: 80%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
+            text-align: left;
+            overflow-y: auto; /* if text is long on small screens, it scrolls inside the map */
+            padding-right: 4px; /* avoid scrollbar overlap */
         }
 
-        /* Logos scale proportionally */
+        /* Logos row */
         .logo-row {
             display: flex;
-            gap: 4vw;               /* responsive spacing */
+            gap: 24px;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 2vw;
+            margin-bottom: 16px;
         }
 
-        .logo-fia { height: 8vw; max-height: 75px; width: auto; }
-        .logo-maffi { height: 12.5vw; max-height: 80px; width: auto; }
-        .logo-emsa { height: 8.5vw; max-height: 80px; width: auto; }
+        .logo-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-fia { height: 60px; max-height: 70px; width: auto; }
+        .logo-maffi { height: 70px; max-height: 80px; width: auto; }
+        .logo-emsa { height: 65px; max-height: 75px; width: auto; }
 
         .fia-text {
-            font-size: 1.4vw;
-            min-font-size: 12px;
+            font-size: 12px;
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
-        /* Text under logos */
-        h1 {
-            font-size: 3vw;
-            max-font-size: 32px;
-            margin: 10px 0 5px 0;
+        /* Typography inside map */
+        .center-content h1 {
+            font-size: 22px;
+            margin: 8px 0 4px 0;
         }
 
-        p {
-            font-size: 2vw;
-            max-font-size: 18px;
-            opacity: 0.85;
+        .center-content h2 {
+            font-size: 18px;
+            margin: 14px 0 6px 0;
         }
 
-        /* Powered by */
+        .center-content p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 4px 0;
+        }
+
+        .center-content ul {
+            margin: 4px 0 8px 18px;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .center-content li {
+            margin-bottom: 2px;
+        }
+
+        /* Powered by + footer */
         .powered-by {
-            margin-top: 40px;
-            font-size: 16px;
-            font-weight: bold;
-            opacity: 0.8;
             text-align: center;
+            font-size: 15px;
+            font-weight: bold;
+            opacity: 0.85;
+            margin-bottom: 6px;
         }
 
-        /* Footer */
         footer {
-            margin-top: 20px;
-            padding: 20px;
+            text-align: center;
             font-size: 14px;
             color: #000;
-            text-align: center;
+            padding: 10px 20px 20px 20px;
         }
 
-        /* Mobile adjustments */
-        @media (max-width: 600px) {
-            .logo-fia { height: 14vw; }
-            .logo-maffi { height: 16vw; }
-            .logo-emsa { height: 15vw; }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-fia { height: 50px; }
+            .logo-maffi { height: 60px; }
+            .logo-emsa { height: 55px; }
 
-            h1 { font-size: 6vw; }
-            p { font-size: 4vw; }
-            .fia-text { font-size: 3.5vw; }
+            .center-content h1 { font-size: 20px; }
+            .center-content h2 { font-size: 16px; }
+            .center-content p,
+            .center-content li { font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-fia { height: 42px; }
+            .logo-maffi { height: 50px; }
+            .logo-emsa { height: 46px; }
+
+            .center-content {
+                width: 82%;
+                max-height: 78%;
+            }
+
+            .center-content h1 { font-size: 18px; }
+            .center-content h2 { font-size: 15px; }
+            .center-content p,
+            .center-content li { font-size: 12px; }
         }
     </style>
 </head>
@@ -145,12 +182,13 @@
         <div class="navbar-title">ETSA</div>
     </div>
 
-    <!-- Africa map with centered content -->
+    <!-- Africa map with all content inside -->
     <div class="africa-wrapper fade-in">
         <img src="africa-map.png" alt="Africa Map" class="africa-map">
 
         <div class="center-content">
 
+            <!-- Logos -->
             <div class="logo-row">
                 <div class="logo-block">
                     <img src="fia-logo.png" alt="FIA Logo" class="logo-fia">
@@ -166,18 +204,87 @@
                 </div>
             </div>
 
-            <h1>Official Platform Under Construction</h1>
-            <p>The African Esports Talent Pathway is being built.</p>
+            <!-- ETSA content -->
+            <h1>ETSA — Esport Talent Search Africa</h1>
+            <p><strong>Why Africa. Why Esport. Why Now.</strong></p>
+
+            <p>
+                Africa is the youngest continent in the world — a place where creativity, ambition, and raw talent are abundant.
+                Yet too many young people remain disconnected from structured opportunities, global innovation ecosystems, and
+                high‑performance industries.
+            </p>
+            <p>
+                ETSA exists to change that. We are building the first continent‑wide talent identification and development platform
+                that uses esport as a gateway into modern digital skills, performance culture, and global opportunity.
+            </p>
+
+            <h2>Esport as a bridge to the future</h2>
+            <p>Esport is more than competition. It is one of the most inclusive entry points into today’s digital world. It teaches:</p>
+            <ul>
+                <li>Digital literacy</li>
+                <li>Strategic thinking</li>
+                <li>Performance analysis</li>
+                <li>Teamwork across borders</li>
+                <li>Adaptation under pressure</li>
+                <li>Exposure to AI, simulation, and engineering environments</li>
+            </ul>
+            <p>Esport is not the destination. It is the entry point into the industries shaping tomorrow.</p>
+
+            <h2>Why Africa is the starting point</h2>
+            <p>
+                Africa is not “catching up.” Africa is leapfrogging. Mobile technology, online communities, and digital platforms are
+                already part of daily life for millions of young Africans. Esport fits naturally into this reality.
+            </p>
+            <p>By starting here, ETSA:</p>
+            <ul>
+                <li>Unlocks an untapped talent pool</li>
+                <li>Builds skills where they scale fastest</li>
+                <li>Creates opportunity without waiting for legacy systems to change</li>
+                <li>Connects youth to global innovation ecosystems</li>
+            </ul>
+            <p>This is not charity. This is talent discovery and value creation.</p>
+
+            <h2>What ETSA is building</h2>
+            <p>ETSA is designing a structured pathway from raw potential to professional opportunity. Our mission is to:</p>
+            <ul>
+                <li>Identify disciplined, high‑potential individuals</li>
+                <li>Build performance habits and digital skills</li>
+                <li>Connect talent to education, technology, and industry</li>
+                <li>Create visibility for African youth on a global stage</li>
+                <li>Support National Sporting Authorities in developing modern talent pipelines</li>
+            </ul>
+
+            <p>The benefits extend far beyond competition:</p>
+            <p><strong>For individuals:</strong> skills, confidence, visibility, global access.</p>
+            <p><strong>For communities:</strong> digital inclusion, role models, aspiration.</p>
+            <p><strong>For partners and industry:</strong> early access to talent, innovation pipelines, and emerging markets.</p>
+
+            <h2>The long‑term vision</h2>
+            <p>
+                ETSA is building a continental ecosystem where talent is discovered early, skills are developed systematically, and
+                opportunities are accessible regardless of geography. Esport becomes a gateway to STEM, engineering, and
+                high‑performance industries.
+            </p>
+            <p>
+                Africa doesn’t need to be invited into the future. The future is already here — it just needs platforms that take it
+                seriously. ETSA is that platform.
+            </p>
+
+            <h2>A call to African National Sporting Authorities</h2>
+            <p>
+                We invite all African National Sporting Authorities, members of the FIA, and partners committed to youth development,
+                digital innovation, and performance culture to connect with us. Together, we can build the most inclusive, scalable,
+                and future‑ready talent pathway on the continent.
+            </p>
 
         </div>
     </div>
 
-    <!-- Powered by -->
+    <!-- Powered by + footer -->
     <div class="powered-by fade-in">
         Powered by Maffi Racing
     </div>
 
-    <!-- Footer -->
     <footer>
         © Maffi Racing — Contact: c.maffi@maffiracing.com
     </footer>

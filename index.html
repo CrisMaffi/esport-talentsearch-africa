@@ -44,20 +44,21 @@
             font-weight: bold;
         }
 
-        /* Africa map container */
+        /* Africa map container — bigger now */
         .africa-wrapper {
             position: relative;
-            width: 90%;
-            max-width: 900px;
+            width: 100%;
+            max-width: 1100px; /* increased from 900 */
             margin: 140px auto 40px auto;
         }
 
+        /* Africa map — lighter now */
         .africa-map {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0.22;
-            filter: brightness(0.4);
+            opacity: 0.15;          /* lighter */
+            filter: brightness(0.6); /* softer */
         }
 
         /* Content centered inside Africa map */
@@ -72,8 +73,8 @@
             flex-direction: column;
             align-items: center;
             text-align: left;
-            overflow-y: auto; /* if text is long on small screens, it scrolls inside the map */
-            padding-right: 4px; /* avoid scrollbar overlap */
+            overflow-y: auto;
+            padding-right: 4px;
         }
 
         /* Logos row */

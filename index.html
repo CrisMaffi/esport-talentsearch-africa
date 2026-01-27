@@ -15,7 +15,6 @@
             overflow-x: hidden;
         }
 
-        /* Fade-in animation */
         .fade-in {
             opacity: 0;
             animation: fadeIn 1.2s ease-in-out forwards;
@@ -26,7 +25,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ETSA top-left */
         .navbar {
             width: 100%;
             padding: 15px 25px;
@@ -44,15 +42,14 @@
             font-weight: bold;
         }
 
-        /* Africa wrapper — balanced and mobile-safe */
+        /* FIXED: increased bottom margin */
         .africa-wrapper {
             position: relative;
             width: 90%;
             max-width: 1100px;
-            margin: 140px auto 120px auto; /* bottom margin FIX */
+            margin: 140px auto 200px auto;
         }
 
-        /* Africa map — never cut on mobile */
         .africa-map {
             width: 100%;
             height: auto;
@@ -61,7 +58,6 @@
             filter: brightness(0.7);
         }
 
-        /* FIXED LOGO BAR — works on all devices */
         .logo-fixed-container {
             position: absolute;
             top: 4%;
@@ -96,7 +92,6 @@
             margin-top: 2px;
         }
 
-        /* Scrollable content */
         .center-content {
             position: absolute;
             top: 22%;
@@ -108,7 +103,6 @@
             padding-right: 6px;
         }
 
-        /* Typography */
         .center-content h1 {
             font-size: 22px;
             margin: 8px 0 4px 0;
@@ -135,7 +129,6 @@
             margin-bottom: 2px;
         }
 
-        /* Footer */
         .powered-by {
             text-align: center;
             font-size: 15px;
@@ -144,14 +137,15 @@
             margin-top: 10px;
         }
 
+        /* FIXED: added top margin to footer */
         footer {
             text-align: center;
             font-size: 14px;
             color: #000;
             padding: 10px 20px 20px 20px;
+            margin-top: 40px;
         }
 
-        /* MOBILE FIXES */
         @media (max-width: 600px) {
 
             .logo-fixed-container {
@@ -177,7 +171,6 @@
             .center-content li { font-size: 12px; }
         }
 
-        /* LANDSCAPE FIX */
         @media (max-height: 500px) {
             .center-content {
                 max-height: 58vh;
@@ -192,18 +185,14 @@
 
 <body>
 
-    <!-- ETSA top-left -->
     <div class="navbar fade-in">
         <div class="navbar-title">ETSA</div>
     </div>
 
-    <!-- Africa map with fixed logos + scrollable content -->
     <div class="africa-wrapper fade-in">
 
-        <!-- Africa map -->
         <img src="africa-map.png" alt="Africa Map" class="africa-map">
 
-        <!-- FIXED LOGOS -->
         <div class="logo-fixed-container">
             <div class="logo-block">
                 <img src="fia-logo.png" alt="FIA Logo" class="logo-fia">
@@ -219,7 +208,6 @@
             </div>
         </div>
 
-        <!-- Scrollable text -->
         <div class="center-content">
 
             <h1>ETSA — Esport Talent Search Africa</h1>
@@ -230,6 +218,7 @@
                 Yet too many young people remain disconnected from structured opportunities, global innovation ecosystems, and
                 high‑performance industries.
             </p>
+
             <p>
                 ETSA exists to change that. We are building the first continent‑wide talent identification and development platform
                 that uses esport as a gateway into modern digital skills, performance culture, and global opportunity.
@@ -245,13 +234,13 @@
                 <li>Adaptation under pressure</li>
                 <li>Exposure to AI, simulation, and engineering environments</li>
             </ul>
-            <p>Esport is not the destination. It is the entry point into the industries shaping tomorrow.</p>
 
             <h2>Why Africa is the starting point</h2>
             <p>
                 Africa is not “catching up.” Africa is leapfrogging. Mobile technology, online communities, and digital platforms are
                 already part of daily life for millions of young Africans. Esport fits naturally into this reality.
             </p>
+
             <p>By starting here, ETSA:</p>
             <ul>
                 <li>Unlocks an untapped talent pool</li>
@@ -259,7 +248,6 @@
                 <li>Creates opportunity without waiting for legacy systems to change</li>
                 <li>Connects youth to global innovation ecosystems</li>
             </ul>
-            <p>This is not charity. This is talent discovery and value creation.</p>
 
             <h2>What ETSA is building</h2>
             <p>ETSA is designing a structured pathway from raw potential to professional opportunity. Our mission is to:</p>
@@ -271,20 +259,11 @@
                 <li>Support National Sporting Authorities in developing modern talent pipelines</li>
             </ul>
 
-            <p>The benefits extend far beyond competition:</p>
-            <p><strong>For individuals:</strong> skills, confidence, visibility, global access.</p>
-            <p><strong>For communities:</strong> digital inclusion, role models, aspiration.</p>
-            <p><strong>For partners and industry:</strong> early access to talent, innovation pipelines, and emerging markets.</p>
-
             <h2>The long‑term vision</h2>
             <p>
                 ETSA is building a continental ecosystem where talent is discovered early, skills are developed systematically, and
                 opportunities are accessible regardless of geography. Esport becomes a gateway to STEM, engineering, and
                 high‑performance industries.
-            </p>
-            <p>
-                Africa doesn’t need to be invited into the future. The future is already here — it just needs platforms that take it
-                seriously. ETSA is that platform.
             </p>
 
             <h2>A call to African National Sporting Authorities</h2>
@@ -297,7 +276,6 @@
         </div>
     </div>
 
-    <!-- Powered by + footer -->
     <div class="powered-by fade-in">
         Powered by Maffi Racing
     </div>

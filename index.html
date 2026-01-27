@@ -10,8 +10,8 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: #05060a;
-            color: #ffffff;
+            background: #ffffff;
+            color: #000000;
             overflow-x: hidden;
         }
 
@@ -32,34 +32,32 @@
             padding: 15px 25px;
             display: flex;
             align-items: center;
-            background: #05060acc;
+            background: #ffffffcc;
             backdrop-filter: blur(6px);
             position: fixed;
             top: 0;
-            z-index: 100;
+            z-index: 50;
         }
 
         .navbar-title {
             font-size: 22px;
             font-weight: bold;
-            letter-spacing: 1px;
         }
 
-        /* Africa map container — balanced size */
+        /* Africa map container — FULL VIEWPORT WIDTH */
         .africa-wrapper {
             position: relative;
-            width: 90%;
-            max-width: 1100px;
-            margin: 140px auto 40px auto;
+            width: 100vw;        /* full viewport width */
+            margin-top: 120px;   /* space under ETSA bar */
         }
 
-        /* Africa map */
+        /* Africa map — dynamic scaling */
         .africa-map {
             width: 100%;
             height: auto;
             display: block;
-            opacity: 0.16;
-            filter: brightness(0.8);
+            opacity: 0.13;          /* lighter for readability */
+            filter: brightness(0.65);
         }
 
         /* Content centered inside Africa map */
@@ -68,8 +66,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 78%;
-            max-height: 80%;
+            width: 70vw;            /* scales with viewport */
+            max-height: 75vh;       /* prevents overflow */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -81,11 +79,11 @@
         /* Logos row */
         .logo-row {
             display: flex;
-            gap: 24px;
+            gap: 2vw;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 16px;
+            margin-bottom: 1vw;
         }
 
         .logo-block {
@@ -94,29 +92,34 @@
             align-items: center;
         }
 
-        .logo-fia { height: 60px; max-height: 70px; width: auto; }
-        .logo-maffi { height: 70px; max-height: 80px; width: auto; }
-        .logo-emsa { height: 65px; max-height: 75px; width: auto; }
+        /* Logos scale with viewport */
+        .logo-fia { height: 6vw; max-height: 70px; width: auto; }
+        .logo-maffi { height: 7vw; max-height: 80px; width: auto; }
+        .logo-emsa { height: 6.5vw; max-height: 75px; width: auto; }
 
         .fia-text {
-            font-size: 12px;
+            font-size: 1vw;
+            min-font-size: 12px;
             font-weight: bold;
             margin-top: 4px;
         }
 
         /* Typography inside map */
         .center-content h1 {
-            font-size: 22px;
+            font-size: 2.2vw;
+            max-font-size: 26px;
             margin: 8px 0 4px 0;
         }
 
         .center-content h2 {
-            font-size: 18px;
+            font-size: 1.8vw;
+            max-font-size: 20px;
             margin: 14px 0 6px 0;
         }
 
         .center-content p {
-            font-size: 14px;
+            font-size: 1.2vw;
+            max-font-size: 16px;
             line-height: 1.5;
             margin: 4px 0;
         }
@@ -124,7 +127,7 @@
         .center-content ul {
             margin: 4px 0 8px 18px;
             padding: 0;
-            font-size: 14px;
+            font-size: 1.2vw;
         }
 
         .center-content li {
@@ -136,82 +139,50 @@
             text-align: center;
             font-size: 15px;
             font-weight: bold;
-            opacity: 0.9;
+            opacity: 0.85;
             margin-top: 10px;
         }
 
         footer {
             text-align: center;
             font-size: 14px;
-            color: #d0d0d0;
+            color: #000;
             padding: 10px 20px 20px 20px;
         }
 
-        /* Esport icons */
-        .esport-icon {
-            position: absolute;
-            width: 90px;
-            opacity: 0.35;
-            pointer-events: none;
-        }
-
-        /* Icon positions relative to Africa wrapper */
-        .icon-steering { top: 5%; left: -8%; }
-        .icon-headset { bottom: 5%; left: -6%; }
-        .icon-crosshair { top: 8%; right: -8%; }
-        .icon-car { bottom: 10%; right: -10%; }
-        .icon-trophy { bottom: -12%; left: 40%; }
-        .icon-vr { bottom: -18%; right: 38%; }
-
         /* Mobile adjustments */
         @media (max-width: 600px) {
-            .esport-icon { width: 60px; opacity: 0.28; }
-            .icon-steering { left: -4%; }
-            .icon-headset { left: -2%; }
-            .icon-crosshair { right: -4%; }
-            .icon-car { right: -6%; }
-            .icon-trophy { left: 35%; }
-            .icon-vr { right: 32%; }
+            .center-content {
+                width: 82vw;
+                max-height: 70vh;
+            }
+
+            .logo-fia { height: 14vw; }
+            .logo-maffi { height: 16vw; }
+            .logo-emsa { height: 15vw; }
+
+            .center-content h1 { font-size: 5.5vw; }
+            .center-content h2 { font-size: 4.5vw; }
+            .center-content p,
+            .center-content li { font-size: 3.5vw; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Digital background -->
-    <div class="binary-overlay" style="
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        opacity: 0.18;
-        background-image: url('binary-pattern.svg');
-        background-size: 260px auto;
-        background-repeat: repeat;
-        pointer-events: none;
-    "></div>
-
     <!-- ETSA top-left -->
     <div class="navbar fade-in">
         <div class="navbar-title">ETSA</div>
     </div>
 
-    <!-- Africa map with icons and content -->
+    <!-- Africa map with all content inside -->
     <div class="africa-wrapper fade-in">
-
-        <!-- Esport icons -->
-        <img src="icon-steeringwheel.svg" class="esport-icon icon-steering">
-        <img src="icon-headset.svg" class="esport-icon icon-headset">
-        <img src="icon-crosshair.svg" class="esport-icon icon-crosshair">
-        <img src="icon-car.svg" class="esport-icon icon-car">
-        <img src="icon-trophy.svg" class="esport-icon icon-trophy">
-        <img src="icon-vr.svg" class="esport-icon icon-vr">
-
-        <!-- Africa map -->
         <img src="africa-map.png" alt="Africa Map" class="africa-map">
 
-        <!-- Content -->
         <div class="center-content">
 
+            <!-- Logos -->
             <div class="logo-row">
                 <div class="logo-block">
                     <img src="fia-logo.png" alt="FIA Logo" class="logo-fia">
@@ -227,7 +198,7 @@
                 </div>
             </div>
 
-            <!-- ETSA content (unchanged) -->
+            <!-- ETSA content -->
             <h1>ETSA — Esport Talent Search Africa</h1>
             <p><strong>Why Africa. Why Esport. Why Now.</strong></p>
 

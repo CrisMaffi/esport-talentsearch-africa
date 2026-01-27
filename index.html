@@ -42,12 +42,12 @@
             font-weight: bold;
         }
 
-        /* FIXED: increased bottom margin */
+        /* Africa wrapper — balanced and mobile-safe */
         .africa-wrapper {
             position: relative;
             width: 90%;
             max-width: 1100px;
-            margin: 140px auto 200px auto;
+            margin: 140px auto 200px auto; /* bottom spacing */
         }
 
         .africa-map {
@@ -137,7 +137,6 @@
             margin-top: 10px;
         }
 
-        /* FIXED: added top margin to footer */
         footer {
             text-align: center;
             font-size: 14px;
@@ -146,6 +145,7 @@
             margin-top: 40px;
         }
 
+        /* MOBILE FIXES */
         @media (max-width: 600px) {
 
             .logo-fixed-container {
@@ -159,10 +159,11 @@
             .logo-maffi { height: 38px; }
             .logo-emsa { height: 34px; }
 
+            /* REAL FIX: reduce scrollable height */
             .center-content {
                 top: 26%;
                 width: 86%;
-                max-height: 64vh;
+                max-height: 55vh; /* FIXED */
             }
 
             .center-content h1 { font-size: 18px; }
@@ -171,9 +172,10 @@
             .center-content li { font-size: 12px; }
         }
 
+        /* LANDSCAPE FIX */
         @media (max-height: 500px) {
             .center-content {
-                max-height: 58vh;
+                max-height: 50vh; /* even smaller for landscape */
                 top: 30%;
             }
             .logo-fixed-container {

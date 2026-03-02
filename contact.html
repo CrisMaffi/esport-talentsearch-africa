@@ -51,8 +51,12 @@
             margin-bottom:12px;
         }
 
-        .contact-card h3 { margin:10px 0 5px 0; }
-        .contact-card p { margin:4px 0; font-size:14px; }
+        /* Center your card by making it span the full row */
+        .center-card {
+            grid-column:1 / -1;
+            max-width:320px;
+            margin:0 auto;
+        }
 
         footer {
             text-align:center;
@@ -107,8 +111,8 @@
                 <p>Switzerland</p>
             </div>
 
-            <!-- CRISTIAN -->
-            <div class="contact-card">
+            <!-- CRISTIAN — CENTERED -->
+            <div class="contact-card center-card">
                 <img src="cristian.jpg" alt="Cristian Maffi">
                 <h3>Cristian Maffi</h3>
                 <p><strong>Founder, ETSA</strong></p>

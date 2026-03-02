@@ -15,23 +15,42 @@
             position:fixed; top:0; z-index:100; gap:40px;
         }
 
-        .navbar-title { font-size:22px; font-weight:bold; cursor:pointer; }
+        .navbar-title {
+            font-size:22px;
+            font-weight:bold;
+            cursor:pointer;
+            text-decoration:none;
+            color:#000;
+        }
+
         .nav-links { display:flex; gap:20px; }
         .nav-links a { text-decoration:none; color:#000; font-size:16px; }
 
         .container { width:90%; max-width:1100px; margin:120px auto 60px auto; }
         h1 { font-size:28px; margin-bottom:20px; }
 
-        .event-box { background:#f7f7f7; padding:20px; border-radius:12px; margin-bottom:20px; }
-        .event-box h2 { margin:0 0 10px 0; }
-        .event-box p { font-size:16px; }
+        .event-box {
+            background:#f7f7f7;
+            padding:20px;
+            border-radius:12px;
+            margin-bottom:20px;
+        }
 
-        footer { text-align:center; font-size:14px; padding:20px; margin-top:40px; }
+        .event-box h2 { margin:0 0 10px 0; }
+        .event-box p { font-size:16px; line-height:1.5; }
+
+        footer {
+            text-align:center;
+            font-size:14px;
+            padding:20px;
+            margin-top:40px;
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- NAVIGATION BAR -->
     <div class="navbar">
         <a href="index.html" class="navbar-title">ETSA</a>
         <div class="nav-links">
@@ -40,22 +59,59 @@
         </div>
     </div>
 
+    <!-- PAGE CONTENT -->
     <div class="container">
         <h1>ETSA Events</h1>
 
+        <!-- VENUE DESCRIPTION -->
+        <div class="event-box">
+            <h2>Venue Information</h2>
+            <p><strong>Location:</strong> Ethiopia, Addis Ababa</p>
+            <p><strong>Exact venue:</strong> To be announced shortly</p>
+            <p>
+                The ETSA Shootout Series will be hosted in Addis Ababa, bringing together Africa’s most promising esports talents.
+                The event will run on <strong>iRacing using the FIA F4</strong>, ensuring a professional and globally recognized competitive standard.
+            </p>
+        </div>
+
+        <!-- SHOOTOUT FORMAT -->
+        <div class="event-box">
+            <h2>Shootout Format</h2>
+            <p>
+                The ETSA Shootout is designed to identify the most disciplined and high‑potential drivers across the continent.
+                The structure is as follows:
+            </p>
+            <p>
+                <strong>• 3‑Day Shootout:</strong> All registered participants compete to qualify for the final round.<br>
+                <strong>• 2‑Day Final Qualifying:</strong> The top performers battle for the final ranking.<br>
+                <strong>• Top 5 Selection:</strong> The five best contenders will qualify for the upcoming African Esport Championship.
+            </p>
+            <p><strong>African Esport Championship date:</strong> To be announced.</p>
+        </div>
+
+        <!-- SHOOTOUTS -->
         <div class="event-box">
             <h2>Okayama Shootout – TBC</h2>
-            <p>Part of the ETSA Esport Talent Search program. Competition will be held on iRacing using the FIA F4.</p>
+            <p>
+                The first ETSA Shootout will take place on the Okayama circuit (iRacing FIA F4).  
+                Final date and schedule will be confirmed shortly.
+            </p>
         </div>
 
         <div class="event-box">
             <h2>Oschersleben Shootout – TBC</h2>
-            <p>Part of the ETSA Esport Talent Search program. Competition will be held on iRacing using the FIA F4.</p>
+            <p>
+                The second ETSA Shootout will be hosted on the Oschersleben circuit (iRacing FIA F4).  
+                Final date and schedule will be confirmed shortly.
+            </p>
         </div>
 
         <div class="event-box">
             <h2>Oran Park Shootout – TBC</h2>
-            <p>Part of the ETSA Esport Talent Search program. Competition will be held on iRacing using the FIA F4.</p>
+            <p>
+                The third ETSA Shootout will take place on the Oran Park circuit (iRacing FIA F4).  
+                Final date and schedule will be confirmed shortly.
+            </p>
         </div>
 
     </div>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETSA Registration – Esport Talent Search Africa</title>
+
+    <style>
+        body { margin:0; padding:0; font-family:Arial; background:#fff; color:#000; }
+
+        .navbar {
+            width:100%; padding:15px 25px;
+            display:flex; justify-content:center; align-items:center;
+            background:#ffffffcc; backdrop-filter:blur(6px);
+            position:fixed; top:0; z-index:100; gap:40px;
+        }
+
+        .navbar-title {
+            font-size:22px;
+            font-weight:bold;
+            cursor:pointer;
+            text-decoration:none;
+            color:#000;
+        }
+
+        .nav-links { display:flex; gap:20px; }
+        .nav-links a { text-decoration:none; color:#000; font-size:16px; }
+
+        .container {
+            width:90%; max-width:700px;
+            margin:140px auto 60px auto;
+            background:#f7f7f7;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 { font-size:28px; margin-bottom:10px; }
+        p { font-size:16px; line-height:1.5; }
+
+        label { font-weight:bold; margin-top:15px; display:block; }
+        input {
+            width:100%;
+            padding:10px;
+            margin-top:6px;
+            border-radius:6px;
+            border:1px solid #ccc;
+            font-size:15px;
+        }
+
+        input[type="file"] { padding:6px; background:#fff; }
+
+        .submit-btn {
+            margin-top:20px;
+            width:100%;
+            padding:14px;
+            background:#000;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .submit-btn:hover { background:#333; }
+
+        .closed-box {
+            background:#ffe5e5;
+            padding:20px;
+            border-radius:10px;
+            text-align:center;
+            font-size:18px;
+            border:1px solid #ffb3b3;
+        }
+
+        footer {
+            text-align:center;
+            font-size:14px;
+            padding:20px;
+            margin-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <div class="navbar">
+        <a href="index.html" class="navbar-title">ETSA</a>
+        <div class="nav-links">
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+            <a href="registration.html">Registration</a>
+        </div>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div class="container">
+        <h1>ETSA Registration</h1>
+
+        <p>
+            To register for the ETSA Shootout event in Ethiopia, participants must be
+            <strong>official members of the Ethiopia Motor Sport Association (EMSA)</strong>.
+        </p>
+
+        <!-- REGISTRATION TOGGLE -->
+        <script>
+            const REGISTRATION_OPEN = true; // set to false to close registration
+        </script>
+
+        <div id="registration-area"></div>
+
+        <script>
+            const container = document.getElementById("registration-area");
+
+            if (!REGISTRATION_OPEN) {
+                container.innerHTML = `
+                    <div class="closed-box">
+                        Registration is currently closed.<br>
+                        Please check back soon.
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <form id="regForm">
+                        <label>Name & Surname</label>
+                        <input type="text" id="fullname" required>
+
+                        <label>Email Address</label>
+                        <input type="email" id="email" required>
+
+                        <label>Local Phone Number</label>
+                        <input type="text" id="phone" required>
+
+                        <label>Upload EMSA Membership Card / Attestation</label>
+                        <input type="file" id="membership" accept=".jpg,.jpeg,.png,.pdf" required>
+
+                        <button type="submit" class="submit-btn">Submit Registration</button>
+                    </form>
+                `;
+            }
+
+            // FORM SUBMISSION HANDLER
+            document.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const file = document.getElementById("membership").files[0];
+                const reader = new FileReader();
+
+                reader.onload = async () => {
+                    const base64File = reader.result.split(",")[1];
+
+                    const payload = {
+                        fullname: document.getElementById("fullname").value,
+                        email: document.getElementById("email").value,
+                        phone: document.getElementById("phone").value,
+                        membershipFile: {
+                            filename: file.name,
+                            content: base64File
+                        }
+                    };
+
+                    await fetch("/.netlify/functions/register", {
+                        method: "POST",
+                        body: JSON.stringify(payload)
+                    });
+
+                    alert("Registration submitted successfully.");
+                };
+
+                reader.readAsDataURL(file);
+            });
+        </script>
+    </div>
+
+    <footer>
+        © Maffi Racing — Contact: c.maffi@maffiracing.com
+    </footer>
+
+</body>
+</html>

@@ -70,6 +70,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* UPDATED NAVBAR — CENTERED + ETSA AS HOME */
         .navbar {
             width: 100%;
             padding: 15px 25px;
@@ -87,6 +88,9 @@
         .navbar-title {
             font-size: 22px;
             font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000;
         }
 
         .nav-links {
@@ -242,9 +246,8 @@
 <body>
 
     <div class="navbar fade-in">
-        <div class="navbar-title">ETSA</div>
+        <a href="index.html" class="navbar-title">ETSA</a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
             <a href="events.html">Events</a>
             <a href="contact.html">Contact</a>
         </div>

@@ -6,8 +6,8 @@
 
     <!-- Primary SEO -->
     <title>ETSA – Esport Talent Search Africa</title>
-    <meta name="description" content="ETSA is Africa’s first continent-wide Esport Talent Search platform, connecting youth to digital skills, performance culture, and global opportunities. Powered by Maffi Racing and EMSA.">
-    <meta name="keywords" content="ETSA, Esport Africa, Esports Africa, Talent Search Africa, Maffi Racing, EMSA, FIA Africa, African youth development, digital skills Africa, esports program Africa">
+    <meta name="description" content="ETSA is a continental esports talent pathway designed to identify, develop, and showcase African sim racing talent, with EMSA Esports serving as the first pilot implementation in Ethiopia.">
+    <meta name="keywords" content="ETSA, Esport Talent Search Africa, Esports Africa, Sim Racing Africa, EMSA Esports, Maffi Racing, FIA Esports, African motorsport, Ethiopian esports">
     <meta name="author" content="Maffi Racing">
     <meta name="robots" content="index, follow">
 
@@ -16,7 +16,7 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="ETSA – Esport Talent Search Africa">
-    <meta property="og:description" content="Africa’s first esports talent discovery platform, empowering youth through digital skills and performance culture.">
+    <meta property="og:description" content="A continental esports talent pathway for African sim racing, piloted in Ethiopia through EMSA Esports.">
     <meta property="og:image" content="https://esport-talentsearch.africa/africa-map.png">
     <meta property="og:url" content="https://esport-talentsearch.africa/">
     <meta property="og:type" content="website">
@@ -24,7 +24,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ETSA – Esport Talent Search Africa">
-    <meta name="twitter:description" content="Africa’s first esports talent discovery platform, powered by Maffi Racing and EMSA.">
+    <meta name="twitter:description" content="A continental esports talent pathway for African sim racing, piloted in Ethiopia through EMSA Esports.">
     <meta name="twitter:image" content="https://esport-talentsearch.africa/africa-map.png">
 
     <!-- Favicon -->
@@ -38,7 +38,7 @@
       "name": "ETSA – Esport Talent Search Africa",
       "url": "https://esport-talentsearch.africa/",
       "logo": "https://esport-talentsearch.africa/maffi-esports-logo.png",
-      "description": "Africa’s first continent-wide Esport Talent Search platform, connecting youth to digital skills, performance culture, and global opportunities.",
+      "description": "ETSA is a continental esports talent pathway designed to identify, develop, and showcase African sim racing talent.",
       "founder": {
         "@type": "Organization",
         "name": "Maffi Racing"
@@ -51,193 +51,456 @@
     </script>
 
     <style>
+        :root {
+            --bg: #ffffff;
+            --text: #0b0b0b;
+            --muted: #555555;
+            --line: #e4e4e4;
+            --soft: #f7f7f7;
+            --black: #050505;
+            --gold: #d4af37;
+            --gold-soft: #f3df9b;
+            --green: #0d8f45;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            color: #000000;
-            overflow-x: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
         }
 
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.2s ease-in-out forwards;
+        a {
+            color: inherit;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* UPDATED NAVBAR — CENTERED + ETSA AS HOME */
         .navbar {
             width: 100%;
-            padding: 15px 25px;
+            padding: 16px 28px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background: #ffffffcc;
-            backdrop-filter: blur(6px);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
             position: fixed;
             top: 0;
+            left: 0;
             z-index: 100;
-            gap: 40px;
+            border-bottom: 1px solid var(--line);
         }
 
         .navbar-title {
-            font-size: 22px;
-            font-weight: bold;
-            cursor: pointer;
+            font-size: 24px;
+            font-weight: 900;
             text-decoration: none;
-            color: #000;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 22px;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #000;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 700;
         }
 
-        .africa-wrapper {
-            position: relative;
-            width: 90%;
-            max-width: 1100px;
-            margin: 140px auto 200px auto;
+        .nav-links a:hover {
+            color: var(--gold);
         }
 
-        .africa-map {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0.15;
-            filter: brightness(0.7);
+        .hero {
+            min-height: 92vh;
+            padding: 130px 7% 70px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+            border-bottom: 1px solid var(--line);
         }
 
-        .logo-fixed-container {
-            position: absolute;
-            top: 4%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 20;
+        .hero-text small {
+            display: inline-block;
+            margin-bottom: 18px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(42px, 6vw, 82px);
+            line-height: 0.95;
+            margin: 0 0 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero-text p {
+            max-width: 680px;
+            font-size: 19px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 0 0 28px;
+        }
+
+        .hero-actions {
             display: flex;
-            gap: 16px;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 900;
+            border: 2px solid var(--black);
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--black);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .africa-card {
+            width: 100%;
+            max-width: 520px;
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            background: #ffffff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .africa-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(212,175,55,0.20), transparent 40%);
+            pointer-events: none;
+        }
+
+        .africa-card img {
+            width: 100%;
+            display: block;
+            opacity: 0.78;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-strip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 26px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-strip img {
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-fia {
+            height: 48px;
+        }
+
+        .logo-maffi {
+            height: 54px;
+        }
+
+        .logo-emsa {
+            height: 54px;
+        }
+
+        .section {
+            padding: 80px 7%;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-narrow {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            margin-bottom: 36px;
+        }
+
+        .section-title small {
+            display: block;
+            color: var(--gold);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 4vw, 52px);
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .section-title p {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--soft);
+            padding: 26px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin: 0 0 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .pilot {
+            background: var(--black);
+            color: #ffffff;
+        }
+
+        .pilot .section-title small {
+            color: var(--gold);
+        }
+
+        .pilot .section-title p,
+        .pilot .card p {
+            color: #cfcfcf;
+        }
+
+        .pilot .card {
+            background: #111111;
+            border-color: #282828;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: #ffffff;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--black);
+            color: #ffffff;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 14px;
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(6px);
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
+            font-weight: 900;
+            margin-bottom: 14px;
         }
 
-        .logo-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .step h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
         }
 
-        .logo-fia { height: 45px; width: auto; }
-        .logo-maffi { height: 55px; width: auto; }
-        .logo-emsa { height: 50px; width: auto; }
-
-        .fia-text {
-            font-size: 11px;
-            font-weight: bold;
-            margin-top: 2px;
+        .step p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.55;
         }
 
-        .center-content {
-            position: absolute;
-            top: 22%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 78%;
-            max-height: 70vh;
-            overflow-y: auto;
-            padding-right: 6px;
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
         }
 
-        .center-content h1 {
+        .timeline-item {
+            border-left: 4px solid var(--gold);
+            padding: 18px 20px;
+            background: var(--soft);
+            border-radius: 12px;
+        }
+
+        .timeline-item small {
+            color: var(--gold);
+            font-weight: 900;
+        }
+
+        .timeline-item h3 {
+            margin: 8px 0 8px;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .events-preview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .event-card {
+            padding: 24px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #ffffff;
+        }
+
+        .event-card small {
+            color: var(--gold);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .event-card h3 {
+            margin: 10px 0;
             font-size: 22px;
-            margin: 8px 0 4px 0;
         }
 
-        .center-content h2 {
-            font-size: 18px;
-            margin: 14px 0 6px 0;
+        .event-card p {
+            color: var(--muted);
+            line-height: 1.55;
         }
 
-        .center-content p {
-            font-size: 14px;
-            line-height: 1.5;
-            margin: 4px 0;
-        }
-
-        .center-content ul {
-            margin: 4px 0 8px 18px;
-            padding: 0;
-            font-size: 14px;
-        }
-
-        .center-content li {
-            margin-bottom: 2px;
-        }
-
-        .powered-by {
+        .footer {
+            padding: 45px 7%;
+            background: #ffffff;
             text-align: center;
-            font-size: 15px;
-            font-weight: bold;
-            opacity: 0.85;
-            margin-top: 10px;
         }
 
-        footer {
-            text-align: center;
-            font-size: 14px;
-            color: #000;
-            padding: 10px 20px 20px 20px;
-            margin-top: 40px;
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
         }
 
-        @media (max-width: 600px) {
+        .footer-logos img {
+            width: auto;
+            object-fit: contain;
+        }
 
-            .logo-fixed-container {
-                top: 3%;
-                width: 90%;
+        .footer p {
+            color: var(--muted);
+            margin: 6px 0;
+        }
+
+        @media (max-width: 950px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 120px;
+            }
+
+            .cards,
+            .steps,
+            .timeline,
+            .events-preview {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                flex-direction: column;
                 gap: 10px;
-                padding: 6px 10px;
+                padding: 14px;
             }
 
-            .logo-fia { height: 32px; }
-            .logo-maffi { height: 38px; }
-            .logo-emsa { height: 34px; }
-
-            .center-content {
-                top: 26%;
-                width: 86%;
-                max-height: 55vh;
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            .center-content h1 { font-size: 18px; }
-            .center-content h2 { font-size: 15px; }
-            .center-content p,
-            .center-content li { font-size: 12px; }
-        }
-
-        @media (max-height: 500px) {
-            .center-content {
-                max-height: 50vh;
-                top: 30%;
+            .hero {
+                padding: 145px 6% 55px;
             }
-            .logo-fixed-container {
-                top: 2%;
+
+            .hero-text h1 {
+                font-size: 44px;
+            }
+
+            .hero-text p {
+                font-size: 17px;
+            }
+
+            .cards,
+            .steps,
+            .timeline,
+            .events-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 60px 6%;
+            }
+
+            .africa-card {
+                padding: 18px;
             }
         }
     </style>
@@ -245,107 +508,256 @@
 
 <body>
 
-    <div class="navbar fade-in">
+    <nav class="navbar">
         <a href="index.html" class="navbar-title">ETSA</a>
+
         <div class="nav-links">
+            <a href="#vision">Vision</a>
+            <a href="#pilot">Pilot</a>
+            <a href="#pathway">Pathway</a>
             <a href="events.html">Events</a>
             <a href="contact.html">Contact</a>
         </div>
-    </div>
+    </nav>
 
-    <div class="africa-wrapper fade-in">
+    <header class="hero">
+        <div class="hero-text">
+            <small>Esport Talent Search Africa</small>
 
-        <img src="africa-map.png" alt="Africa map silhouette used for ETSA talent search platform" class="africa-map">
+            <h1>A continental pathway for African sim racing talent.</h1>
 
-        <div class="logo-fixed-container">
-            <div class="logo-block">
-                <img src="fia-logo.png" alt="FIA logo - Member of FIA" class="logo-fia">
-                <div class="fia-text">Member of</div>
-            </div>
+            <p>
+                ETSA is designed to identify, develop, and showcase African sim racing talent.
+                The first pilot implementation is being built in Ethiopia through EMSA Esports.
+            </p>
 
-            <div class="logo-block">
-                <img src="maffi-esports-logo.png" alt="Maffi Racing Esports logo" class="logo-maffi">
-            </div>
-
-            <div class="logo-block">
-                <img src="emsa-logo.png" alt="EMSA Ethiopia Motorsport Association logo" class="logo-emsa">
+            <div class="hero-actions">
+                <a href="#pilot" class="btn btn-primary">Explore the Pilot</a>
+                <a href="events.html" class="btn btn-secondary">View Events</a>
             </div>
         </div>
 
-        <div class="center-content">
+        <div class="hero-visual">
+            <div class="africa-card">
+                <img src="africa-map.png" alt="Africa map with Ethiopia highlighted">
 
-            <h1>ETSA – Africa’s Esport Talent Search Platform</h1>
-            <p><strong>Why Africa. Why Esport. Why Now.</strong></p>
+                <div class="logo-strip">
+                    <img src="fia-logo.png" alt="FIA logo" class="logo-fia">
+                    <img src="maffi-esports-logo.png" alt="Maffi Esports logo" class="logo-maffi">
+                    <img src="emsa-logo.png" alt="EMSA logo" class="logo-emsa">
+                </div>
+            </div>
+        </div>
+    </header>
 
-            <p>
-                Africa is the youngest continent in the world — a place where creativity, ambition, and raw talent are abundant.
-                Yet too many young people remain disconnected from structured opportunities, global innovation ecosystems, and
-                high‑performance industries.
-            </p>
+    <section class="section" id="vision">
+        <div class="section-narrow">
 
-            <p>
-                ETSA exists to change that. We are building the first continent‑wide talent identification and development platform
-                that uses esport as a gateway into modern digital skills, performance culture, and global opportunity.
-            </p>
+            <div class="section-title">
+                <small>The Vision</small>
+                <h2>From raw potential to structured opportunity.</h2>
+                <p>
+                    Africa has talent, ambition, and digital energy. ETSA exists to create a structured
+                    pathway where that talent can be discovered, trained, measured, and connected to
+                    real competitive opportunities.
+                </p>
+            </div>
 
-            <h2>Esport as a Gateway to Digital Skills</h2>
-            <p>Esport is more than competition. It is one of the most inclusive entry points into today’s digital world. It teaches:</p>
-            <ul>
-                <li>Digital literacy</li>
-                <li>Strategic thinking</li>
-                <li>Performance analysis</li>
-                <li>Teamwork across borders</li>
-                <li>Adaptation under pressure</li>
-                <li>Exposure to AI, simulation, and engineering environments</li>
-            </ul>
+            <div class="cards">
+                <div class="card">
+                    <h3>ETSA</h3>
+                    <p>
+                        The continental talent search platform focused on African sim racing and digital performance.
+                    </p>
+                </div>
 
-            <h2>Why Africa Needs a Digital Talent Pipeline</h2>
-            <p>
-                Africa is not “catching up.” Africa is leapfrogging. Mobile technology, online communities, and digital platforms are
-                already part of daily life for millions of young Africans. Esport fits naturally into this reality.
-            </p>
+                <div class="card">
+                    <h3>EMSA Esports</h3>
+                    <p>
+                        The first pilot implementation, developed in Ethiopia as a working model for future expansion.
+                    </p>
+                </div>
 
-            <p>By starting here, ETSA:</p>
-            <ul>
-                <li>Unlocks an untapped talent pool</li>
-                <li>Builds skills where they scale fastest</li>
-                <li>Creates opportunity without waiting for legacy systems to change</li>
-                <li>Connects youth to global innovation ecosystems</li>
-            </ul>
-
-            <h2>Building Africa’s Next Generation of Digital Talent</h2>
-            <p>ETSA is designing a structured pathway from raw potential to professional opportunity. Our mission is to:</p>
-            <ul>
-                <li>Identify disciplined, high‑potential individuals</li>
-                <li>Build performance habits and digital skills</li>
-                <li>Connect talent to education, technology, and industry</li>
-                <li>Create visibility for African youth on a global stage</li>
-                <li>Support National Sporting Authorities in developing modern talent pipelines</li>
-            </ul>
-
-            <h2>Our Mission: Opportunity, Access, and Performance</h2>
-            <p>
-                ETSA is building a continental ecosystem where talent is discovered early, skills are developed systematically, and
-                opportunities are accessible regardless of geography. Esport becomes a gateway to STEM, engineering, and
-                high‑performance industries.
-            </p>
-
-            <h2>Partner With ETSA</h2>
-            <p>
-                We invite all African National Sporting Authorities, members of the FIA, and partners committed to youth development,
-                digital innovation, and performance culture to connect with us. Together, we can build the most inclusive, scalable,
-                and future‑ready talent pathway on the continent.
-            </p>
+                <div class="card">
+                    <h3>Maffi Racing</h3>
+                    <p>
+                        Technical and operational support for structure, training, systems, and project development.
+                    </p>
+                </div>
+            </div>
 
         </div>
-    </div>
+    </section>
 
-    <div class="powered-by fade-in">
-        Powered by Maffi Racing
-    </div>
+    <section class="section pilot" id="pilot">
+        <div class="section-narrow">
 
-    <footer>
-        © Maffi Racing — Contact: c.maffi@maffiracing.com
+            <div class="section-title">
+                <small>The Pilot Project</small>
+                <h2>EMSA Esports as the first implementation.</h2>
+                <p>
+                    The Ethiopian pilot is where ETSA systems are tested in real conditions:
+                    driver onboarding, simulator access, booking operations, event structures,
+                    staff workflow, and competition formats.
+                </p>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Operational Testing</h3>
+                    <p>
+                        Booking systems, simulator availability, staff visibility, and driver access are tested in a live environment.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Driver Development</h3>
+                    <p>
+                        Drivers are introduced to structured practice, feedback, setup work, and competitive discipline.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Scalable Model</h3>
+                    <p>
+                        What works in Ethiopia can later be adapted for other African countries and local motorsport authorities.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="pathway">
+        <div class="section-narrow">
+
+            <div class="section-title">
+                <small>The Pathway</small>
+                <h2>Discover. Train. Compete. Progress.</h2>
+                <p>
+                    ETSA is not just an event. It is a pathway designed to move drivers from first contact
+                    to measurable performance and future opportunities.
+                </p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Discover</h3>
+                    <p>Identify motivated and high-potential drivers through accessible sim racing activities.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Train</h3>
+                    <p>Build discipline, consistency, technical understanding, and performance habits.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Compete</h3>
+                    <p>Use structured shootouts, leaderboards, and events to measure progress fairly.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Progress</h3>
+                    <p>Create visibility for talent and prepare the strongest drivers for wider opportunities.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="story">
+        <div class="section-narrow">
+
+            <div class="section-title">
+                <small>Story Preview</small>
+                <h2>The journey starts with a pilot.</h2>
+                <p>
+                    The full ETSA story will grow over time through milestones, events, images, videos,
+                    driver results, and continental expansion.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <small>Step 1</small>
+                    <h3>The Vision</h3>
+                    <p>ETSA is created as a continental talent search concept for African sim racing.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <small>Step 2</small>
+                    <h3>Ethiopia Pilot</h3>
+                    <p>EMSA Esports becomes the first implementation environment for the model.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <small>Step 3</small>
+                    <h3>Systems Built</h3>
+                    <p>Booking, driver access, events, staff workflow, and rankings begin to take shape.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <small>Step 4</small>
+                    <h3>Continental Scale</h3>
+                    <p>Lessons from the pilot can support future expansion across Africa.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="events">
+        <div class="section-narrow">
+
+            <div class="section-title">
+                <small>Events</small>
+                <h2>Current pilot competition format.</h2>
+                <p>
+                    ETSA events are designed to test talent under structured, measurable, and repeatable conditions.
+                </p>
+            </div>
+
+            <div class="events-preview">
+                <div class="event-card">
+                    <small>Shootout 1</small>
+                    <h3>Okayama</h3>
+                    <p>First planned ETSA shootout using iRacing FIA F4 as the competitive platform.</p>
+                </div>
+
+                <div class="event-card">
+                    <small>Shootout 2</small>
+                    <h3>Oschersleben</h3>
+                    <p>Second planned shootout to evaluate consistency, pace, and race discipline.</p>
+                </div>
+
+                <div class="event-card">
+                    <small>Shootout 3</small>
+                    <h3>Oran Park</h3>
+                    <p>Third planned shootout leading toward final ranking and selection.</p>
+                </div>
+            </div>
+
+            <div style="margin-top:28px;">
+                <a href="events.html" class="btn btn-primary">Open Events Page</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logos">
+            <img src="fia-logo.png" alt="FIA logo" class="logo-fia">
+            <img src="maffi-esports-logo.png" alt="Maffi Esports logo" class="logo-maffi">
+            <img src="emsa-logo.png" alt="EMSA logo" class="logo-emsa">
+        </div>
+
+        <p><strong>ETSA – Esport Talent Search Africa</strong></p>
+        <p>A continental talent pathway, piloted in Ethiopia through EMSA Esports.</p>
+        <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
     </footer>
 
 </body>

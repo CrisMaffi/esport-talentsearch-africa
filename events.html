@@ -16,7 +16,6 @@
             --soft: #f7f7f7;
             --black: #050505;
             --gold: #d4af37;
-            --gold-soft: #f3df9b;
             --red: #c72d2d;
             --green: #0d8f45;
         }
@@ -297,6 +296,11 @@
             background: var(--green);
         }
 
+        .round-badge.final {
+            background: var(--gold);
+            color: #000000;
+        }
+
         .round-body {
             display: grid;
             grid-template-columns: 1.1fr 1fr;
@@ -345,22 +349,34 @@
             margin-top: 18px;
             overflow: hidden;
             border-radius: 14px;
+            border: 1px solid #333333;
         }
 
         .points-table th,
         .points-table td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid var(--line);
+            border-bottom: 1px solid #333333;
         }
 
-        .points-table th {
-            background: var(--black);
-            color: white;
+        .black-section .points-table th {
+            background: var(--gold);
+            color: #000000;
         }
 
-        .points-table tr:nth-child(even) td {
-            background: var(--soft);
+        .black-section .points-table td {
+            color: #ffffff;
+            background: #111111;
+        }
+
+        .black-section .points-table tr:nth-child(even) td {
+            background: #1b1b1b;
+            color: #ffffff;
+        }
+
+        .black-section .points-table tr:nth-child(odd) td {
+            background: #0d0d0d;
+            color: #ffffff;
         }
 
         .cta {
@@ -519,7 +535,7 @@
                     <strong>Week 1</strong>
                     <h3>Free Practice</h3>
                     <p>
-                        Drivers prepare, learn the combo and work on consistency.
+                        Drivers prepare, learn the combination and work on consistency.
                     </p>
                 </div>
 
@@ -543,7 +559,7 @@
                     <strong>Week 4</strong>
                     <h3>Break / Reveal</h3>
                     <p>
-                        Next round combo is confirmed after in-game availability checks.
+                        The next round combination is confirmed for drivers.
                     </p>
                 </div>
             </div>
@@ -558,7 +574,7 @@
                 <small>Participation</small>
                 <h2>Eligibility and submission rules.</h2>
                 <p>
-                    The championship is operated through EMSA Esport membership and official WhatsApp submissions.
+                    The championship is operated through EMSA Esport membership and an official submission process.
                     The goal is to create a repeatable and verifiable competition process.
                 </p>
             </div>
@@ -567,14 +583,15 @@
                 <div class="info-card">
                     <h3>Eligibility</h3>
                     <p>
-                        Open exclusively to EMSA Esport members. Drivers must have Assetto Corsa Rally installed.
+                        Open exclusively to EMSA Esport members.
+                        Drivers must have Assetto Corsa Rally installed.
                     </p>
                 </div>
 
                 <div class="info-card">
                     <h3>Valid Lap</h3>
                     <p>
-                        The lap must appear on the official in-game Time Attack leaderboard and match the confirmed round combo.
+                        The lap must appear on the official in-game Time Attack leaderboard and match the confirmed round combination.
                     </p>
                 </div>
 
@@ -587,8 +604,7 @@
             </div>
 
             <div class="note">
-                Round combos are confirmed before each round based on what is available and usable inside Assetto Corsa Rally.
-                This avoids publishing unavailable car, class or stage combinations.
+                Official round combinations are confirmed before each round based on the available content inside Assetto Corsa Rally.
             </div>
 
         </div>
@@ -601,7 +617,8 @@
                 <small>Calendar 2026</small>
                 <h2>June to December pilot championship.</h2>
                 <p>
-                    Round 1 is a pilot round and does not award points. Championship classification starts from Round 2.
+                    Round 1 is a pilot round and does not award points.
+                    Championship classification starts from Round 2.
                 </p>
             </div>
 
@@ -640,8 +657,11 @@
                     <div class="round-body">
                         <ul class="combo-list">
                             <li><strong>Game:</strong> Assetto Corsa Rally</li>
-                            <li><strong>Official Combo:</strong> To be confirmed after in-game availability check</li>
-                            <li><strong>Notes:</strong> First championship points round</li>
+                            <li><strong>Country:</strong> Greece</li>
+                            <li><strong>Stage:</strong> Zeli Elatia</li>
+                            <li><strong>Car:</strong> Lancia Delta HF integrale EVO</li>
+                            <li><strong>Class:</strong> Group A</li>
+                            <li><strong>Conditions:</strong> Dry, Night</li>
                         </ul>
 
                         <ul class="date-list">
@@ -662,8 +682,8 @@
                     <div class="round-body">
                         <ul class="combo-list">
                             <li><strong>Game:</strong> Assetto Corsa Rally</li>
-                            <li><strong>Official Combo:</strong> To be confirmed after in-game availability check</li>
-                            <li><strong>Notes:</strong> Combo reveal during Round 2 break period</li>
+                            <li><strong>Official Combination:</strong> To be confirmed</li>
+                            <li><strong>Notes:</strong> Combination reveal during Round 2 break period</li>
                         </ul>
 
                         <ul class="date-list">
@@ -684,8 +704,8 @@
                     <div class="round-body">
                         <ul class="combo-list">
                             <li><strong>Game:</strong> Assetto Corsa Rally</li>
-                            <li><strong>Official Combo:</strong> To be confirmed after in-game availability check</li>
-                            <li><strong>Notes:</strong> Combo reveal during Round 3 break period</li>
+                            <li><strong>Official Combination:</strong> To be confirmed</li>
+                            <li><strong>Notes:</strong> Combination reveal during Round 3 break period</li>
                         </ul>
 
                         <ul class="date-list">
@@ -706,8 +726,8 @@
                     <div class="round-body">
                         <ul class="combo-list">
                             <li><strong>Game:</strong> Assetto Corsa Rally</li>
-                            <li><strong>Official Combo:</strong> To be confirmed after in-game availability check</li>
-                            <li><strong>Notes:</strong> Combo reveal during Round 4 break period</li>
+                            <li><strong>Official Combination:</strong> To be confirmed</li>
+                            <li><strong>Notes:</strong> Combination reveal during Round 4 break period</li>
                         </ul>
 
                         <ul class="date-list">
@@ -728,8 +748,8 @@
                     <div class="round-body">
                         <ul class="combo-list">
                             <li><strong>Game:</strong> Assetto Corsa Rally</li>
-                            <li><strong>Official Combo:</strong> To be confirmed after in-game availability check</li>
-                            <li><strong>Notes:</strong> Combo reveal during Round 5 break period</li>
+                            <li><strong>Official Combination:</strong> To be confirmed</li>
+                            <li><strong>Notes:</strong> Combination reveal during Round 5 break period</li>
                         </ul>
 
                         <ul class="date-list">
@@ -744,13 +764,13 @@
                 <div class="round-card">
                     <div class="round-head">
                         <h3>Round 7 — December 2026</h3>
-                        <span class="round-badge points">Finale</span>
+                        <span class="round-badge final">Finale</span>
                     </div>
 
                     <div class="round-body">
                         <ul class="combo-list">
                             <li><strong>Game:</strong> Assetto Corsa Rally</li>
-                            <li><strong>Official Combo:</strong> To be confirmed after in-game availability check</li>
+                            <li><strong>Official Combination:</strong> To be confirmed</li>
                             <li><strong>Notes:</strong> Final round and final standings</li>
                         </ul>
 
@@ -775,7 +795,9 @@
                 <small>Points and Prizes</small>
                 <h2>Championship classification starts from Round 2.</h2>
                 <p>
-                    Only the best valid lap per driver is counted. Points accumulate from Round 2 to Round 7.
+                    Round 1 is a pilot round and does not award points.
+                    From Round 2 to Round 7, only each driver’s best valid lap is counted.
+                    Times are ranked from fastest to slowest.
                 </p>
             </div>
 
@@ -786,6 +808,7 @@
                         <th>Points</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr><td>1st</td><td>25</td></tr>
                     <tr><td>2nd</td><td>18</td></tr>
@@ -797,24 +820,38 @@
                     <tr><td>8th</td><td>4</td></tr>
                     <tr><td>9th</td><td>2</td></tr>
                     <tr><td>10th</td><td>1</td></tr>
+                    <tr><td>Outside Top 10</td><td>0</td></tr>
                 </tbody>
             </table>
 
             <div class="info-grid" style="margin-top:28px;">
+
                 <div class="info-card">
                     <h3>Champion</h3>
-                    <p>The driver with the highest total becomes the EMSA Esport Rally Champion 2026.</p>
+                    <p>
+                        Points accumulate from Round 2 to Round 7.
+                        The driver with the highest total becomes the EMSA Esport Rally Champion 2026.
+                    </p>
                 </div>
 
                 <div class="info-card">
                     <h3>Prize Money</h3>
-                    <p>1st: 100,000 Birr / 2nd: 50,000 Birr / 3rd: 25,000 Birr.</p>
+                    <p>
+                        1st Place: 100,000 Birr<br>
+                        2nd Place: 50,000 Birr<br>
+                        3rd Place: 25,000 Birr
+                    </p>
                 </div>
 
                 <div class="info-card">
                     <h3>Tie Breakers</h3>
-                    <p>Most wins, then most podiums, then best result in the final round.</p>
+                    <p>
+                        1. Most wins<br>
+                        2. Most podiums<br>
+                        3. Best result in the final round
+                    </p>
                 </div>
+
             </div>
 
         </div>
@@ -824,7 +861,7 @@
         <h2>One pilot. One championship. A scalable model.</h2>
         <p>
             The EMSA Esport Rally Challenge 2026 is where the ETSA concept becomes operational:
-            drivers, access control, booking, submissions, rankings, and event discipline tested in the real world.
+            drivers, simulator access, submissions, rankings, event discipline and championship structure.
         </p>
 
         <a href="contact.html" class="btn btn-primary">Contact ETSA</a>

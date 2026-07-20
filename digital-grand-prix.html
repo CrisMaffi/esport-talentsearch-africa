@@ -49,6 +49,8 @@
             --black: #050505;
             --gold: #d4af37;
             --gold-dark: #9b7610;
+            --danger: #ffb4b4;
+            --success: #bbf7d0;
         }
 
         * { box-sizing: border-box; }
@@ -149,9 +151,16 @@
             padding: 14px 20px;
             border: 2px solid var(--black);
             border-radius: 8px;
+            font: inherit;
             font-weight: 900;
+            text-align: center;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        .btn:disabled {
+            cursor: wait;
+            opacity: 0.65;
         }
 
         .btn-gold {
@@ -523,6 +532,30 @@
 
         .hidden { display: none; }
 
+        .form-status {
+            min-height: 24px;
+            margin: 16px 0 0;
+            color: #d4d4d4;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .form-status.is-error { color: var(--danger); }
+        .form-status.is-success { color: var(--success); }
+
+        .form-status a {
+            color: #ffffff;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        .email-fallback {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .email-fallback.is-visible { display: inline-block; }
+
         .partner-callout {
             margin-top: 34px;
             padding: 24px;
@@ -866,7 +899,7 @@
                         </div>
                     </div>
 
-                    <form class="form-card" name="digital-grand-prix-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thank-you.html">
+                    <form id="interest-form" class="form-card" name="digital-grand-prix-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
                         <input type="hidden" name="form-name" value="digital-grand-prix-interest">
                         <p class="hidden">
                             <label>Do not fill this out: <input name="bot-field"></label>
@@ -930,7 +963,15 @@
                             <label for="consent">I agree that ETSA may use these details to contact me about the Digital Grand Prix and related talent opportunities. *</label>
                         </div>
 
-                        <button type="submit" class="btn btn-gold">Submit Interest</button>
+                        <button id="interest-submit" type="submit" class="btn btn-gold">Submit Interest</button>
+                        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                        <a id="email-fallback" class="btn btn-light email-fallback" href="mailto:c.maffi@maffiracing.com?subject=ETSA%20Digital%20Grand%20Prix%20Interest">Send Registration by Email</a>
+
+                        <noscript>
+                            <p class="form-status is-error">
+                                JavaScript is disabled. If submission does not complete, email your details to c.maffi@maffiracing.com.
+                            </p>
+                        </noscript>
                     </form>
                 </div>
             </div>
@@ -942,5 +983,79 @@
         <p>ETSA Digital Grand Prix: a project-based pathway for African digital talent.</p>
         <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
     </footer>
+
+    <script>
+        (() => {
+            const form = document.getElementById('interest-form');
+            const submitButton = document.getElementById('interest-submit');
+            const status = document.getElementById('form-status');
+            const emailFallback = document.getElementById('email-fallback');
+
+            if (!form || !submitButton || !status || !emailFallback) return;
+
+            const buildEmailFallback = () => {
+                const data = new FormData(form);
+                const fields = [
+                    ['Full name', data.get('name')],
+                    ['Email', data.get('email')],
+                    ['Country', data.get('country')],
+                    ['City', data.get('city')],
+                    ['Participation interest', data.get('interest')],
+                    ['Skills / expertise', data.get('skills')],
+                    ['Portfolio / website', data.get('portfolio')],
+                    ['Message', data.get('message')]
+                ];
+
+                const body = fields
+                    .filter(([, value]) => value)
+                    .map(([label, value]) => `${label}: ${value}`)
+                    .join('\n');
+
+                const subject = 'ETSA Digital Grand Prix — Registration of Interest';
+                emailFallback.href = `mailto:c.maffi@maffiracing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            };
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                if (!form.reportValidity()) return;
+
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting…';
+                status.className = 'form-status';
+                status.textContent = 'Sending your registration…';
+                emailFallback.classList.remove('is-visible');
+                buildEmailFallback();
+
+                const formData = new FormData(form);
+                formData.set('form-name', form.getAttribute('name'));
+
+                try {
+                    const response = await fetch('/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: new URLSearchParams(formData).toString()
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`Submission failed with HTTP ${response.status}`);
+                    }
+
+                    status.className = 'form-status is-success';
+                    status.textContent = 'Registration received. Redirecting…';
+                    window.location.assign('/thank-you.html');
+                } catch (error) {
+                    console.error('ETSA registration submission failed:', error);
+                    status.className = 'form-status is-error';
+                    status.textContent = 'The online form could not be sent. Use the email button below so your registration is not lost.';
+                    emailFallback.classList.add('is-visible');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Try Again';
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

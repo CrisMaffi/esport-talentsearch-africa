@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ETSA form detection</title>
+</head>
+<body>
+    <!--
+      Static form blueprint for Netlify's deploy-time form detection.
+      Keep the form name and field names in sync with digital-grand-prix.html.
+    -->
+    <form name="digital-grand-prix-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" hidden>
+        <input type="hidden" name="form-name" value="digital-grand-prix-interest">
+        <input name="bot-field">
+        <input name="name" type="text">
+        <input name="email" type="email">
+        <input name="country" type="text">
+        <input name="city" type="text">
+        <select name="interest">
+            <option value="developer-edition-competitor">Compete — Developer Edition</option>
+            <option value="data-ai-future-class">Future class — Data &amp; AI</option>
+            <option value="product-ux-future-class">Future class — Product &amp; UX</option>
+            <option value="game-simulation-future-class">Future class — Game &amp; Simulation</option>
+            <option value="hardware-embedded-future-class">Future class — Hardware &amp; Embedded</option>
+            <option value="digital-media-operations-future-class">Future class — Media or Esports Operations</option>
+            <option value="mentor-judge">Mentor or technical judge</option>
+            <option value="sponsor-partner">Sponsor or opportunity partner</option>
+            <option value="university-community">University, hub or community partner</option>
+        </select>
+        <input name="skills" type="text">
+        <input name="portfolio" type="url">
+        <textarea name="message"></textarea>
+        <input name="consent" type="checkbox" value="yes">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

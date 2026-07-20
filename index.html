@@ -7,21 +7,21 @@
     <title>ETSA – Esport Talent Search Africa</title>
 
     <meta name="description" content="ETSA is a continental talent pathway designed to identify, develop, and showcase African sim racing and digital talent, with EMSA Esports serving as the first pilot implementation in Ethiopia.">
-    <meta name="keywords" content="ETSA, Esport Talent Search Africa, Esports Africa, Sim Racing Africa, African developers, digital challenge Africa, EMSA Esports, Maffi Racing, FIA Esports, African motorsport, Ethiopian esports">
+    <meta name="keywords" content="ETSA, Esport Talent Search Africa, ETSA Digital Grand Prix, Esports Africa, Sim Racing Africa, African developers, digital challenge Africa, EMSA Esports, Maffi Racing, African motorsport, Ethiopian esports">
     <meta name="author" content="Maffi Racing">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://esport-talentsearch.africa/">
 
     <meta property="og:title" content="ETSA – Esport Talent Search Africa">
-    <meta property="og:description" content="A continental talent pathway for African sim racing and digital talent, piloted in Ethiopia through EMSA Esports.">
+    <meta property="og:description" content="A continental talent pathway for African sim racing and digital talent, including the ETSA Digital Grand Prix.">
     <meta property="og:image" content="https://esport-talentsearch.africa/africa-map.png">
     <meta property="og:url" content="https://esport-talentsearch.africa/">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ETSA – Esport Talent Search Africa">
-    <meta name="twitter:description" content="A continental talent pathway for African sim racing and digital talent, piloted in Ethiopia through EMSA Esports.">
+    <meta name="twitter:description" content="A continental talent pathway for African sim racing and digital talent, including the ETSA Digital Grand Prix.">
     <meta name="twitter:image" content="https://esport-talentsearch.africa/africa-map.png">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -50,70 +50,174 @@
             --soft: #f7f7f7;
             --black: #050505;
             --gold: #d4af37;
-            --gold-soft: #f3df9b;
+            --gold-dark: #9b7610;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
-            padding: 0;
+            padding: 69px 0 0;
             font-family: Arial, Helvetica, sans-serif;
             background: var(--bg);
             color: var(--text);
         }
 
-        a {
-            color: inherit;
-        }
+        a { color: inherit; }
 
         .navbar {
-            width: 100%;
-            padding: 16px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255,255,255,0.94);
-            backdrop-filter: blur(8px);
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 100;
+            z-index: 1000;
+            width: 100%;
+            min-height: 69px;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--line);
         }
 
         .navbar-title {
             font-size: 24px;
             font-weight: 900;
-            text-decoration: none;
             letter-spacing: 1px;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
-            gap: 22px;
             align-items: center;
+            gap: 22px;
         }
 
         .nav-links a {
-            text-decoration: none;
             font-size: 15px;
             font-weight: 700;
+            text-decoration: none;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover { color: var(--gold-dark); }
+
+        .launch-announcement {
+            position: relative;
+            overflow: hidden;
+            padding: 48px 7%;
+            color: #ffffff;
+            background:
+                radial-gradient(circle at 87% 18%, rgba(212,175,55,0.34), transparent 27%),
+                linear-gradient(118deg, #050505 0%, #111111 65%, #211a08 100%);
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .launch-announcement::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 38px 38px;
+            pointer-events: none;
+        }
+
+        .launch-inner {
+            position: relative;
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 42px;
+            align-items: center;
+        }
+
+        .launch-labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-bottom: 16px;
+        }
+
+        .launch-label {
+            display: inline-block;
+            padding: 8px 11px;
+            border: 1px solid rgba(212,175,55,0.62);
+            border-radius: 999px;
             color: var(--gold);
+            background: rgba(212,175,55,0.08);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .launch-label.secondary {
+            color: #ffffff;
+            border-color: #3b3b3b;
+            background: rgba(255,255,255,0.055);
+        }
+
+        .launch-announcement h2 {
+            max-width: 880px;
+            margin: 0 0 14px;
+            font-size: clamp(40px, 5.8vw, 74px);
+            line-height: 0.95;
+            letter-spacing: -2.5px;
+        }
+
+        .launch-announcement p {
+            max-width: 820px;
+            margin: 0;
+            color: #d2d2d2;
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        .launch-actions {
+            min-width: 220px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 20px;
+            border: 2px solid var(--black);
+            border-radius: 8px;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            color: #ffffff;
+            background: var(--black);
+        }
+
+        .btn-secondary {
+            color: var(--black);
+            background: #ffffff;
+        }
+
+        .launch-actions .btn-primary {
+            color: var(--black);
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .launch-actions .btn-secondary {
+            color: #ffffff;
+            background: transparent;
+            border-color: #ffffff;
         }
 
         .hero {
-            min-height: 92vh;
-            padding: 130px 7% 70px;
+            min-height: 75vh;
+            padding: 78px 7% 72px;
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 50px;
@@ -124,91 +228,47 @@
                 linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
         }
 
-        .challenge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            max-width: 100%;
-            margin-bottom: 20px;
-            padding: 10px 14px;
-            border: 1px solid rgba(212,175,55,0.65);
-            border-radius: 999px;
-            background: rgba(212,175,55,0.10);
-            color: var(--black);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 900;
-            line-height: 1.35;
-        }
-
-        .challenge-pill span {
-            color: #9b7610;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .challenge-pill:hover {
-            background: rgba(212,175,55,0.20);
-        }
-
         .hero-text small {
             display: inline-block;
             margin-bottom: 18px;
+            color: var(--gold-dark);
             font-weight: 900;
             letter-spacing: 2px;
-            color: var(--gold);
             text-transform: uppercase;
         }
 
         .hero-text h1 {
+            margin: 0 0 24px;
             font-size: clamp(42px, 6vw, 82px);
             line-height: 0.95;
-            margin: 0 0 24px;
             letter-spacing: -2px;
         }
 
         .hero-text p {
             max-width: 680px;
+            margin: 0 0 28px;
+            color: var(--muted);
             font-size: 19px;
             line-height: 1.6;
-            color: var(--muted);
-            margin: 0 0 28px;
         }
 
-        .hero-actions {
+        .hero-actions,
+        .challenge-actions {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 900;
-            border: 2px solid var(--black);
-        }
-
-        .btn-primary {
-            background: var(--black);
-            color: #ffffff;
-        }
-
-        .btn-secondary {
-            background: #ffffff;
-            color: var(--black);
+            gap: 14px;
         }
 
         .hero-visual {
             min-height: 420px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
 
         .africa-card {
+            position: relative;
+            overflow: hidden;
             width: 100%;
             max-width: 520px;
             padding: 30px;
@@ -216,8 +276,6 @@
             border-radius: 28px;
             background: #ffffff;
             box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            position: relative;
-            overflow: hidden;
         }
 
         .africa-card::before {
@@ -229,11 +287,11 @@
         }
 
         .africa-card img {
-            width: 100%;
-            display: block;
-            opacity: 0.78;
             position: relative;
             z-index: 1;
+            display: block;
+            width: 100%;
+            opacity: 0.78;
         }
 
         .map-caption {
@@ -241,8 +299,8 @@
             z-index: 2;
             margin-top: 18px;
             color: var(--muted);
-            line-height: 1.5;
             font-size: 15px;
+            line-height: 1.5;
             text-align: center;
         }
 
@@ -256,22 +314,20 @@
             margin: 0 auto;
         }
 
-        .section-title {
-            margin-bottom: 36px;
-        }
+        .section-title { margin-bottom: 36px; }
 
         .section-title small {
             display: block;
-            color: var(--gold);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             margin-bottom: 10px;
+            color: var(--gold-dark);
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .section-title h2 {
-            font-size: clamp(30px, 4vw, 52px);
             margin: 0;
+            font-size: clamp(30px, 4vw, 52px);
             letter-spacing: -1px;
         }
 
@@ -283,10 +339,10 @@
         }
 
         .challenge-announcement {
+            color: #ffffff;
             background:
                 radial-gradient(circle at 85% 15%, rgba(212,175,55,0.24), transparent 30%),
                 var(--black);
-            color: #ffffff;
         }
 
         .challenge-layout {
@@ -296,18 +352,28 @@
             align-items: start;
         }
 
-        .challenge-announcement .section-title {
-            margin-bottom: 24px;
-        }
+        .challenge-announcement .section-title { margin-bottom: 24px; }
+        .challenge-announcement .section-title small { color: var(--gold); }
+        .challenge-announcement .section-title p { color: #d2d2d2; }
 
-        .challenge-announcement .section-title p {
-            color: #d2d2d2;
+        .challenge-edition {
+            display: inline-block;
+            margin: 0 0 18px;
+            padding: 8px 11px;
+            border: 1px solid rgba(212,175,55,0.58);
+            border-radius: 999px;
+            color: var(--gold);
+            background: rgba(212,175,55,0.08);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
         }
 
         .challenge-meta {
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 10px;
             margin: 22px 0 28px;
         }
 
@@ -315,27 +381,21 @@
             padding: 8px 11px;
             border: 1px solid #343434;
             border-radius: 999px;
-            background: #111111;
             color: #e7e7e7;
+            background: #111111;
             font-size: 13px;
             font-weight: 800;
         }
 
-        .challenge-actions {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
         .challenge-announcement .btn-primary {
-            background: var(--gold);
             color: var(--black);
+            background: var(--gold);
             border-color: var(--gold);
         }
 
         .challenge-announcement .btn-secondary {
-            background: transparent;
             color: #ffffff;
+            background: transparent;
             border-color: #ffffff;
         }
 
@@ -354,12 +414,12 @@
         .challenge-point small {
             color: var(--gold);
             font-weight: 900;
-            text-transform: uppercase;
             letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .challenge-point h3 {
-            margin: 8px 0 8px;
+            margin: 8px 0;
             font-size: 22px;
         }
 
@@ -369,43 +429,46 @@
             line-height: 1.55;
         }
 
-        .cards {
+        .cards,
+        .events-preview,
+        .partner-strip {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 22px;
         }
 
-        .card {
-            background: var(--soft);
+        .card,
+        .event-card,
+        .partner-card {
             padding: 26px;
-            border-radius: 18px;
             border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--soft);
         }
 
-        .card h3 {
-            font-size: 22px;
+        .card h3,
+        .event-card h3,
+        .partner-card h3 {
             margin: 0 0 12px;
+            font-size: 22px;
         }
 
-        .card p {
+        .card p,
+        .event-card p,
+        .partner-card p {
+            margin: 0;
             color: var(--muted);
             line-height: 1.6;
-            margin: 0;
         }
 
         .pilot {
-            background: var(--black);
             color: #ffffff;
+            background: var(--black);
         }
 
-        .pilot .section-title small {
-            color: var(--gold);
-        }
-
+        .pilot .section-title small { color: var(--gold); }
         .pilot .section-title p,
-        .pilot .card p {
-            color: #cfcfcf;
-        }
+        .pilot .card p { color: #cfcfcf; }
 
         .pilot .card {
             background: #111111;
@@ -428,14 +491,14 @@
         .step-number {
             width: 36px;
             height: 36px;
-            border-radius: 50%;
-            background: var(--black);
-            color: #ffffff;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            color: #ffffff;
+            background: var(--black);
             font-weight: 900;
-            margin-bottom: 14px;
         }
 
         .step h3 {
@@ -449,57 +512,28 @@
             line-height: 1.55;
         }
 
-        .events-preview {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .event-card {
-            padding: 24px;
-            border-radius: 18px;
-            border: 1px solid var(--line);
-            background: #ffffff;
-        }
+        .event-card { background: #ffffff; }
 
         .event-card small {
-            color: var(--gold);
+            color: var(--gold-dark);
             font-weight: 900;
             text-transform: uppercase;
         }
 
-        .event-card h3 {
-            margin: 10px 0;
-            font-size: 22px;
-        }
-
-        .event-card p {
-            color: var(--muted);
-            line-height: 1.55;
-        }
-
-        .partner-strip {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-top: 30px;
-        }
+        .partner-strip { margin-top: 30px; }
 
         .partner-card {
-            background: #ffffff;
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 24px;
             text-align: center;
+            background: #ffffff;
         }
 
         .partner-card img {
-            max-width: 180px;
-            max-height: 90px;
             width: auto;
             height: auto;
-            object-fit: contain;
+            max-width: 180px;
+            max-height: 90px;
             margin-bottom: 12px;
+            object-fit: contain;
         }
 
         .partner-card h3 {
@@ -507,40 +541,36 @@
             font-size: 20px;
         }
 
-        .partner-card p {
-            margin: 0;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-
         .fia-caption {
-            font-size: 13px;
-            font-weight: 900;
             margin-top: 4px;
             color: var(--black);
-            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 900;
             letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .footer {
             padding: 45px 7%;
-            background: #ffffff;
             text-align: center;
+            background: #ffffff;
         }
 
         .footer p {
-            color: var(--muted);
             margin: 6px 0;
+            color: var(--muted);
         }
 
         @media (max-width: 950px) {
+            .launch-inner,
             .hero,
             .challenge-layout {
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding-top: 120px;
+            .launch-actions {
+                min-width: 0;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .cards,
@@ -550,40 +580,42 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .nav-links {
-                gap: 14px;
-            }
+            .nav-links { gap: 14px; }
         }
 
         @media (max-width: 650px) {
+            body { padding-top: 124px; }
+
             .navbar {
-                flex-direction: column;
-                gap: 10px;
+                min-height: 124px;
                 padding: 14px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
             }
 
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 9px 14px;
             }
 
-            .hero {
-                padding: 175px 6% 55px;
+            .nav-links a { font-size: 14px; }
+
+            .launch-announcement { padding: 38px 6%; }
+
+            .launch-announcement h2 {
+                font-size: 43px;
+                letter-spacing: -1.5px;
             }
 
-            .hero-text h1 {
-                font-size: 44px;
-            }
+            .launch-announcement p { font-size: 17px; }
 
-            .hero-text p {
-                font-size: 17px;
-            }
+            .launch-actions { grid-template-columns: 1fr; }
 
-            .challenge-pill {
-                align-items: flex-start;
-                flex-direction: column;
-                border-radius: 16px;
-            }
+            .hero { padding: 60px 6% 55px; }
+            .hero-text h1 { font-size: 44px; }
+            .hero-text p { font-size: 17px; }
 
             .cards,
             .steps,
@@ -592,24 +624,18 @@
                 grid-template-columns: 1fr;
             }
 
-            .section {
-                padding: 60px 6%;
-            }
-
-            .africa-card {
-                padding: 18px;
-            }
+            .section { padding: 60px 6%; }
+            .africa-card { padding: 18px; }
         }
     </style>
 </head>
 
 <body>
-
     <nav class="navbar">
         <a href="index.html" class="navbar-title">ETSA</a>
 
         <div class="nav-links">
-            <a href="#digital-challenge">Challenge</a>
+            <a href="#challenge-announcement">Digital GP</a>
             <a href="#vision">Vision</a>
             <a href="#pilot">Pilot</a>
             <a href="#pathway">Pathway</a>
@@ -618,24 +644,37 @@
         </div>
     </nav>
 
+    <aside class="launch-announcement" id="challenge-announcement" aria-labelledby="challenge-launch-title">
+        <div class="launch-inner">
+            <div>
+                <div class="launch-labels">
+                    <span class="launch-label">New Challenge Coming</span>
+                    <span class="launch-label secondary">First Edition: Developers</span>
+                </div>
+                <h2 id="challenge-launch-title">ETSA Digital Grand Prix.</h2>
+                <p>
+                    Build a real solution. Prove your ability. Get discovered. ETSA is launching a new project-based pathway for African digital talent, beginning with a developer-focused challenge around motorsport, esports and digital performance.
+                </p>
+            </div>
+
+            <div class="launch-actions">
+                <a href="digital-grand-prix.html" class="btn btn-primary">Explore the Challenge</a>
+                <a href="digital-grand-prix.html#join" class="btn btn-secondary">Join the Grid</a>
+            </div>
+        </div>
+    </aside>
+
     <header class="hero">
         <div class="hero-text">
-            <a class="challenge-pill" href="#digital-challenge">
-                <span>Coming Soon</span>
-                ETSA Digital Grand Prix — Developer Challenge
-            </a>
-
             <small>Esport Talent Search Africa</small>
-
             <h1>A continental pathway for African sim racing talent.</h1>
-
             <p>
                 ETSA is designed to identify, develop, and showcase African sim racing talent.
                 The first pilot implementation is being built in Ethiopia through EMSA Esports.
             </p>
 
             <div class="hero-actions">
-                <a href="#digital-challenge" class="btn btn-primary">Explore the New Challenge</a>
+                <a href="#pathway" class="btn btn-primary">Explore the ETSA Pathway</a>
                 <a href="events.html" class="btn btn-secondary">View Rally Challenge</a>
             </div>
         </div>
@@ -654,30 +693,28 @@
         <div class="section-narrow">
             <div class="challenge-layout">
                 <div>
+                    <span class="challenge-edition">Digital Grand Prix — Opening Edition</span>
                     <div class="section-title">
-                        <small>Coming Soon</small>
-                        <h2>ETSA Digital Grand Prix — Developer Challenge.</h2>
+                        <small>Build. Compete. Get Discovered.</small>
+                        <h2>A new project-based talent discovery platform.</h2>
                         <p>
-                            Africa's next generation of developers should be discovered by what they can build.
-                            ETSA is preparing a project-based digital challenge where participants will solve a real
-                            motorsport or digital-performance problem, create a working solution, and demonstrate
-                            their skills through evidence — not only a CV.
+                            ETSA Digital Grand Prix is the umbrella program. It will use practical challenges to reveal African talent through demonstrated work rather than CV claims alone.
                         </p>
                         <p>
-                            The full challenge brief, eligibility, schedule, judging process, rewards, and application
-                            details will be announced before entries open.
+                            The first edition will focus on developers solving a real motorsport or digital-performance problem. Future editions may open additional competitive classes when the judging capacity, challenge brief and partner opportunities are credible.
                         </p>
                     </div>
 
                     <div class="challenge-meta">
-                        <span>Open talent discovery</span>
+                        <span>First edition: developers</span>
+                        <span>Africa-wide digital participation</span>
                         <span>Project-based assessment</span>
-                        <span>Sponsor and technical partners invited</span>
+                        <span>Sponsors and technical partners invited</span>
                     </div>
 
                     <div class="challenge-actions">
-                        <a href="contact.html" class="btn btn-primary">Contact ETSA About the Challenge</a>
-                        <a href="contact.html" class="btn btn-secondary">Discuss Partnership</a>
+                        <a href="digital-grand-prix.html" class="btn btn-primary">Read the Working Brief</a>
+                        <a href="digital-grand-prix.html#join" class="btn btn-secondary">Register Interest</a>
                     </div>
                 </div>
 
@@ -685,19 +722,19 @@
                     <div class="challenge-point">
                         <small>01</small>
                         <h3>Build</h3>
-                        <p>Create a working project around a real motorsport, esports, or digital-performance problem.</p>
+                        <p>Create a working project around a real motorsport, esports or digital-performance problem.</p>
                     </div>
 
                     <div class="challenge-point">
                         <small>02</small>
                         <h3>Compete</h3>
-                        <p>Submit evidence, demonstrate the solution, and be evaluated through a structured technical process.</p>
+                        <p>Submit evidence, demonstrate the solution and be evaluated through a structured technical process.</p>
                     </div>
 
                     <div class="challenge-point">
                         <small>03</small>
                         <h3>Get Discovered</h3>
-                        <p>Showcase demonstrated ability to ETSA, sponsors, technical partners, and potential opportunity providers.</p>
+                        <p>Showcase demonstrated ability to ETSA, sponsors, technical partners and opportunity providers.</p>
                     </div>
                 </div>
             </div>
@@ -706,91 +743,69 @@
 
     <section class="section" id="vision">
         <div class="section-narrow">
-
             <div class="section-title">
                 <small>The Vision</small>
                 <h2>From raw potential to structured opportunity.</h2>
                 <p>
-                    Africa has talent, ambition, and digital energy. ETSA exists to create a structured
-                    pathway where that talent can be discovered, trained, measured, and connected to
-                    real competitive opportunities.
+                    Africa has talent, ambition, and digital energy. ETSA exists to create a structured pathway where that talent can be discovered, trained, measured, and connected to real competitive opportunities.
                 </p>
             </div>
 
             <div class="cards">
                 <div class="card">
                     <h3>ETSA</h3>
-                    <p>
-                        The continental talent search platform focused on African sim racing and digital performance.
-                    </p>
+                    <p>The continental talent search platform focused on African sim racing and digital performance.</p>
                 </div>
 
                 <div class="card">
                     <h3>EMSA Esports</h3>
-                    <p>
-                        The first pilot implementation, developed in Ethiopia as a working model for future expansion.
-                    </p>
+                    <p>The first pilot implementation, developed in Ethiopia as a working model for future expansion.</p>
                 </div>
 
                 <div class="card">
                     <h3>Maffi Racing</h3>
-                    <p>
-                        Technical and operational support for structure, training, systems, and project development.
-                    </p>
+                    <p>Technical and operational support for structure, training, systems, and project development.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section class="section pilot" id="pilot">
         <div class="section-narrow">
-
             <div class="section-title">
                 <small>The Pilot Project</small>
                 <h2>EMSA Esports as the first implementation.</h2>
                 <p>
-                    The Ethiopian pilot is where ETSA systems are tested in real conditions:
-                    driver onboarding, simulator access, booking operations, event structures,
-                    staff workflow, and competition formats.
+                    The Ethiopian pilot is where ETSA systems are tested in real conditions: driver onboarding, simulator access, booking operations, event structures, staff workflow, and competition formats.
                 </p>
             </div>
 
             <div class="cards">
                 <div class="card">
                     <h3>Operational Testing</h3>
-                    <p>
-                        Booking systems, simulator availability, staff visibility, and driver access are tested in a live environment.
-                    </p>
+                    <p>Booking systems, simulator availability, staff visibility, and driver access are tested in a live environment.</p>
                 </div>
 
                 <div class="card">
                     <h3>Driver Development</h3>
-                    <p>
-                        Drivers are introduced to structured practice, feedback, setup work, and competitive discipline.
-                    </p>
+                    <p>Drivers are introduced to structured practice, feedback, setup work, and competitive discipline.</p>
                 </div>
 
                 <div class="card">
                     <h3>Scalable Model</h3>
-                    <p>
-                        What works in Ethiopia can later be adapted for other African countries and local motorsport authorities.
-                    </p>
+                    <p>What works in Ethiopia can later be adapted for other African countries and local motorsport authorities.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section class="section" id="pathway">
         <div class="section-narrow">
-
             <div class="section-title">
                 <small>The Pathway</small>
                 <h2>Discover. Train. Compete. Progress.</h2>
                 <p>
-                    ETSA is not just an event. It is a pathway designed to move talent from first contact
-                    to measurable performance and future opportunities.
+                    ETSA is not just an event. It is a pathway designed to move talent from first contact to measurable performance and future opportunities.
                 </p>
             </div>
 
@@ -798,49 +813,37 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Discover</h3>
-                    <p>
-                        Identify motivated and high-potential talent through accessible sim racing and digital challenges.
-                    </p>
+                    <p>Identify motivated and high-potential talent through accessible sim racing and digital challenges.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Train</h3>
-                    <p>
-                        Build discipline, consistency, technical understanding, and performance habits.
-                    </p>
+                    <p>Build discipline, consistency, technical understanding, and performance habits.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Compete</h3>
-                    <p>
-                        Use structured challenges, leaderboards, and events to measure progress fairly.
-                    </p>
+                    <p>Use structured challenges, leaderboards, and events to measure progress fairly.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Progress</h3>
-                    <p>
-                        Create visibility for talent and prepare the strongest participants for wider opportunities.
-                    </p>
+                    <p>Create visibility for talent and prepare the strongest participants for wider opportunities.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section class="section" id="events">
         <div class="section-narrow">
-
             <div class="section-title">
                 <small>Current Pilot Event</small>
                 <h2>EMSA Esport Rally Challenge 2026.</h2>
                 <p>
-                    The Ethiopia pilot is now focused on the EMSA Esport Rally Challenge 2026,
-                    a structured Time Attack championship running from June to December on
-                    Assetto Corsa Rally.
+                    The Ethiopia pilot is now focused on the EMSA Esport Rally Challenge 2026, a structured Time Attack championship running from June to December on Assetto Corsa Rally.
                 </p>
             </div>
 
@@ -848,47 +851,35 @@
                 <div class="event-card">
                     <small>Round 1</small>
                     <h3>June Pilot Round</h3>
-                    <p>
-                        First learning round with no championship points.
-                        Used to validate submissions, operations, driver workflow and competition process.
-                    </p>
+                    <p>First learning round with no championship points. Used to validate submissions, operations, driver workflow and competition process.</p>
                 </div>
 
                 <div class="event-card">
                     <small>Round 2</small>
                     <h3>Greece — Zeli Elatia</h3>
-                    <p>
-                        First championship points round using the Lancia Delta HF integrale EVO,
-                        Group A, in dry night conditions.
-                    </p>
+                    <p>First championship points round using the Lancia Delta HF integrale EVO, Group A, in dry night conditions.</p>
                 </div>
 
                 <div class="event-card">
                     <small>Rounds 3–7</small>
                     <h3>Monthly Rally Challenge</h3>
-                    <p>
-                        Each month follows Free Practice, Official Challenge Week,
-                        Results and next round reveal.
-                    </p>
+                    <p>Each month follows Free Practice, Official Challenge Week, Results and next round reveal.</p>
                 </div>
             </div>
 
             <div style="margin-top:28px;">
                 <a href="events.html" class="btn btn-primary">Open Rally Challenge Calendar</a>
             </div>
-
         </div>
     </section>
 
     <section class="section" id="partners">
         <div class="section-narrow">
-
             <div class="section-title">
                 <small>Pilot Ecosystem</small>
                 <h2>The first implementation is built around clear roles.</h2>
                 <p>
-                    ETSA is the continental pathway. EMSA Esports is the Ethiopian pilot implementation.
-                    Maffi Racing and Maffi Esports support the technical, operational and development structure.
+                    ETSA is the continental pathway. EMSA Esports is the Ethiopian pilot implementation. Maffi Racing and Maffi Esports support the technical, operational and development structure.
                 </p>
             </div>
 
@@ -896,29 +887,22 @@
                 <div class="partner-card">
                     <img src="emsa-logo.png" alt="Ethiopian Motor Sport Association logo">
                     <h3>EMSA Esports</h3>
-                    <p>
-                        First pilot implementation of the ETSA model in Ethiopia.
-                    </p>
+                    <p>First pilot implementation of the ETSA model in Ethiopia.</p>
                 </div>
 
                 <div class="partner-card">
                     <img src="maffi-esports-logo.png" alt="Maffi Esports logo">
                     <h3>Maffi Racing / Maffi Esports</h3>
-                    <p>
-                        Technical, operational and sponsorship support for the pilot.
-                    </p>
+                    <p>Technical, operational and sponsorship support for the pilot.</p>
                 </div>
 
                 <div class="partner-card">
                     <img src="fia-logo.png" alt="FIA logo">
                     <div class="fia-caption">Member of</div>
                     <h3>International Context</h3>
-                    <p>
-                        Motorsport and esports development aligned with international standards and federation structures.
-                    </p>
+                    <p>Motorsport and esports development aligned with international standards and federation structures.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -927,6 +911,5 @@
         <p>A continental talent pathway, piloted in Ethiopia through EMSA Esports.</p>
         <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
     </footer>
-
 </body>
 </html>

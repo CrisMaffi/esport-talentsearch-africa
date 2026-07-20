@@ -6,22 +6,22 @@
 
     <title>ETSA – Esport Talent Search Africa</title>
 
-    <meta name="description" content="ETSA is a continental esports talent pathway designed to identify, develop, and showcase African sim racing talent, with EMSA Esports serving as the first pilot implementation in Ethiopia.">
-    <meta name="keywords" content="ETSA, Esport Talent Search Africa, Esports Africa, Sim Racing Africa, EMSA Esports, Maffi Racing, FIA Esports, African motorsport, Ethiopian esports">
+    <meta name="description" content="ETSA is a continental talent pathway designed to identify, develop, and showcase African sim racing and digital talent, with EMSA Esports serving as the first pilot implementation in Ethiopia.">
+    <meta name="keywords" content="ETSA, Esport Talent Search Africa, Esports Africa, Sim Racing Africa, African developers, digital challenge Africa, EMSA Esports, Maffi Racing, FIA Esports, African motorsport, Ethiopian esports">
     <meta name="author" content="Maffi Racing">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://esport-talentsearch.africa/">
 
     <meta property="og:title" content="ETSA – Esport Talent Search Africa">
-    <meta property="og:description" content="A continental esports talent pathway for African sim racing, piloted in Ethiopia through EMSA Esports.">
+    <meta property="og:description" content="A continental talent pathway for African sim racing and digital talent, piloted in Ethiopia through EMSA Esports.">
     <meta property="og:image" content="https://esport-talentsearch.africa/africa-map.png">
     <meta property="og:url" content="https://esport-talentsearch.africa/">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ETSA – Esport Talent Search Africa">
-    <meta name="twitter:description" content="A continental esports talent pathway for African sim racing, piloted in Ethiopia through EMSA Esports.">
+    <meta name="twitter:description" content="A continental talent pathway for African sim racing and digital talent, piloted in Ethiopia through EMSA Esports.">
     <meta name="twitter:image" content="https://esport-talentsearch.africa/africa-map.png">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -33,7 +33,7 @@
       "name": "ETSA – Esport Talent Search Africa",
       "url": "https://esport-talentsearch.africa/",
       "logo": "https://esport-talentsearch.africa/maffi-esports-logo.png",
-      "description": "ETSA is a continental esports talent pathway designed to identify, develop, and showcase African sim racing talent.",
+      "description": "ETSA is a continental talent pathway designed to identify, develop, and showcase African sim racing and digital talent.",
       "founder": {
         "@type": "Organization",
         "name": "Maffi Racing"
@@ -122,6 +122,34 @@
             background:
                 radial-gradient(circle at top right, rgba(212,175,55,0.16), transparent 35%),
                 linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+        }
+
+        .challenge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            max-width: 100%;
+            margin-bottom: 20px;
+            padding: 10px 14px;
+            border: 1px solid rgba(212,175,55,0.65);
+            border-radius: 999px;
+            background: rgba(212,175,55,0.10);
+            color: var(--black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .challenge-pill span {
+            color: #9b7610;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .challenge-pill:hover {
+            background: rgba(212,175,55,0.20);
         }
 
         .hero-text small {
@@ -252,6 +280,93 @@
             color: var(--muted);
             font-size: 18px;
             line-height: 1.6;
+        }
+
+        .challenge-announcement {
+            background:
+                radial-gradient(circle at 85% 15%, rgba(212,175,55,0.24), transparent 30%),
+                var(--black);
+            color: #ffffff;
+        }
+
+        .challenge-layout {
+            display: grid;
+            grid-template-columns: 1.08fr 0.92fr;
+            gap: 46px;
+            align-items: start;
+        }
+
+        .challenge-announcement .section-title {
+            margin-bottom: 24px;
+        }
+
+        .challenge-announcement .section-title p {
+            color: #d2d2d2;
+        }
+
+        .challenge-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 22px 0 28px;
+        }
+
+        .challenge-meta span {
+            padding: 8px 11px;
+            border: 1px solid #343434;
+            border-radius: 999px;
+            background: #111111;
+            color: #e7e7e7;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .challenge-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .challenge-announcement .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .challenge-announcement .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .challenge-points {
+            display: grid;
+            gap: 15px;
+        }
+
+        .challenge-point {
+            padding: 22px;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.045);
+        }
+
+        .challenge-point small {
+            color: var(--gold);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .challenge-point h3 {
+            margin: 8px 0 8px;
+            font-size: 22px;
+        }
+
+        .challenge-point p {
+            margin: 0;
+            color: #cfcfcf;
+            line-height: 1.55;
         }
 
         .cards {
@@ -419,8 +534,12 @@
         }
 
         @media (max-width: 950px) {
-            .hero {
+            .hero,
+            .challenge-layout {
                 grid-template-columns: 1fr;
+            }
+
+            .hero {
                 padding-top: 120px;
             }
 
@@ -449,7 +568,7 @@
             }
 
             .hero {
-                padding: 145px 6% 55px;
+                padding: 175px 6% 55px;
             }
 
             .hero-text h1 {
@@ -458,6 +577,12 @@
 
             .hero-text p {
                 font-size: 17px;
+            }
+
+            .challenge-pill {
+                align-items: flex-start;
+                flex-direction: column;
+                border-radius: 16px;
             }
 
             .cards,
@@ -484,6 +609,7 @@
         <a href="index.html" class="navbar-title">ETSA</a>
 
         <div class="nav-links">
+            <a href="#digital-challenge">Challenge</a>
             <a href="#vision">Vision</a>
             <a href="#pilot">Pilot</a>
             <a href="#pathway">Pathway</a>
@@ -494,6 +620,11 @@
 
     <header class="hero">
         <div class="hero-text">
+            <a class="challenge-pill" href="#digital-challenge">
+                <span>Coming Soon</span>
+                ETSA Digital Grand Prix — Developer Challenge
+            </a>
+
             <small>Esport Talent Search Africa</small>
 
             <h1>A continental pathway for African sim racing talent.</h1>
@@ -504,7 +635,7 @@
             </p>
 
             <div class="hero-actions">
-                <a href="#pilot" class="btn btn-primary">Explore the Pilot</a>
+                <a href="#digital-challenge" class="btn btn-primary">Explore the New Challenge</a>
                 <a href="events.html" class="btn btn-secondary">View Rally Challenge</a>
             </div>
         </div>
@@ -518,6 +649,60 @@
             </div>
         </div>
     </header>
+
+    <section class="section challenge-announcement" id="digital-challenge">
+        <div class="section-narrow">
+            <div class="challenge-layout">
+                <div>
+                    <div class="section-title">
+                        <small>Coming Soon</small>
+                        <h2>ETSA Digital Grand Prix — Developer Challenge.</h2>
+                        <p>
+                            Africa's next generation of developers should be discovered by what they can build.
+                            ETSA is preparing a project-based digital challenge where participants will solve a real
+                            motorsport or digital-performance problem, create a working solution, and demonstrate
+                            their skills through evidence — not only a CV.
+                        </p>
+                        <p>
+                            The full challenge brief, eligibility, schedule, judging process, rewards, and application
+                            details will be announced before entries open.
+                        </p>
+                    </div>
+
+                    <div class="challenge-meta">
+                        <span>Open talent discovery</span>
+                        <span>Project-based assessment</span>
+                        <span>Sponsor and technical partners invited</span>
+                    </div>
+
+                    <div class="challenge-actions">
+                        <a href="contact.html" class="btn btn-primary">Contact ETSA About the Challenge</a>
+                        <a href="contact.html" class="btn btn-secondary">Discuss Partnership</a>
+                    </div>
+                </div>
+
+                <div class="challenge-points">
+                    <div class="challenge-point">
+                        <small>01</small>
+                        <h3>Build</h3>
+                        <p>Create a working project around a real motorsport, esports, or digital-performance problem.</p>
+                    </div>
+
+                    <div class="challenge-point">
+                        <small>02</small>
+                        <h3>Compete</h3>
+                        <p>Submit evidence, demonstrate the solution, and be evaluated through a structured technical process.</p>
+                    </div>
+
+                    <div class="challenge-point">
+                        <small>03</small>
+                        <h3>Get Discovered</h3>
+                        <p>Showcase demonstrated ability to ETSA, sponsors, technical partners, and potential opportunity providers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section" id="vision">
         <div class="section-narrow">
@@ -604,7 +789,7 @@
                 <small>The Pathway</small>
                 <h2>Discover. Train. Compete. Progress.</h2>
                 <p>
-                    ETSA is not just an event. It is a pathway designed to move drivers from first contact
+                    ETSA is not just an event. It is a pathway designed to move talent from first contact
                     to measurable performance and future opportunities.
                 </p>
             </div>
@@ -614,7 +799,7 @@
                     <div class="step-number">1</div>
                     <h3>Discover</h3>
                     <p>
-                        Identify motivated and high-potential drivers through accessible sim racing activities.
+                        Identify motivated and high-potential talent through accessible sim racing and digital challenges.
                     </p>
                 </div>
 
@@ -638,7 +823,7 @@
                     <div class="step-number">4</div>
                     <h3>Progress</h3>
                     <p>
-                        Create visibility for talent and prepare the strongest drivers for wider opportunities.
+                        Create visibility for talent and prepare the strongest participants for wider opportunities.
                     </p>
                 </div>
             </div>

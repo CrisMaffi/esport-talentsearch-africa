@@ -244,6 +244,15 @@
             transform: scale(1.015);
         }
 
+        .mobile-swipe-hint {
+            display: none;
+        }
+
+        .swipe-cards:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 5px;
+        }
+
         .black-section {
             background: var(--black);
             color: white;
@@ -479,14 +488,43 @@
                 font-size: 42px;
             }
 
-            .info-grid,
-            .rule-grid {
-                grid-template-columns: 1fr;
+            .mobile-swipe-hint {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 7px;
+                margin: -12px 0 12px;
+                color: var(--gold);
+                font-size: 12px;
+                font-weight: 900;
+                letter-spacing: 1px;
+                text-transform: uppercase;
             }
 
-            .venue-gallery {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            .swipe-cards {
+                display: grid;
+                grid-template-columns: none;
+                grid-auto-flow: column;
+                grid-auto-columns: calc(100% - 48px);
+                gap: 14px;
+                overflow-x: auto;
+                overscroll-behavior-inline: contain;
+                padding: 4px 0 14px;
+                scroll-padding-inline: 0;
+                scroll-snap-type: inline mandatory;
+                scrollbar-width: none;
+                touch-action: pan-x pan-y;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .swipe-cards::-webkit-scrollbar {
+                display: none;
+            }
+
+            .swipe-cards > * {
+                min-width: 0;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
             }
 
             .venue-photo:first-child {
@@ -550,7 +588,8 @@
                 </p>
             </div>
 
-            <div class="info-grid">
+            <p class="mobile-swipe-hint">Swipe to explore <span aria-hidden="true">&rarr;</span></p>
+            <div class="info-grid swipe-cards" role="region" tabindex="0" aria-label="ETSA context cards. Scroll horizontally to explore on mobile.">
                 <div class="info-card">
                     <h3>ETSA</h3>
                     <p>
@@ -588,7 +627,8 @@
                 </p>
             </div>
 
-            <div class="rule-grid">
+            <p class="mobile-swipe-hint">Swipe through the four weeks <span aria-hidden="true">&rarr;</span></p>
+            <div class="rule-grid swipe-cards" role="region" tabindex="0" aria-label="Four-week championship structure. Scroll horizontally to explore on mobile.">
                 <div class="rule-card">
                     <strong>Week 1</strong>
                     <h3>Free Practice</h3>
@@ -637,7 +677,8 @@
                 </p>
             </div>
 
-            <div class="info-grid">
+            <p class="mobile-swipe-hint">Swipe to explore <span aria-hidden="true">&rarr;</span></p>
+            <div class="info-grid swipe-cards" role="region" tabindex="0" aria-label="Eligibility and submission cards. Scroll horizontally to explore on mobile.">
                 <div class="info-card">
                     <h3>Eligibility</h3>
                     <p>
@@ -709,7 +750,8 @@
                 </p>
             </div>
 
-            <div class="venue-gallery" aria-label="Photos of the Ethiopian Esport venue">
+            <p class="mobile-swipe-hint">Swipe through the venue <span aria-hidden="true">&rarr;</span></p>
+            <div class="venue-gallery swipe-cards" role="region" tabindex="0" aria-label="Photos of the Ethiopian Esport venue. Scroll horizontally to explore on mobile.">
                 <figure class="venue-photo">
                     <a href="assets/venue/ethiopian-esport-venue-01.jpg" target="_blank" rel="noopener" aria-label="Open full-size overview of the Ethiopian Esport venue">
                         <img src="assets/venue/ethiopian-esport-venue-01.jpg" width="1071" height="803" loading="lazy" decoding="async" alt="Wide overview of four simulator rigs in use inside the Ethiopian Esport venue.">
@@ -775,7 +817,8 @@
                 </tbody>
             </table>
 
-            <div class="info-grid" style="margin-top:28px;">
+            <p class="mobile-swipe-hint" style="margin-top:28px;">Swipe for prize details <span aria-hidden="true">&rarr;</span></p>
+            <div class="info-grid swipe-cards" role="region" tabindex="0" aria-label="Championship prize and tie-breaker cards. Scroll horizontally to explore on mobile.">
 
                 <div class="info-card">
                     <h3>Champion</h3>
@@ -824,4 +867,5 @@
 
 </body>
 </html>
+
 

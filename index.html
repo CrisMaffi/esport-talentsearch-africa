@@ -628,6 +628,8 @@
             .africa-card { padding: 18px; }
         }
     </style>
+    <link rel="stylesheet" href="assets/mobile-deck.css">
+    <script src="assets/mobile-deck.js" defer></script>
 </head>
 
 <body>
@@ -645,7 +647,8 @@
         </div>
     </nav>
 
-    <aside class="launch-announcement" id="challenge-announcement" aria-labelledby="challenge-launch-title">
+    <div class="mobile-page-deck">
+    <aside class="launch-announcement mobile-page" id="challenge-announcement" aria-labelledby="challenge-launch-title" data-mobile-page-label="Digital GP launch">
         <div class="launch-inner">
             <div>
                 <div class="launch-labels">
@@ -665,7 +668,7 @@
         </div>
     </aside>
 
-    <header class="hero">
+    <header class="hero mobile-page" data-mobile-page-label="ETSA pathway">
         <div class="hero-text">
             <small>Esport Talent Search Africa</small>
             <h1>A continental pathway for African sim racing talent.</h1>
@@ -690,7 +693,7 @@
         </div>
     </header>
 
-    <section class="section challenge-announcement" id="digital-challenge">
+    <section class="section challenge-announcement mobile-page" id="digital-challenge" data-mobile-page-label="Digital Grand Prix">
         <div class="section-narrow">
             <div class="challenge-layout">
                 <div>
@@ -742,7 +745,7 @@
         </div>
     </section>
 
-    <section class="section" id="vision">
+    <section class="section mobile-page" id="vision" data-mobile-page-label="Vision">
         <div class="section-narrow">
             <div class="section-title">
                 <small>The Vision</small>
@@ -771,7 +774,7 @@
         </div>
     </section>
 
-    <section class="section pilot" id="pilot">
+    <section class="section pilot mobile-page" id="pilot" data-mobile-page-label="Pilot">
         <div class="section-narrow">
             <div class="section-title">
                 <small>The Pilot Project</small>
@@ -800,7 +803,7 @@
         </div>
     </section>
 
-    <section class="section" id="pathway">
+    <section class="section mobile-page" id="pathway" data-mobile-page-label="Pathway">
         <div class="section-narrow">
             <div class="section-title">
                 <small>The Pathway</small>
@@ -838,7 +841,7 @@
         </div>
     </section>
 
-    <section class="section" id="events">
+    <section class="section mobile-page" id="events" data-mobile-page-label="Championships">
         <div class="section-narrow">
             <div class="section-title">
                 <small>Current Pilot Championships</small>
@@ -876,7 +879,7 @@
         </div>
     </section>
 
-    <section class="section" id="partners">
+    <section class="section mobile-page" id="partners" data-mobile-page-label="Partners">
         <div class="section-narrow">
             <div class="section-title">
                 <small>Pilot Ecosystem</small>
@@ -909,10 +912,12 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer mobile-page mobile-page-footer" data-mobile-page-label="About ETSA">
         <p><strong>ETSA – Esport Talent Search Africa</strong></p>
         <p>A continental talent pathway, piloted in Ethiopia through EMSA Esports.</p>
         <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
     </footer>
+    </div>
 </body>
 </html>
+

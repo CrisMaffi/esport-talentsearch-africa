@@ -740,6 +740,8 @@
             .field-full { grid-column: auto; }
         }
     </style>
+    <link rel="stylesheet" href="assets/mobile-deck.css">
+    <script src="assets/mobile-deck.js" defer></script>
 </head>
 
 <body>
@@ -756,7 +758,8 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <div class="mobile-page-deck">
+    <header class="hero mobile-page" data-mobile-page-label="Digital GP introduction">
         <div>
             <span class="eyebrow">ETSA Digital Grand Prix</span>
             <h1>Build. Compete. Get Discovered.</h1>
@@ -793,7 +796,7 @@
     </header>
 
     <main>
-        <section class="section" id="program">
+        <section class="section mobile-page" id="program" data-mobile-page-label="Program">
             <div class="wrap">
                 <div class="section-heading">
                     <small>The Naming Structure</small>
@@ -835,7 +838,7 @@
             </div>
         </section>
 
-        <section class="section section-soft" id="first-edition">
+        <section class="section section-soft mobile-page" id="first-edition" data-mobile-page-label="Two projects">
             <div class="wrap">
                 <div class="section-heading">
                     <small>Working Brief v2</small>
@@ -1043,7 +1046,7 @@
             </div>
         </section>
 
-        <section class="section section-dark" id="format">
+        <section class="section section-dark mobile-page" id="format" data-mobile-page-label="Format">
             <div class="wrap">
                 <div class="section-heading">
                     <small>Planned Competition Pathway</small>
@@ -1078,7 +1081,7 @@
             </div>
         </section>
 
-        <section class="section" id="evaluation">
+        <section class="section mobile-page" id="evaluation" data-mobile-page-label="Evaluation">
             <div class="wrap">
                 <div class="section-heading">
                     <small>Provisional Evaluation</small>
@@ -1103,7 +1106,7 @@
             </div>
         </section>
 
-        <section class="section section-soft" id="opportunities">
+        <section class="section section-soft mobile-page" id="opportunities" data-mobile-page-label="Opportunities">
             <div class="wrap">
                 <div class="section-heading">
                     <small>What ETSA Is Building</small>
@@ -1134,7 +1137,7 @@
             </div>
         </section>
 
-        <section class="section section-dark" id="join">
+        <section class="section section-dark mobile-page" id="join" data-mobile-page-label="Join the Grid">
             <div class="wrap">
                 <div class="join-layout">
                     <div class="join-copy">
@@ -1238,11 +1241,12 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer mobile-page mobile-page-footer" data-mobile-page-label="About ETSA">
         <p><strong>ETSA – Esport Talent Search Africa</strong></p>
         <p>ETSA Digital Grand Prix: a project-based pathway for African digital talent.</p>
         <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
     </footer>
+    </div>
 
     <script>
         (() => {
@@ -1319,3 +1323,4 @@
     </script>
 </body>
 </html>
+

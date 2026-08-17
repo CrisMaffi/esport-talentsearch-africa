@@ -795,6 +795,8 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="assets/mobile-deck.css">
+    <script src="assets/mobile-deck.js" defer></script>
 </head>
 
 <body>
@@ -822,7 +824,8 @@
         </details>
     </nav>
 
-    <header class="hero">
+    <div class="mobile-page-deck">
+    <header class="hero mobile-page" data-mobile-page-label="Rally Challenge">
         <div class="hero-inner">
             <small>Events / Ethiopia Pilot</small>
 
@@ -849,7 +852,7 @@
         <a href="#points">Points</a>
     </nav>
 
-    <section class="section" id="context">
+    <section class="section mobile-page" id="context" data-mobile-page-label="What it is">
         <div class="section-inner">
 
             <div class="section-title">
@@ -889,7 +892,7 @@
         </div>
     </section>
 
-    <section class="section black-section" id="rules">
+    <section class="section black-section mobile-page" id="rules" data-mobile-page-label="Competition format">
         <div class="section-inner">
 
             <div class="section-title">
@@ -939,7 +942,7 @@
         </div>
     </section>
 
-    <section class="section" id="participation">
+    <section class="section mobile-page" id="participation" data-mobile-page-label="How to enter">
         <div class="section-inner">
 
             <div class="section-title">
@@ -983,7 +986,7 @@
         </div>
     </section>
 
-    <section class="section" id="calendar">
+    <section class="section mobile-page" id="calendar" data-mobile-page-label="Live championships">
         <div class="section-inner">
             <div class="section-title">
                 <small>Live Championships</small>
@@ -1014,7 +1017,7 @@
         </div>
     </section>
 
-    <section class="section black-section" id="venue">
+    <section class="section black-section mobile-page" id="venue" data-mobile-page-label="Venue">
         <div class="section-inner">
             <div class="section-title">
                 <small>Ethiopian Esport Venue</small>
@@ -1055,7 +1058,7 @@
         </div>
     </section>
 
-    <section class="section black-section" id="points">
+    <section class="section black-section mobile-page" id="points" data-mobile-page-label="Points and prizes">
         <div class="section-inner">
 
             <div class="section-title">
@@ -1128,7 +1131,7 @@
         </div>
     </section>
 
-    <section class="cta">
+    <section class="cta mobile-page" data-mobile-page-label="ETSA pilot">
         <h2>One pilot. One championship. A scalable model.</h2>
         <p>
             The EMSA Esport Rally Challenge 2026 is where the ETSA concept becomes operational:
@@ -1138,9 +1141,10 @@
         <a href="contact.html" class="btn btn-primary">Contact ETSA</a>
     </section>
 
-    <footer>
+    <footer class="mobile-page mobile-page-footer" data-mobile-page-label="About ETSA">
         © Maffi Racing — Contact: c.maffi@maffiracing.com
     </footer>
+    </div>
 
 </body>
 </html>

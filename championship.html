@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Ethiopian Sim Racing Championship | ETSA</title>
+    <meta name="description" content="Current Ethiopian sim racing championship standings, points, results and event schedule, synchronized from the official Ethiopian Motorsport platform.">
+    <meta name="keywords" content="Ethiopian sim racing championship, Ethiopia esports motorsport, African sim racing, Ethiopian Motorsport esports, sim racing results Ethiopia, sim racing standings Ethiopia">
+    <meta name="author" content="Maffi Racing">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://esport-talentsearch.africa/championship.html">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="assets/championship.css?v=20260817">
+
+    <meta property="og:title" content="Live Ethiopian Sim Racing Championship | ETSA">
+    <meta property="og:description" content="Current standings, points, results and rounds from the official Ethiopian Motorsport sim-racing platform.">
+    <meta property="og:image" content="https://esport-talentsearch.africa/africa-map.png">
+    <meta property="og:url" content="https://esport-talentsearch.africa/championship.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Ethiopian Sim Racing Championship | ETSA">
+    <meta name="twitter:description" content="Current Ethiopian sim-racing standings, points, results and event schedule.">
+    <meta name="twitter:image" content="https://esport-talentsearch.africa/africa-map.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Live Ethiopian Sim Racing Championship",
+      "url": "https://esport-talentsearch.africa/championship.html",
+      "description": "Current Ethiopian sim racing championship standings, points, results and schedule.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "ETSA – Esport Talent Search Africa",
+        "url": "https://esport-talentsearch.africa/"
+      },
+      "about": {
+        "@type": "SportsEvent",
+        "name": "Ethiopian Sim Racing Championship"
+      }
+    }
+    </script>
+
+    <script src="assets/championship.js?v=20260817" defer></script>
+</head>
+
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="index.html" class="navbar-title">ETSA</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="digital-grand-prix.html">Digital GP</a>
+            <a href="championship.html" aria-current="page">Live Championship</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <div>
+                <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Official data feed</span>
+                <h1>Live Ethiopian sim racing championship.</h1>
+                <p>
+                    Current rounds, championship standings and latest results—verified from the
+                    Ethiopian Motorsport sim-racing platform and synchronized by ETSA.
+                </p>
+            </div>
+            <div class="hero-mark" aria-hidden="true">
+                <span>ET</span>
+                <strong>LIVE</strong>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="source-bar" aria-label="Data source and freshness">
+            <div class="page-width source-inner">
+                <p>
+                    <strong>Official championship data:</strong>
+                    <a id="official-source-top" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Ethiopian Motorsport</a>
+                </p>
+                <p id="last-updated" aria-live="polite">Loading verified championship data…</p>
+            </div>
+        </section>
+
+        <section class="section page-width" aria-labelledby="overview-title">
+            <div class="section-heading">
+                <div>
+                    <small>Championship overview</small>
+                    <h2 id="overview-title">Current season at a glance.</h2>
+                </div>
+                <span class="data-badge">Daily verified snapshot</span>
+            </div>
+
+            <div class="overview-grid" id="overview-grid" aria-live="polite">
+                <article class="metric-card loading-card"><span>Championship</span><strong>Loading…</strong></article>
+                <article class="metric-card loading-card"><span>Season</span><strong>—</strong></article>
+                <article class="metric-card loading-card"><span>Rounds</span><strong>—</strong></article>
+                <article class="metric-card loading-card"><span>Completed</span><strong>—</strong></article>
+                <article class="metric-card loading-card"><span>Leader</span><strong>—</strong></article>
+                <article class="metric-card loading-card"><span>Next round</span><strong>—</strong></article>
+            </div>
+        </section>
+
+        <section class="section section-dark" aria-labelledby="highlights-title">
+            <div class="page-width">
+                <div class="section-heading">
+                    <div>
+                        <small>Race control</small>
+                        <h2 id="highlights-title">Latest result and next event.</h2>
+                    </div>
+                </div>
+
+                <div class="highlight-grid">
+                    <article class="highlight-card" id="latest-result">
+                        <span class="panel-label">Latest result</span>
+                        <h3>Loading latest result…</h3>
+                    </article>
+                    <article class="highlight-card upcoming" id="upcoming-event">
+                        <span class="panel-label">Upcoming event</span>
+                        <h3>Loading next round…</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section page-width" aria-labelledby="standings-title">
+            <div class="section-heading">
+                <div>
+                    <small>Driver leaderboard</small>
+                    <h2 id="standings-title">Championship standings.</h2>
+                    <p>Wins, podiums and starts are calculated from the official round-by-round results.</p>
+                </div>
+            </div>
+
+            <div class="table-shell">
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th scope="col">Position</th>
+                            <th scope="col">Driver</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Points</th>
+                            <th scope="col">Wins</th>
+                            <th scope="col">Podiums</th>
+                            <th scope="col">Starts</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-body">
+                        <tr class="loading-row">
+                            <td colspan="7">Loading verified standings…</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section schedule-section" aria-labelledby="schedule-title">
+            <div class="page-width">
+                <div class="section-heading">
+                    <div>
+                        <small>Event schedule</small>
+                        <h2 id="schedule-title">Every championship round.</h2>
+                        <p>Practice and Time Attack dates reflect the current official schedule.</p>
+                    </div>
+                </div>
+
+                <div class="schedule-grid" id="schedule-grid" aria-live="polite">
+                    <article class="event-card loading-card"><h3>Loading rounds…</h3></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="official-cta">
+            <div class="page-width official-inner">
+                <div>
+                    <small>Source of truth</small>
+                    <h2>ETSA displays the championship. Ethiopian Motorsport remains the official system.</h2>
+                </div>
+                <a id="official-source-bottom" class="button" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Open official championship</a>
+            </div>
+        </section>
+
+        <noscript>
+            <div class="noscript">
+                JavaScript is required to display the synchronized snapshot.
+                <a href="https://simracing.ethiopianmotorsport.com/schedule?champ=1">View the official championship.</a>
+            </div>
+        </noscript>
+    </main>
+
+    <footer class="footer">
+        <p><strong>ETSA – Esport Talent Search Africa</strong></p>
+        <p>A continental talent pathway, piloted in Ethiopia through EMSA Esports.</p>
+        <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
+    </footer>
+</body>
+</html>

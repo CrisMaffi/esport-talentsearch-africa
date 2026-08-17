@@ -15,6 +15,7 @@ const requiredFiles = [
   "assets/championship.css",
   "assets/championship.js",
   "data/championship.json",
+  "data/championship-f4.json",
   "sitemap.xml",
   "robots.txt"
 ];
@@ -46,7 +47,8 @@ const championshipHtml = await readFile(path.join(projectRoot, "championship.htm
   "standings-body",
   "schedule-grid",
   "last-updated",
-  "Official championship data"
+  "data-championship=\"rally\"",
+  "data-championship=\"f4\""
 ].forEach((marker) => {
   if (!championshipHtml.includes(marker)) {
     failures.push("Championship page is missing marker: " + marker);

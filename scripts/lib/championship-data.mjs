@@ -171,14 +171,24 @@ export function selectSourceRecords(scheduleNodes, standingsNodes, resultNodes =
   return { metadata, schedule, standings, result };
 }
 
-function normalizeEvent(round, championshipId, baseUrl, timezone) {
-  const rawStatus = cleanText(round.status) || "unknown";
-  let status = "upcoming";
+function normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime) {
+    const rawStatus = cleanText(round.status) || "unknown";
+    let status = "upcoming";
+    const practiceStart = isoOrNull(round.practice_start, timezone);
+    const endDate = isoOrNull(round.ta_end, timezone);
 
-  if (round.completed || ["closed", "completed", "final"].includes(rawStatus.toLowerCase())) {
-    status = "completed";
-  } else if (["live", "active", "open", "running"].includes(rawStatus.toLowerCase())) {
-    status = "live";
+    if (round.completed || ["closed", "completed", "final"].includes(rawStatus.toLowerCase())) {
+      status = "completed";
+    } else if (["live", "active", "open", "running"].includes(rawStatus.toLowerCase())) {
+      status = "live";
+    } else if (
+      Number.isFinite(referenceTime) &&
+      Number.isFinite(Date.parse(practiceStart)) &&
+      Number.isFinite(Date.parse(endDate)) &&
+      referenceTime >= Date.parse(practiceStart) &&
+      referenceTime <= Date.parse(endDate)
+    ) {
+      status = "live";
   }
 
   const resultUrl = status === "completed"
@@ -199,10 +209,10 @@ function normalizeEvent(round, championshipId, baseUrl, timezone) {
     surface: cleanText(round.stage_surface),
     notes: cleanText(round.stage_notes),
     car: cleanText(round.car_name),
-    practiceStart: isoOrNull(round.practice_start, timezone),
+    practiceStart,
     practiceEnd: isoOrNull(round.practice_end, timezone),
     startDate: isoOrNull(round.ta_start, timezone),
-    endDate: isoOrNull(round.ta_end, timezone),
+    endDate,
     status,
     sourceStatus: rawStatus,
     pointsMultiplier: finiteNumber(round.points_multiplier, 1),
@@ -257,9 +267,11 @@ export function normalizeChampionship(source, options) {
   const selected = metadata.championships.find((item) => Number(item.id) === championshipId);
   const championshipName = cleanText(selected && selected.name) || cleanText(metadata.title);
   const timezone = cleanText(schedule.timezone) || "Africa/Addis_Ababa";
+  const lastUpdated = options.lastUpdated || new Date().toISOString();
+  const referenceTime = Date.parse(lastUpdated);
   const events = schedule.rounds
     .filter((round) => Number(round.championship_id) === championshipId)
-    .map((round) => normalizeEvent(round, championshipId, baseUrl, timezone))
+    .map((round) => normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime))
     .sort((a, b) => a.round - b.round);
   const completedEvents = events.filter((event) => event.status === "completed");
   const pendingEvents = events.filter((event) => event.status !== "completed");
@@ -324,7 +336,7 @@ export function normalizeChampionship(source, options) {
     events,
     latestResult,
     upcomingEvent,
-    lastUpdated: options.lastUpdated || new Date().toISOString()
+    lastUpdated
   };
 }
 

@@ -1,7 +1,23 @@
 (() => {
     "use strict";
 
-    const dataUrl = "data/championship.json";
+    const championships = {
+        rally: { dataUrl: "data/championship.json" },
+        f4: { dataUrl: "data/championship-f4.json" }
+    };
+    const requestedChampionship = new URLSearchParams(window.location.search).get("champ");
+    const championshipKey = Object.hasOwn(championships, requestedChampionship)
+        ? requestedChampionship
+        : "rally";
+    const dataUrl = championships[championshipKey].dataUrl;
+
+    document.querySelectorAll("[data-championship]").forEach((link) => {
+        if (link.dataset.championship === championshipKey) {
+            link.setAttribute("aria-current", "true");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    });
     const text = (value, fallback = "—") => {
         if (value === null || value === undefined || value === "") return fallback;
         return String(value);
@@ -68,7 +84,7 @@
         const grid = document.getElementById("overview-grid");
 
         grid.replaceChildren(
-            metric("Championship", text(championship.name), "Official Ethiopian Motorsport series"),
+            metric("Championship", text(championship.name), "Ethiopian sim racing series"),
             metric("Season", text(championship.season), text(championship.timezone)),
             metric("Rounds", text(championship.totalRounds), "Total scheduled rounds"),
             metric("Completed", text(championship.completedRounds), last ? "Last: R" + last.round + " · " + last.name : "No completed round"),
@@ -107,7 +123,11 @@
         const target = document.getElementById("upcoming-event");
         const event = data.upcomingEvent;
         const timezone = data.championship.timezone;
-        target.replaceChildren(element("span", "panel-label", "Upcoming event"));
+        target.replaceChildren(element(
+            "span",
+            "panel-label",
+            event && event.status === "live" ? "Live now" : "Upcoming event"
+        ));
 
         if (!event) {
             target.append(element("h3", "", "Season schedule complete."));
@@ -209,17 +229,14 @@
     }
 
     function renderSource(data) {
-        const timezone = data.championship.timezone;
         document.getElementById("last-updated").textContent =
-            "Last updated: " + new Intl.DateTimeFormat("en-GB", {
-                dateStyle: "medium",
-                timeStyle: "short",
-                timeZone: timezone
-            }).format(new Date(data.lastUpdated)) + " (" + timezone + ")";
+            "Schedule, standings and results";
 
         ["official-source-top", "official-source-bottom"].forEach((id) => {
             document.getElementById(id).href = data.source.publicUrl;
         });
+        document.getElementById("official-source-top").textContent = data.championship.name;
+        document.title = data.championship.name + " | ETSA Live Championship";
     }
 
     function showFailure(error) {

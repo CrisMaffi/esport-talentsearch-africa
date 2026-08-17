@@ -6,6 +6,12 @@
       "enabled": true,
       "public": true,
       "output": "data/championship.json"
+    },
+    {
+      "id": 2,
+      "enabled": true,
+      "public": true,
+      "output": "data/championship-f4.json"
     }
   ]
 }

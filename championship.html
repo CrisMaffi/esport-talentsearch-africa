@@ -74,11 +74,13 @@
     <main>
         <section class="championship-switcher" aria-label="Choose a championship">
             <div class="page-width championship-switcher-inner">
-                <span>Choose championship</span>
-                <nav class="championship-tabs" aria-label="Championships">
-                    <a href="championship.html?champ=rally" data-championship="rally">AC Rally Challenge 2026</a>
-                    <a href="championship.html?champ=f4" data-championship="f4">F4 Challenge</a>
-                </nav>
+                <label for="championship-select">Choose championship</label>
+                <div class="championship-select-control">
+                    <select id="championship-select" aria-label="Choose championship">
+                        <option value="rally">AC Rally Challenge 2026</option>
+                        <option value="f4">F4 Challenge</option>
+                    </select>
+                </div>
             </div>
         </section>
 
@@ -183,9 +185,11 @@
         <section class="official-cta">
             <div class="page-width official-inner">
                 <div>
-                    <small>Enter the championship</small>
+                    <small>Compete in Ethiopia's esports challenges</small>
+                    <h2>Drivers from around the world are welcome.</h2>
+                    <p>Become a member of the Ethiopian Motor Sport Association, then enter and pay only for the rounds in which you choose to compete.</p>
                 </div>
-                <a id="official-source-bottom" class="button" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Open championship platform</a>
+                <a class="button" href="https://esport.ethiopianmotorsport.com/" target="_blank" rel="noopener">Join and compete</a>
             </div>
         </section>
 

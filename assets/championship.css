@@ -177,7 +177,7 @@ a { color: inherit; }
     gap: 24px;
 }
 
-.championship-switcher-inner > span {
+.championship-switcher-inner > label {
     color: #bdbdbd;
     font-size: 12px;
     font-weight: 900;
@@ -185,27 +185,44 @@ a { color: inherit; }
     text-transform: uppercase;
 }
 
-.championship-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.championship-select-control {
+    position: relative;
+    width: min(100%, 360px);
 }
 
-.championship-tabs a {
-    padding: 11px 15px;
-    border: 1px solid #454545;
-    border-radius: 999px;
+.championship-select-control::after {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    content: "";
+    pointer-events: none;
+    transform: translateY(-70%) rotate(45deg);
+}
+
+#championship-select {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 48px 11px 16px;
+    appearance: none;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color-scheme: dark;
+    background: #171717;
     color: var(--white);
+    cursor: pointer;
     font-size: 14px;
     font-weight: 900;
-    text-decoration: none;
 }
 
-.championship-tabs a:hover,
-.championship-tabs a[aria-current="true"] {
+#championship-select:hover,
+#championship-select:focus-visible {
     border-color: var(--gold);
-    color: var(--black);
-    background: var(--gold);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
 }
 
 .source-bar {
@@ -588,6 +605,14 @@ a { color: inherit; }
     font-size: clamp(30px, 4vw, 48px);
 }
 
+.official-cta p {
+    max-width: 760px;
+    margin: 16px 0 0;
+    color: #d0d0d0;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
 .official-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -703,13 +728,8 @@ a { color: inherit; }
         gap: 12px;
     }
 
-    .championship-tabs {
+    .championship-select-control {
         width: 100%;
-    }
-
-    .championship-tabs a {
-        flex: 1 1 180px;
-        text-align: center;
     }
 
     .section {

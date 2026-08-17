@@ -11,13 +11,16 @@
         : "rally";
     const dataUrl = championships[championshipKey].dataUrl;
 
-    document.querySelectorAll("[data-championship]").forEach((link) => {
-        if (link.dataset.championship === championshipKey) {
-            link.setAttribute("aria-current", "true");
-        } else {
-            link.removeAttribute("aria-current");
-        }
-    });
+    const championshipSelect = document.getElementById("championship-select");
+    if (championshipSelect) {
+        championshipSelect.value = championshipKey;
+        championshipSelect.addEventListener("change", () => {
+            if (!Object.hasOwn(championships, championshipSelect.value)) return;
+            const nextUrl = new URL(window.location.href);
+            nextUrl.searchParams.set("champ", championshipSelect.value);
+            window.location.assign(nextUrl.toString());
+        });
+    }
     const text = (value, fallback = "—") => {
         if (value === null || value === undefined || value === "") return fallback;
         return String(value);
@@ -232,9 +235,7 @@
         document.getElementById("last-updated").textContent =
             "Schedule, standings and results";
 
-        ["official-source-top", "official-source-bottom"].forEach((id) => {
-            document.getElementById(id).href = data.source.publicUrl;
-        });
+        document.getElementById("official-source-top").href = data.source.publicUrl;
         document.getElementById("official-source-top").textContent = data.championship.name;
         document.title = data.championship.name + " | ETSA Live Championship";
     }

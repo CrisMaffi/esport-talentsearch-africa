@@ -1,0 +1,11 @@
+{
+  "sourceBaseUrl": "https://simracing.ethiopianmotorsport.com",
+  "championships": [
+    {
+      "id": 1,
+      "enabled": true,
+      "public": true,
+      "output": "data/championship.json"
+    }
+  ]
+}

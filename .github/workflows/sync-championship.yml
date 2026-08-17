@@ -1,0 +1,58 @@
+name: Sync live championship
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      championship_id:
+        description: "Ethiopian Motorsport championship ID"
+        required: false
+        default: "1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: etsa-championship-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Validate and update championship data
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CHAMPIONSHIP_ID: ${{ inputs.championship_id || '1' }}
+
+    steps:
+      - name: Check out ETSA
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run integration tests
+        run: npm test
+
+      - name: Fetch and validate official championship data
+        run: npm run championship:sync
+
+      - name: Validate generated snapshot
+        run: npm run championship:validate
+
+      - name: Commit only verified data changes
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain -- data/*.json)" ]]; then
+            echo "No championship data changes detected."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.json
+          git commit -m "chore: sync championship data"
+          git push

@@ -57,6 +57,18 @@ const championshipHtml = await readFile(path.join(projectRoot, "championship.htm
   }
 });
 
+const digitalGrandPrixHtml = await readFile(path.join(projectRoot, "digital-grand-prix.html"), "utf8");
+[
+  "Driver Telemetry &amp; Coaching Tool",
+  "Rig Calibration &amp; Scrutineering Tool",
+  "Same driver. Same declared conditions. Different result.",
+  "Project 1 or Project 2 as separate submissions"
+].forEach((marker) => {
+  if (!digitalGrandPrixHtml.includes(marker)) {
+    failures.push("Digital Grand Prix page is missing marker: " + marker);
+  }
+});
+
 const sitemap = await readFile(path.join(projectRoot, "sitemap.xml"), "utf8");
 if (!sitemap.includes("/championship.html")) {
   failures.push("Championship page is missing from sitemap.xml");

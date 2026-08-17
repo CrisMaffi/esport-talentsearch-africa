@@ -1,58 +1,40 @@
-name: Sync live championship
+name: Publish verified venue gallery
 
 on:
-  schedule:
-    - cron: "0 6 * * *"
-  workflow_dispatch:
-    inputs:
-      championship_id:
-        description: "Optional championship ID; leave blank to update all public championships"
-        required: false
-        default: ""
+  push:
+    branches:
+      - agent/ethiopian-esport-venue-gallery
 
 permissions:
   contents: write
 
 concurrency:
-  group: etsa-championship-sync
+  group: etsa-venue-gallery-publish
   cancel-in-progress: false
 
 jobs:
-  sync:
-    name: Validate and update championship data
+  publish:
+    name: Fast-forward verified venue gallery
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      CHAMPIONSHIP_ID: ${{ inputs.championship_id }}
+    timeout-minutes: 5
 
     steps:
-      - name: Check out ETSA
+      - name: Check out publication branch
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          fetch-depth: 0
 
-      - name: Run integration tests
-        run: npm test
-
-      - name: Fetch and validate official championship data
-        run: npm run championship:sync
-
-      - name: Validate generated snapshot
-        run: npm run championship:validate
-
-      - name: Commit only verified data changes
+      - name: Publish only the verified venue commit
         shell: bash
         run: |
-          if [[ -z "$(git status --porcelain -- data/*.json)" ]]; then
-            echo "No championship data changes detected."
-            exit 0
+          set -euo pipefail
+          git fetch origin main
+          current="$(git rev-parse origin/main)"
+          expected="4ab9719bc80a4ea41433cfe0c63cce4cbbbab7ff"
+
+          if [[ "$current" != "$expected" ]]; then
+            echo "Main moved from the verified base; refusing publication."
+            exit 1
           fi
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/*.json
-          git commit -m "chore: sync championship data"
-          git push
+          git push origin b82c2ec720a35b5a6af02515bfd2551a769be115:refs/heads/main

@@ -1,0 +1,281 @@
+/* ETSA mobile browsing: major sections become horizontal swipe pages. */
+@media (max-width: 700px) {
+    :root {
+        --mobile-nav-height: 69px;
+        --mobile-card-width: calc(100% - 48px);
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        padding-top: var(--mobile-nav-height) !important;
+        overflow: hidden !important;
+    }
+
+    .navbar {
+        width: 100% !important;
+        height: var(--mobile-nav-height) !important;
+        min-height: var(--mobile-nav-height) !important;
+        position: fixed !important;
+        inset: 0 0 auto !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 18px !important;
+        overflow: hidden !important;
+        padding: 12px 18px !important;
+        background: rgba(255, 255, 255, 0.97) !important;
+    }
+
+    .navbar-title,
+    .brand {
+        flex: 0 0 auto;
+    }
+
+    .navbar .nav-links {
+        min-width: 0;
+        flex: 1 1 auto;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 18px !important;
+        overflow-x: auto !important;
+        padding: 8px 2px !important;
+        scrollbar-width: none;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .navbar .nav-links::-webkit-scrollbar,
+    .mobile-page-deck::-webkit-scrollbar,
+    .mobile-card-row::-webkit-scrollbar,
+    .challenge-meta::-webkit-scrollbar,
+    .future-classes::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navbar .nav-links a {
+        flex: 0 0 auto;
+        font-size: 13px !important;
+    }
+
+    .mobile-nav,
+    .mobile-section-nav {
+        display: none !important;
+    }
+
+    .mobile-page-deck {
+        width: 100%;
+        height: calc(100dvh - var(--mobile-nav-height));
+        display: flex;
+        align-items: stretch;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-inline: contain;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        touch-action: pan-x pan-y;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-page-deck > main {
+        display: contents;
+    }
+
+    .mobile-page-deck > .mobile-page,
+    .mobile-page-deck > main > .mobile-page {
+        width: 100vw;
+        min-width: 100vw;
+        height: 100%;
+        min-height: 0 !important;
+        flex: 0 0 100vw;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-bottom: 66px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        scroll-margin: 0 !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-page-deck > .hero.mobile-page,
+    .mobile-page-deck > main > .hero.mobile-page {
+        padding-top: 44px !important;
+        grid-template-rows: repeat(2, max-content) !important;
+        align-content: start !important;
+        align-items: start !important;
+    }
+
+    .mobile-page.page-width {
+        padding-inline: 15px !important;
+    }
+
+    .mobile-page-deck > .mobile-page-footer,
+    .mobile-page-deck > main > .mobile-page-footer {
+        display: grid;
+        place-content: center;
+        padding: 42px 7% 78px !important;
+    }
+
+    .mobile-page-progress {
+        position: fixed;
+        left: 50%;
+        bottom: max(12px, env(safe-area-inset-bottom));
+        z-index: 950;
+        max-width: calc(100vw - 32px);
+        display: flex;
+        gap: 7px;
+        overflow-x: auto;
+        padding: 8px 10px;
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        border-radius: 999px;
+        background: rgba(5, 5, 5, 0.82);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateX(-50%);
+        backdrop-filter: blur(8px);
+        scrollbar-width: none;
+    }
+
+    .mobile-page-progress::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mobile-page-progress button {
+        width: 8px;
+        height: 8px;
+        flex: 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: #858585;
+        cursor: pointer;
+        transition: width 160ms ease, background 160ms ease;
+    }
+
+    .mobile-page-progress button[aria-current="true"] {
+        width: 26px;
+        background: #d4af37;
+    }
+
+    .mobile-page-progress button:focus-visible {
+        outline: 2px solid #ffffff;
+        outline-offset: 3px;
+    }
+
+    /* Every repeated content group becomes a sideways card row. */
+    .challenge-points,
+    .cards,
+    .steps,
+    .events-preview,
+    .partner-strip,
+    .edition-facts,
+    .hierarchy,
+    .project-choice-grid,
+    .brief-grid,
+    .process,
+    .score-list,
+    .opportunity-grid,
+    .contact-grid,
+    .overview-grid,
+    .highlight-grid,
+    .schedule-grid,
+    .leaderboard tbody {
+        display: grid !important;
+        grid-template-columns: none !important;
+        grid-auto-flow: column !important;
+        grid-auto-columns: var(--mobile-card-width) !important;
+        align-items: stretch;
+        gap: 14px !important;
+        overflow-x: auto !important;
+        overscroll-behavior-inline: auto;
+        padding: 4px 0 14px !important;
+        scroll-padding-inline: 0;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        touch-action: pan-x pan-y;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .challenge-points > *,
+    .cards > *,
+    .steps > *,
+    .events-preview > *,
+    .partner-strip > *,
+    .edition-facts > *,
+    .hierarchy > *,
+    .project-choice-grid > *,
+    .brief-grid > *,
+    .process > *,
+    .score-list > *,
+    .opportunity-grid > *,
+    .contact-grid > *,
+    .overview-grid > *,
+    .highlight-grid > *,
+    .schedule-grid > *,
+    .leaderboard tbody > * {
+        min-width: 0;
+        height: auto;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    .challenge-meta,
+    .future-classes {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .challenge-meta > *,
+    .future-classes > * {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+    }
+
+    .founder-card {
+        width: auto !important;
+        max-width: none !important;
+        grid-column: auto !important;
+        margin: 0 !important;
+    }
+
+    .leaderboard tbody tr {
+        margin: 0;
+    }
+
+    .leaderboard thead,
+    .leaderboard thead tr {
+        width: 1px !important;
+        max-width: 1px !important;
+        height: 1px !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        overflow: hidden !important;
+        clip: rect(0 0 0 0) !important;
+        clip-path: inset(50%) !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mobile-page-deck {
+        scroll-behavior: auto;
+    }
+
+    .mobile-page-progress button {
+        transition: none;
+    }
+}
+

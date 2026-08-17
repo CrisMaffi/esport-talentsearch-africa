@@ -12,6 +12,7 @@
     <link rel="canonical" href="https://esport-talentsearch.africa/championship.html">
     <link rel="icon" type="image/png" href="maffi-esports-logo.png">
     <link rel="stylesheet" href="assets/championship.css?v=20260817-3">
+    <link rel="stylesheet" href="assets/mobile-deck.css">
 
     <meta property="og:title" content="Live Ethiopian Sim Racing Championship | ETSA">
     <meta property="og:description" content="Current standings, points, results and rounds from the official Ethiopian Motorsport sim-racing platform.">
@@ -44,6 +45,7 @@
     </script>
 
     <script src="assets/championship.js?v=20260817-3" defer></script>
+    <script src="assets/mobile-deck.js" defer></script>
 </head>
 
 <body>
@@ -58,6 +60,8 @@
         </div>
     </nav>
 
+    <div class="mobile-page-deck">
+    <div class="mobile-page" data-mobile-page-label="Championship centre">
     <header class="hero">
         <div class="hero-inner">
             <div>
@@ -71,7 +75,6 @@
         </div>
     </header>
 
-    <main>
         <section class="championship-switcher" aria-label="Choose a championship">
             <div class="page-width championship-switcher-inner">
                 <label for="championship-select">Choose championship</label>
@@ -93,8 +96,10 @@
                 <p id="last-updated" aria-live="polite">Loading championship information…</p>
             </div>
         </section>
+    </div>
 
-        <section class="section page-width" aria-labelledby="overview-title">
+    <main>
+        <section class="section page-width mobile-page" aria-labelledby="overview-title" data-mobile-page-label="Overview">
             <div class="section-heading">
                 <div>
                     <small>Championship overview</small>
@@ -113,7 +118,7 @@
             </div>
         </section>
 
-        <section class="section section-dark" aria-labelledby="highlights-title">
+        <section class="section section-dark mobile-page" aria-labelledby="highlights-title" data-mobile-page-label="Latest and next">
             <div class="page-width">
                 <div class="section-heading">
                     <div>
@@ -135,7 +140,7 @@
             </div>
         </section>
 
-        <section class="section page-width" aria-labelledby="standings-title">
+        <section class="section page-width mobile-page" aria-labelledby="standings-title" data-mobile-page-label="Standings">
             <div class="section-heading">
                 <div>
                     <small>Driver leaderboard</small>
@@ -166,7 +171,7 @@
             </div>
         </section>
 
-        <section class="section schedule-section" aria-labelledby="schedule-title">
+        <section class="section schedule-section mobile-page" aria-labelledby="schedule-title" data-mobile-page-label="Schedule">
             <div class="page-width">
                 <div class="section-heading">
                     <div>
@@ -182,7 +187,7 @@
             </div>
         </section>
 
-        <section class="official-cta">
+        <section class="official-cta mobile-page" data-mobile-page-label="Join and compete">
             <div class="page-width official-inner">
                 <div>
                     <small>Compete in Ethiopia's esports challenges</small>
@@ -201,10 +206,12 @@
         </noscript>
     </main>
 
-    <footer class="footer">
+    <footer class="footer mobile-page mobile-page-footer" data-mobile-page-label="About ETSA">
         <p><strong>ETSA – Esport Talent Search Africa</strong></p>
         <p>A continental talent pathway, piloted in Ethiopia through EMSA Esports.</p>
         <p>© Maffi Racing — Contact: c.maffi@maffiracing.com</p>
     </footer>
+    </div>
 </body>
 </html>
+

@@ -369,6 +369,127 @@
             gap: 20px;
         }
 
+        .project-choice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-bottom: 34px;
+        }
+
+        .project-choice {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-top: 5px solid var(--gold);
+            border-radius: 18px;
+            color: var(--ink);
+            background: #ffffff;
+            text-decoration: none;
+            transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+
+        .project-choice:hover,
+        .project-choice:focus-visible {
+            outline: none;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .project-choice strong {
+            display: block;
+            margin: 7px 0 10px;
+            font-size: 25px;
+        }
+
+        .project-choice p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .project-brief {
+            margin-top: 28px;
+            padding: 34px;
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            background: #ffffff;
+            scroll-margin-top: 110px;
+        }
+
+        .project-brief + .project-brief {
+            margin-top: 32px;
+        }
+
+        .project-heading {
+            margin-bottom: 26px;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .project-number {
+            width: 54px;
+            height: 54px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            color: var(--black);
+            background: var(--gold);
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .project-heading small {
+            color: var(--gold-dark);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+        }
+
+        .project-heading h3 {
+            margin: 7px 0 10px;
+            font-size: clamp(28px, 4vw, 42px);
+            letter-spacing: -1px;
+        }
+
+        .project-heading p {
+            max-width: 850px;
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .test-case {
+            margin-bottom: 24px;
+            padding: 24px 26px;
+            border-left: 5px solid var(--gold);
+            border-radius: 0 14px 14px 0;
+            color: #ffffff;
+            background: var(--black);
+        }
+
+        .test-case small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .test-case h4 {
+            margin: 0 0 9px;
+            font-size: 24px;
+        }
+
+        .test-case p {
+            margin: 0;
+            color: #d2d2d2;
+            line-height: 1.65;
+        }
+
         .content-card ul {
             margin: 14px 0 0;
             padding-left: 20px;
@@ -586,6 +707,7 @@
             .hero,
             .join-layout,
             .hierarchy { grid-template-columns: 1fr; }
+            .project-choice-grid { grid-template-columns: 1fr; }
             .brief-grid,
             .opportunity-grid { grid-template-columns: 1fr 1fr; }
             .process { grid-template-columns: 1fr 1fr; }
@@ -613,6 +735,8 @@
             .process,
             .score-list,
             .form-grid { grid-template-columns: 1fr; }
+            .project-brief { padding: 24px; }
+            .project-heading { grid-template-columns: 1fr; }
             .field-full { grid-column: auto; }
         }
     </style>
@@ -649,7 +773,7 @@
             <span class="status">Coming Soon</span>
             <h2>First Edition: Developer Challenge</h2>
             <p>
-                The opening edition is planned as a practical build challenge around motorsport, esports or digital-performance technology. Final dates, eligibility, partners, rewards and the technical dataset will be announced before entries open.
+                The opening edition is planned around two independent motorsport-technology projects. Participants will choose one project and build a working solution. Final dates, eligibility, partners, rewards and technical resources will be announced before entries open.
             </p>
             <div class="edition-facts">
                 <div class="fact">
@@ -692,7 +816,7 @@
                         <span class="label">Opening Competitive Class</span>
                         <h3>Developer Edition</h3>
                         <p>
-                            The first edition concentrates resources on software and technical builders. It proves the format before ETSA introduces additional classes.
+                            The first edition offers two separate project briefs for software and technical builders: driver telemetry analysis, or rig calibration and scrutineering.
                         </p>
                     </article>
                 </div>
@@ -714,46 +838,177 @@
         <section class="section section-soft" id="first-edition">
             <div class="wrap">
                 <div class="section-heading">
-                    <small>Working Brief v1</small>
-                    <h2>Developer Edition: motorsport data and digital performance.</h2>
+                    <small>Working Brief v2</small>
+                    <h2>Developer Edition: choose one of two independent projects.</h2>
                     <p>
-                        The current challenge direction is to build a useful, mobile-first telemetry comparison platform that turns motorsport or sim-racing data into role-appropriate insight for drivers, officials, organisers and public viewers. The final sponsor-backed technical brief may refine the problem before registration opens.
+                        Project 1 focuses on turning driving telemetry into useful coaching insight. Project 2 focuses on calibrating, comparing and scrutinising simulator rigs. Each project has its own users, problem statement, technical requirements and judging evidence.
                     </p>
+                </div>
+
+                <div class="project-choice-grid" aria-label="Developer Edition project choices">
+                    <a class="project-choice" href="#project-telemetry">
+                        <span class="label">Project 1</span>
+                        <strong>Driver Telemetry &amp; Coaching Tool</strong>
+                        <p>Turn compatible lap and session data into clear, actionable driver-development insight.</p>
+                    </a>
+                    <a class="project-choice" href="#project-rig">
+                        <span class="label">Project 2</span>
+                        <strong>Rig Calibration &amp; Scrutineering Tool</strong>
+                        <p>Calibrate controls, compare simulator rigs and provide traceable technical evidence.</p>
+                    </a>
+                </div>
+
+                <article class="project-brief" id="project-telemetry" aria-labelledby="project-telemetry-title">
+                    <div class="project-heading">
+                        <span class="project-number">01</span>
+                        <div>
+                            <small>Independent Project 1</small>
+                            <h3 id="project-telemetry-title">Driver Telemetry &amp; Coaching Tool</h3>
+                            <p>
+                                Build a mobile-first tool that imports compatible motorsport or sim-racing telemetry and helps drivers and coaches understand where performance was gained, lost or made inconsistent. This project analyses driving performance after the data has been captured; it does not calibrate or scrutinise simulator hardware.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="brief-grid">
+                        <section class="content-card">
+                            <span class="label">Performance Comparison</span>
+                            <h3>Explain the lap</h3>
+                            <ul>
+                                <li>Compare two compatible laps or sessions</li>
+                                <li>Show lap, sector and mini-sector differences</li>
+                                <li>Overlay speed, throttle, brake and steering traces when supplied</li>
+                                <li>Identify consistency patterns and major time-loss areas</li>
+                            </ul>
+                        </section>
+
+                        <section class="content-card">
+                            <span class="label">Coaching Output</span>
+                            <h3>Turn evidence into action</h3>
+                            <ul>
+                                <li>Translate data into clear observations</li>
+                                <li>Separate measured facts from interpretation</li>
+                                <li>Allow driver or coach notes and next-session targets</li>
+                                <li>Present useful insight on mobile and low bandwidth</li>
+                            </ul>
+                        </section>
+
+                        <section class="content-card">
+                            <span class="label">Comparison Gate</span>
+                            <h3>Compare like with like</h3>
+                            <ul>
+                                <li>Check track, layout, vehicle and session</li>
+                                <li>Check units, timing and sampling rules when supplied</li>
+                                <li>Show mismatched and unavailable parameters</li>
+                                <li>Never invent missing telemetry</li>
+                            </ul>
+                        </section>
+                    </div>
+                </article>
+
+                <article class="project-brief" id="project-rig" aria-labelledby="project-rig-title">
+                    <div class="project-heading">
+                        <span class="project-number">02</span>
+                        <div>
+                            <small>Independent Project 2</small>
+                            <h3 id="project-rig-title">Rig Calibration &amp; Scrutineering Tool</h3>
+                            <p>
+                                Build a vendor-neutral technical tool that helps teams calibrate simulator controls, allows scrutineers to test whether different rigs respond equivalently, and gives drivers evidence for developing braking, throttle and steering inputs. This is a hardware-configuration, control-response and rig-equivalence project, separate from lap coaching.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="test-case">
+                        <small>Reference Test Case</small>
+                        <h4>Same driver. Same declared conditions. Different result.</h4>
+                        <p>
+                            A driver tests Rig 2 and Rig 3 using the same game, vehicle, circuit, setup and session conditions, but the performance is different. The tool must determine whether the controllers, joysticks, wheel and pedals are calibrated and mapped equivalently, identify measurable differences, and show which differences could contribute to an advantage. It must report evidence and uncertainty rather than assume the rig caused the result.
+                        </p>
+                    </div>
+
+                    <div class="brief-grid">
+                        <section class="content-card">
+                            <span class="label">Technical Team</span>
+                            <h3>Calibrate the rig</h3>
+                            <ul>
+                                <li>Record controllers, joysticks, wheel, pedals, firmware, drivers and relevant settings</li>
+                                <li>Measure axis centre, dead zones, saturation, range, linearity, noise and repeatability</li>
+                                <li>Compare live raw device input with the value received by the game</li>
+                                <li>Calibrate brake, throttle, clutch, steering angle and force-feedback settings where accessible</li>
+                            </ul>
+                        </section>
+
+                        <section class="content-card">
+                            <span class="label">Scrutineering</span>
+                            <h3>Compare rigs consistently</h3>
+                            <ul>
+                                <li>Lock game build, car, track, setup, assists, conditions and test procedure</li>
+                                <li>Run the same driver through a repeatable Rig A/Rig B crossover test</li>
+                                <li>Compare calibration, input latency, sampling, jitter and in-game response</li>
+                                <li>Classify each parameter as equivalent, mismatched or unavailable</li>
+                            </ul>
+                        </section>
+
+                        <section class="content-card">
+                            <span class="label">Driver Development</span>
+                            <h3>Develop control technique</h3>
+                            <ul>
+                                <li>Plot brake-pressure build-up and release curves</li>
+                                <li>Compare trail-braking shapes and pedal repeatability</li>
+                                <li>Review throttle application and steering-angle input</li>
+                                <li>Compare steering rate, smoothness and force-feedback response where supplied</li>
+                            </ul>
+                        </section>
+                    </div>
+
+                    <div class="brief-grid" style="margin-top:20px;">
+                        <section class="content-card">
+                            <span class="label">Calibration Record</span>
+                            <h3>Make every setup traceable</h3>
+                            <ul>
+                                <li>Save dated calibration profiles</li>
+                                <li>Record who changed each controller setting, when and why</li>
+                                <li>Compare before-and-after control response</li>
+                                <li>Export a Rig 2/Rig 3 equivalence report</li>
+                            </ul>
+                        </section>
+
+                        <section class="content-card">
+                            <span class="label">Integrity Rules</span>
+                            <h3>Evidence, not automatic penalties</h3>
+                            <ul>
+                                <li>Keep measured values, observations and decisions separate</li>
+                                <li>Show missing information as unavailable</li>
+                                <li>Identify possible advantage factors without claiming causation</li>
+                                <li>Flag deviations without making automatic sporting decisions</li>
+                                <li>Protect private technical and driver information</li>
+                            </ul>
+                        </section>
+
+                        <section class="content-card">
+                            <span class="label">Practical Use</span>
+                            <h3>Work across different equipment</h3>
+                            <ul>
+                                <li>Use a vendor-neutral data model</li>
+                                <li>Support wheels, pedals, controllers and joysticks</li>
+                                <li>Support imported data and guided manual calibration tests</li>
+                                <li>State which measurements the hardware can and cannot provide</li>
+                                <li>Remain useful without requiring identical rig brands</li>
+                            </ul>
+                        </section>
+                    </div>
+                </article>
+
+                <div class="section-heading" style="margin-top:58px;">
+                    <small>Requirements for Both Projects</small>
+                    <h2>Working software and verifiable evidence.</h2>
                 </div>
 
                 <div class="brief-grid">
                     <article class="content-card">
-                        <span class="label">The Problem</span>
-                        <h3>Make performance data useful</h3>
-                        <p>
-                            Drivers and teams generate information, but raw data does not automatically produce understanding. Participants should make insight easier to access and act on.
-                        </p>
-                    </article>
-
-                    <article class="content-card">
-                        <span class="label">The Build</span>
-                        <h3>One tool with role-based views</h3>
-                        <p>
-                            The product should compare compatible telemetry, explain gains and losses, show consistency and present the right controls and evidence for each user role.
-                        </p>
-                    </article>
-
-                    <article class="content-card">
-                        <span class="label">The Standard</span>
-                        <h3>Evidence over presentation</h3>
-                        <p>
-                            Judges will expect a functioning prototype, clear technical decisions, documentation, a concise demonstration and transparent team contributions.
-                        </p>
-                    </article>
-                </div>
-
-                <div class="brief-grid" style="margin-top:20px;">
-                    <article class="content-card">
-                        <h3>Planned minimum evidence</h3>
+                        <h3>Minimum submission</h3>
                         <ul>
                             <li>Working prototype or deployed demonstration</li>
-                            <li>Driver, official and organiser workflows</li>
-                            <li>Tests proving fair parameter matching and mismatch warnings</li>
                             <li>Source repository accessible to judges</li>
                             <li>README with setup and usage instructions</li>
                             <li>Short product demonstration video</li>
@@ -762,110 +1017,28 @@
                     </article>
 
                     <article class="content-card">
-                        <h3>Design priorities</h3>
+                        <h3>Required testing</h3>
                         <ul>
-                            <li>Mobile-first usability</li>
-                            <li>Low-bandwidth suitability</li>
-                            <li>Clear and accessible user experience</li>
-                            <li>Reliable handling of supplied data</li>
-                            <li>Role-based access and privacy protection</li>
-                            <li>A realistic route from prototype to use</li>
+                            <li>Project 1: compatible and incompatible telemetry comparisons</li>
+                            <li>Project 2: repeatability, tolerance and rig-mismatch tests</li>
+                            <li>Clear handling of missing or invalid data</li>
+                            <li>Documented limitations and assumptions</li>
                         </ul>
                     </article>
 
                     <article class="content-card">
-                        <h3>Planned participant profiles</h3>
+                        <h3>Participant profiles</h3>
                         <ul>
                             <li>Software developers and technical builders</li>
+                            <li>Data, electronics, simulation or product specialists</li>
                             <li>Students, professionals and self-taught talent</li>
                             <li>Individuals or small teams</li>
-                            <li>African talent seeking visible proof of ability</li>
-                            <li>Final eligibility to be published before launch</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div class="section-heading" style="margin-top:64px;">
-                    <small>Shared Product Objective</small>
-                    <h2>Build the ETSA Performance Lab.</h2>
-                    <p>
-                        A common performance platform with different views for each responsibility. Everyone works from the same evidence, while each role sees the controls, explanations and actions appropriate to them.
-                    </p>
-                </div>
-
-                <div class="brief-grid">
-                    <article class="content-card">
-                        <span class="label">Driver View</span>
-                        <h3>Understand and improve</h3>
-                        <ul>
-                            <li>Compare two compatible laps or sessions</li>
-                            <li>See lap, sector and mini-sector time differences</li>
-                            <li>Review speed, throttle, brake and consistency where supplied</li>
-                            <li>Add notes and turn findings into clear next actions</li>
-                        </ul>
-                    </article>
-
-                    <article class="content-card">
-                        <span class="label">Official View</span>
-                        <h3>Verify fairness and evidence</h3>
-                        <ul>
-                            <li>Confirm lap validity and declared comparison conditions</li>
-                            <li>See matched, mismatched and unavailable parameters</li>
-                            <li>Review file integrity and an auditable comparison summary</li>
-                            <li>Flag cases for human review without automatic penalties</li>
-                        </ul>
-                    </article>
-
-                    <article class="content-card">
-                        <span class="label">Organiser View</span>
-                        <h3>Configure and follow the event</h3>
-                        <ul>
-                            <li>Set the comparison baseline and required control parameters</li>
-                            <li>Monitor participation, data quality and performance spread</li>
-                            <li>Compare groups using the same published rules</li>
-                            <li>Export clear event and review summaries</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div class="brief-grid" style="margin-top:20px;">
-                    <article class="content-card">
-                        <span class="label">Fair Comparison Gate</span>
-                        <h3>Like for like before any conclusion</h3>
-                        <ul>
-                            <li>Track and layout</li>
-                            <li>Vehicle, class and permitted specification</li>
-                            <li>Session type and competition phase</li>
-                            <li>Conditions, units, timing and sampling rules when supplied</li>
-                            <li>A visible warning whenever the comparison is not equivalent</li>
-                        </ul>
-                    </article>
-
-                    <article class="content-card">
-                        <span class="label">Public View</span>
-                        <h3>Follow approved information</h3>
-                        <ul>
-                            <li>Simple explanations of published performance differences</li>
-                            <li>Approved results and event-level insights only</li>
-                            <li>No exposure of private telemetry or review material</li>
-                            <li>Accessible presentation for mobile and low bandwidth</li>
-                        </ul>
-                    </article>
-
-                    <article class="content-card">
-                        <span class="label">Shared Standard</span>
-                        <h3>One evidence model</h3>
-                        <ul>
-                            <li>Fact, comparison result and interpretation remain distinct</li>
-                            <li>Missing data is shown as unavailable, never invented</li>
-                            <li>Role permissions protect sensitive information</li>
-                            <li>Every adjustment and official review remains traceable</li>
                         </ul>
                     </article>
                 </div>
 
                 <p class="note">
-                    ETSA Performance Lab is the working product name. The official challenge brief will define the supplied telemetry format, required parameters, privacy rules and judging tests before entries open.
+                    Participants will enter Project 1 or Project 2 as separate submissions. The final briefs will define the supplied data, accepted hardware interfaces, calibration procedure, privacy rules and judging tests before entries open.
                 </p>
             </div>
         </section>

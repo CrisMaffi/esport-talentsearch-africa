@@ -1161,11 +1161,7 @@
                         </div>
                     </div>
 
-                    <form id="interest-form" class="form-card" name="digital-grand-prix-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/register">
-                        <input type="hidden" name="form-name" value="digital-grand-prix-interest">
-                        <p class="hidden">
-                            <label>Do not fill this out: <input name="bot-field"></label>
-                        </p>
+                    <form id="interest-form" class="form-card" name="digital-grand-prix-interest" method="GET" action="mailto:c.maffi@maffiracing.com">
 
                         <div class="form-grid">
                             <div class="field">
@@ -1225,13 +1221,13 @@
                             <label for="consent">I agree that ETSA may use these details to contact me about the Digital Grand Prix and related talent opportunities. *</label>
                         </div>
 
-                        <button id="interest-submit" type="submit" class="btn btn-gold">Submit Interest</button>
+                        <button id="interest-submit" type="submit" class="btn btn-gold">Prepare Registration Email</button>
                         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-                        <a id="email-fallback" class="btn btn-light email-fallback" href="mailto:c.maffi@maffiracing.com?subject=ETSA%20Digital%20Grand%20Prix%20Interest">Send Registration by Email</a>
+                        <a id="email-fallback" class="btn btn-light email-fallback" href="mailto:c.maffi@maffiracing.com?subject=ETSA%20Digital%20Grand%20Prix%20Interest">Open Prepared Registration Email</a>
 
                         <noscript>
                             <p class="form-status is-error">
-                                JavaScript is disabled. If submission does not complete, email your details to c.maffi@maffiracing.com.
+                                JavaScript is disabled. Email your registration details to c.maffi@maffiracing.com.
                             </p>
                         </noscript>
                     </form>
@@ -1278,46 +1274,17 @@
                 emailFallback.href = `mailto:c.maffi@maffiracing.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             };
 
-            form.addEventListener('submit', async (event) => {
+            form.addEventListener('submit', (event) => {
                 event.preventDefault();
 
                 if (!form.reportValidity()) return;
 
-                submitButton.disabled = true;
-                submitButton.textContent = 'Submitting…';
-                status.className = 'form-status';
-                status.textContent = 'Sending your registration…';
-                emailFallback.classList.remove('is-visible');
                 buildEmailFallback();
-
-                const formData = new FormData(form);
-                formData.set('form-name', form.getAttribute('name'));
-
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: new URLSearchParams(formData).toString()
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`Submission failed with HTTP ${response.status}`);
-                    }
-
-                    status.className = 'form-status is-success';
-                    status.textContent = 'Registration received. Redirecting…';
-                    window.location.assign('/thank-you.html');
-                } catch (error) {
-                    console.error('ETSA registration submission failed:', error);
-                    status.className = 'form-status is-error';
-                    status.textContent = 'The online form could not be sent. Use the email button below so your registration is not lost.';
-                    emailFallback.classList.add('is-visible');
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Try Again';
-                }
+                status.className = 'form-status is-success';
+                status.textContent = 'Your email app is opening. Send the prepared message to complete your registration.';
+                emailFallback.classList.add('is-visible');
+                submitButton.textContent = 'Open Registration Email';
+                window.location.assign(emailFallback.href);
             });
         })();
     </script>

@@ -79,6 +79,11 @@
             color: var(--gold);
         }
 
+        .mobile-nav,
+        .mobile-section-nav {
+            display: none;
+        }
+
         .hero {
             padding: 135px 7% 75px;
             background:
@@ -432,6 +437,14 @@
             color: #ffffff;
         }
 
+        .points-disclosure > summary {
+            display: none;
+        }
+
+        .points-disclosure > .points-table {
+            display: table !important;
+        }
+
         .cta {
             text-align: center;
             padding: 70px 7%;
@@ -470,22 +483,131 @@
 
         @media (max-width: 650px) {
             .navbar {
-                flex-direction: column;
-                gap: 10px;
-                padding: 14px;
+                flex-direction: row;
+                gap: 16px;
+                padding: 12px 18px;
             }
 
             .nav-links {
-                flex-wrap: wrap;
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+                position: relative;
+            }
+
+            .mobile-nav summary {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
                 justify-content: center;
+                padding: 9px 14px;
+                border: 1px solid var(--line);
+                border-radius: 999px;
+                background: white;
+                font-size: 14px;
+                font-weight: 900;
+                list-style: none;
+                cursor: pointer;
+            }
+
+            .mobile-nav summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .mobile-nav[open] summary {
+                border-color: var(--gold);
+            }
+
+            .mobile-nav-panel {
+                width: min(280px, calc(100vw - 36px));
+                position: absolute;
+                top: calc(100% + 10px);
+                right: 0;
+                display: grid;
+                padding: 8px;
+                border: 1px solid var(--line);
+                border-radius: 16px;
+                background: white;
+                box-shadow: 0 18px 50px rgba(0,0,0,0.16);
+            }
+
+            .mobile-nav-panel a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-weight: 800;
+                text-decoration: none;
+            }
+
+            .mobile-nav-panel a:hover,
+            .mobile-nav-panel a:focus-visible {
+                background: var(--soft);
+                color: var(--gold);
+            }
+
+            .mobile-section-nav {
+                min-height: 48px;
+                position: sticky;
+                top: 69px;
+                z-index: 90;
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+                padding: 8px 18px;
+                border-bottom: 1px solid var(--line);
+                background: rgba(255,255,255,0.96);
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .mobile-section-nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            .mobile-section-nav a {
+                min-height: 32px;
+                flex: 0 0 auto;
+                display: flex;
+                align-items: center;
+                padding: 7px 12px;
+                border: 1px solid var(--line);
+                border-radius: 999px;
+                font-size: 13px;
+                font-weight: 900;
+                text-decoration: none;
             }
 
             .hero {
-                padding-top: 145px;
+                padding: 98px 5% 42px;
             }
 
             .hero h1 {
-                font-size: 42px;
+                margin-bottom: 16px;
+                font-size: 36px;
+                line-height: 1.04;
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                margin-bottom: 22px;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .hero-actions .btn {
+                padding: 12px 10px;
+                text-align: center;
+                font-size: 14px;
             }
 
             .mobile-swipe-hint {
@@ -527,16 +649,149 @@
                 scroll-snap-stop: always;
             }
 
+            .info-card,
+            .rule-card {
+                padding: 20px;
+            }
+
+            .info-card h3,
+            .rule-card h3 {
+                font-size: 20px;
+            }
+
             .venue-photo:first-child {
                 grid-column: auto;
             }
 
+            .venue-gallery.swipe-cards .venue-photo {
+                height: auto;
+                aspect-ratio: 4 / 3;
+            }
+
+            .venue-gallery.swipe-cards .venue-photo a,
+            .venue-gallery.swipe-cards .venue-photo img,
             .venue-photo:first-child img {
+                height: 100%;
                 aspect-ratio: 4 / 3;
             }
 
             .section {
-                padding: 58px 6%;
+                padding: 42px 5%;
+                scroll-margin-top: 116px;
+            }
+
+            .section-title {
+                margin-bottom: 22px;
+            }
+
+            .section-title h2 {
+                margin: 8px 0 10px;
+                font-size: 29px;
+                line-height: 1.08;
+            }
+
+            .section-title p {
+                margin: 0;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            .round-head {
+                padding: 16px;
+            }
+
+            .round-head h3 {
+                font-size: 20px;
+            }
+
+            .round-body {
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .combo-list li,
+            .date-list li {
+                padding: 7px 0;
+                font-size: 14px;
+            }
+
+            .date-list .btn {
+                width: 100%;
+                padding: 12px 14px;
+                text-align: center;
+            }
+
+            .note {
+                padding: 13px 14px;
+                font-size: 14px;
+            }
+
+            .points-disclosure > summary {
+                min-height: 58px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                padding: 14px 16px;
+                border: 1px solid #333333;
+                border-radius: 12px;
+                background: #111111;
+                color: white;
+                font-weight: 900;
+                cursor: pointer;
+                list-style: none;
+            }
+
+            .points-disclosure > summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .points-disclosure > summary::after {
+                content: "+";
+                color: var(--gold);
+                font-size: 24px;
+                line-height: 1;
+            }
+
+            .points-disclosure[open] > summary::after {
+                content: "−";
+            }
+
+            .points-disclosure:not([open]) > .points-table {
+                display: none !important;
+            }
+
+            .points-disclosure[open] > .points-table {
+                display: table !important;
+            }
+
+            .points-table {
+                margin-top: 12px;
+                font-size: 14px;
+            }
+
+            .points-table th,
+            .points-table td {
+                padding: 9px 11px;
+            }
+
+            .cta {
+                padding: 46px 5%;
+            }
+
+            .cta h2 {
+                font-size: 30px;
+                line-height: 1.08;
+            }
+
+            .cta p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            footer {
+                padding: 26px 5%;
+                font-size: 14px;
             }
         }
     </style>
@@ -554,6 +809,17 @@
             <a href="events.html">Events</a>
             <a href="contact.html">Contact</a>
         </div>
+
+        <details class="mobile-nav">
+            <summary>Menu</summary>
+            <div class="mobile-nav-panel">
+                <a href="index.html">Home</a>
+                <a href="index.html#pilot">Pilot</a>
+                <a href="championship.html">Live Championship</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </details>
     </nav>
 
     <header class="hero">
@@ -575,7 +841,15 @@
         </div>
     </header>
 
-    <section class="section">
+    <nav class="mobile-section-nav" aria-label="Events page sections">
+        <a href="#calendar">Live</a>
+        <a href="#rules">Format</a>
+        <a href="#participation">Join</a>
+        <a href="#venue">Venue</a>
+        <a href="#points">Points</a>
+    </nav>
+
+    <section class="section" id="context">
         <div class="section-inner">
 
             <div class="section-title">
@@ -665,7 +939,7 @@
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="participation">
         <div class="section-inner">
 
             <div class="section-title">
@@ -781,7 +1055,7 @@
         </div>
     </section>
 
-    <section class="section black-section">
+    <section class="section black-section" id="points">
         <div class="section-inner">
 
             <div class="section-title">
@@ -794,28 +1068,31 @@
                 </p>
             </div>
 
-            <table class="points-table">
-                <thead>
-                    <tr>
-                        <th>Position</th>
-                        <th>Points</th>
-                    </tr>
-                </thead>
+            <details class="points-disclosure">
+                <summary>Championship points</summary>
+                <table class="points-table">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr><td>1st</td><td>25</td></tr>
-                    <tr><td>2nd</td><td>18</td></tr>
-                    <tr><td>3rd</td><td>15</td></tr>
-                    <tr><td>4th</td><td>12</td></tr>
-                    <tr><td>5th</td><td>10</td></tr>
-                    <tr><td>6th</td><td>8</td></tr>
-                    <tr><td>7th</td><td>6</td></tr>
-                    <tr><td>8th</td><td>4</td></tr>
-                    <tr><td>9th</td><td>2</td></tr>
-                    <tr><td>10th</td><td>1</td></tr>
-                    <tr><td>Outside Top 10</td><td>0</td></tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr><td>1st</td><td>25</td></tr>
+                        <tr><td>2nd</td><td>18</td></tr>
+                        <tr><td>3rd</td><td>15</td></tr>
+                        <tr><td>4th</td><td>12</td></tr>
+                        <tr><td>5th</td><td>10</td></tr>
+                        <tr><td>6th</td><td>8</td></tr>
+                        <tr><td>7th</td><td>6</td></tr>
+                        <tr><td>8th</td><td>4</td></tr>
+                        <tr><td>9th</td><td>2</td></tr>
+                        <tr><td>10th</td><td>1</td></tr>
+                        <tr><td>Outside Top 10</td><td>0</td></tr>
+                    </tbody>
+                </table>
+            </details>
 
             <p class="mobile-swipe-hint" style="margin-top:28px;">Swipe for prize details <span aria-hidden="true">&rarr;</span></p>
             <div class="info-grid swipe-cards" role="region" tabindex="0" aria-label="Championship prize and tie-breaker cards. Scroll horizontally to explore on mobile.">

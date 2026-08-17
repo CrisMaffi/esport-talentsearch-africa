@@ -47,8 +47,10 @@ const championshipHtml = await readFile(path.join(projectRoot, "championship.htm
   "standings-body",
   "schedule-grid",
   "last-updated",
-  "data-championship=\"rally\"",
-  "data-championship=\"f4\""
+  "id=\"championship-select\"",
+  "option value=\"rally\"",
+  "option value=\"f4\"",
+  "https://esport.ethiopianmotorsport.com/"
 ].forEach((marker) => {
   if (!championshipHtml.includes(marker)) {
     failures.push("Championship page is missing marker: " + marker);

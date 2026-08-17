@@ -1161,7 +1161,7 @@
                         </div>
                     </div>
 
-                    <form id="interest-form" class="form-card" name="digital-grand-prix-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+                    <form id="interest-form" class="form-card" name="digital-grand-prix-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/register">
                         <input type="hidden" name="form-name" value="digital-grand-prix-interest">
                         <p class="hidden">
                             <label>Do not fill this out: <input name="bot-field"></label>
@@ -1294,9 +1294,10 @@
                 formData.set('form-name', form.getAttribute('name'));
 
                 try {
-                    const response = await fetch('/', {
+                    const response = await fetch(form.action, {
                         method: 'POST',
                         headers: {
+                            'Accept': 'application/json',
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
                         body: new URLSearchParams(formData).toString()

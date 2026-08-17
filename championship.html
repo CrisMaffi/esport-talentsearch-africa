@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Ethiopian Sim Racing Championship | ETSA</title>
-    <meta name="description" content="Current Ethiopian sim racing championship standings, points, results and event schedule, synchronized from the official Ethiopian Motorsport platform.">
+    <meta name="description" content="Follow the current Ethiopian sim racing championship standings, points, results and event schedule.">
     <meta name="keywords" content="Ethiopian sim racing championship, Ethiopia esports motorsport, African sim racing, Ethiopian Motorsport esports, sim racing results Ethiopia, sim racing standings Ethiopia">
     <meta name="author" content="Maffi Racing">
     <meta name="robots" content="index, follow">
@@ -43,7 +43,7 @@
     }
     </script>
 
-    <script src="assets/championship.js?v=20260817" defer></script>
+    <script src="assets/championship.js?v=20260817-2" defer></script>
 </head>
 
 <body>
@@ -61,12 +61,8 @@
     <header class="hero">
         <div class="hero-inner">
             <div>
-                <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Official data feed</span>
-                <h1>Live Ethiopian sim racing championship.</h1>
-                <p>
-                    Current rounds, championship standings and latest results—verified from the
-                    Ethiopian Motorsport sim-racing platform and synchronized by ETSA.
-                </p>
+                <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Championship Centre</span>
+                <h1>Live Ethiopian sim racing championships.</h1>
             </div>
             <div class="hero-mark" aria-hidden="true">
                 <span>ET</span>
@@ -76,13 +72,23 @@
     </header>
 
     <main>
-        <section class="source-bar" aria-label="Data source and freshness">
+        <section class="championship-switcher" aria-label="Choose a championship">
+            <div class="page-width championship-switcher-inner">
+                <span>Choose championship</span>
+                <nav class="championship-tabs" aria-label="Championships">
+                    <a href="championship.html?champ=rally" data-championship="rally">AC Rally Challenge 2026</a>
+                    <a href="championship.html?champ=f4" data-championship="f4">F4 Challenge</a>
+                </nav>
+            </div>
+        </section>
+
+        <section class="source-bar" aria-label="Current championship">
             <div class="page-width source-inner">
                 <p>
-                    <strong>Official championship data:</strong>
-                    <a id="official-source-top" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Ethiopian Motorsport</a>
+                    <strong>Current championship:</strong>
+                    <a id="official-source-top" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Loading…</a>
                 </p>
-                <p id="last-updated" aria-live="polite">Loading verified championship data…</p>
+                <p id="last-updated" aria-live="polite">Loading championship information…</p>
             </div>
         </section>
 
@@ -92,7 +98,7 @@
                     <small>Championship overview</small>
                     <h2 id="overview-title">Current season at a glance.</h2>
                 </div>
-                <span class="data-badge">Daily verified snapshot</span>
+                <span class="data-badge">Live Championship</span>
             </div>
 
             <div class="overview-grid" id="overview-grid" aria-live="polite">
@@ -132,7 +138,7 @@
                 <div>
                     <small>Driver leaderboard</small>
                     <h2 id="standings-title">Championship standings.</h2>
-                    <p>Wins, podiums and starts are calculated from the official round-by-round results.</p>
+                    <p>Follow driver positions, championship points and classified results.</p>
                 </div>
             </div>
 
@@ -164,7 +170,7 @@
                     <div>
                         <small>Event schedule</small>
                         <h2 id="schedule-title">Every championship round.</h2>
-                        <p>Practice and Time Attack dates reflect the current official schedule.</p>
+                        <p>See practice and Time Attack dates for every scheduled round.</p>
                     </div>
                 </div>
 
@@ -177,16 +183,15 @@
         <section class="official-cta">
             <div class="page-width official-inner">
                 <div>
-                    <small>Source of truth</small>
-                    <h2>ETSA displays the championship. Ethiopian Motorsport remains the official system.</h2>
+                    <small>Enter the championship</small>
                 </div>
-                <a id="official-source-bottom" class="button" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Open official championship</a>
+                <a id="official-source-bottom" class="button" href="https://simracing.ethiopianmotorsport.com/schedule?champ=1" target="_blank" rel="noopener">Open championship platform</a>
             </div>
         </section>
 
         <noscript>
             <div class="noscript">
-                JavaScript is required to display the synchronized snapshot.
+                JavaScript is required to display the current championship information.
                 <a href="https://simracing.ethiopianmotorsport.com/schedule?champ=1">View the official championship.</a>
             </div>
         </noscript>

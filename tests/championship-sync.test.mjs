@@ -124,6 +124,45 @@ test("normalizes and validates current championship data", () => {
   assert.doesNotThrow(() => validateChampionshipData(data));
 });
 
+test("supports a live championship before its first classified round", () => {
+  const source = sourceFixture();
+  source.metadata = {
+    title: "F4 Challenge",
+    selectedChampId: 2,
+    championships: [{ id: 2, name: "F4 Challenge" }]
+  };
+  source.schedule.rounds = [{
+    ...source.schedule.rounds[1],
+    id: 21,
+    championship_id: 2,
+    number: 1,
+    title: "Test",
+    stage_name: "Okayama",
+    car_name: "F4",
+    practice_start: "2026-08-17T00:00",
+    practice_end: "2026-08-22T23:59",
+    ta_start: "2026-08-23T00:00",
+    ta_end: "2026-08-23T23:59",
+    status: "published",
+    completed: false,
+    points_multiplier: 0
+  }];
+  source.standings = { rounds: [], standings: [] };
+  source.result = null;
+
+  const data = normalizeChampionship(source, {
+    championshipId: 2,
+    baseUrl: "https://simracing.ethiopianmotorsport.com",
+    lastUpdated: "2026-08-17T12:00:00.000Z"
+  });
+
+  assert.equal(data.championship.name, "F4 Challenge");
+  assert.equal(data.events[0].status, "live");
+  assert.equal(data.championship.completedRounds, 0);
+  assert.equal(data.standings.length, 0);
+  assert.doesNotThrow(() => validateChampionshipData(data));
+});
+
 test("rejects duplicate drivers and events", () => {
   const duplicateDriver = snapshot();
   duplicateDriver.standings.push({ ...duplicateDriver.standings[0], position: 2 });

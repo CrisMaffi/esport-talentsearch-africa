@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       championship_id:
-        description: "Ethiopian Motorsport championship ID"
+        description: "Optional championship ID; leave blank to update all public championships"
         required: false
-        default: "1"
+        default: ""
 
 permissions:
   contents: write
@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      CHAMPIONSHIP_ID: ${{ inputs.championship_id || '1' }}
+      CHAMPIONSHIP_ID: ${{ inputs.championship_id }}
 
     steps:
       - name: Check out ETSA

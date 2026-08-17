@@ -2,13 +2,14 @@
 
 ## Purpose
 
-The ETSA public website displays a validated snapshot of the current Ethiopian
-sim-racing championship. Ethiopian Motorsport remains the authoritative timing,
-results and schedule system.
+The ETSA public website displays validated snapshots of the current Ethiopian
+sim-racing championships.
 
 - Public ETSA page: championship.html
-- Normalized snapshot: data/championship.json
-- Official source: https://simracing.ethiopianmotorsport.com/schedule?champ=1
+- Rally snapshot: data/championship.json
+- F4 snapshot: data/championship-f4.json
+- Rally page: https://simracing.ethiopianmotorsport.com/schedule?champ=1
+- F4 page: https://simracing.ethiopianmotorsport.com/schedule?champ=2
 - Configuration: config/championships.json
 
 The browser never parses the remote website. It only reads the local verified
@@ -21,9 +22,9 @@ It exposes structured SvelteKit data responses used by the official pages:
 
 | Purpose | Endpoint |
 |---|---|
-| Championship metadata and rounds | https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=1 |
-| Driver standings and round points | https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1 |
-| Latest round result | https://simracing.ethiopianmotorsport.com/__data.json?champ=1&round={roundId}&week=time_attack |
+| Championship metadata and rounds | https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ={championshipId} |
+| Driver standings and round points | https://simracing.ethiopianmotorsport.com/standings/__data.json?champ={championshipId} |
+| Latest round result | https://simracing.ethiopianmotorsport.com/__data.json?champ={championshipId}&round={roundId}&week=time_attack |
 
 The sync decodes the SvelteKit flattened data format. It does not parse remote
 DOM markup.
@@ -42,7 +43,7 @@ The source does not currently expose team names, so ETSA does not display them.
 
 ## Normalized schema
 
-data/championship.json contains:
+Each championship snapshot contains:
 
 - schemaVersion
 - source: provider, championship ID, official public URL and structured endpoints
@@ -81,7 +82,7 @@ In GitHub:
 1. Open Actions.
 2. Select Sync live championship.
 3. Choose Run workflow.
-4. Keep championship ID 1.
+4. Leave the championship ID blank to refresh Rally and F4, or enter `1` or `2` for one championship.
 5. Run the workflow.
 
 Local refresh:
@@ -91,7 +92,7 @@ Local refresh:
 
 ## Failure handling
 
-The candidate is validated before replacing data/championship.json.
+Each candidate is validated before replacing its current snapshot.
 
 The sync fails without replacing the current file when:
 
@@ -124,13 +125,12 @@ Each entry has:
 - public: reserved for public-site selection
 - output: independent normalized JSON destination
 
-To add a future approved championship, add a separate entry with a separate
-output file, for example data/championship-2.json. Do not point two IDs at the
-same output file. Public navigation or a championship selector can then consume
-the additional snapshot without changing the source integration.
+To add another approved championship, add a separate entry with a separate
+output file. Do not point two IDs at the same output file. Public navigation can
+then consume the additional snapshot without changing the source integration.
 
 For a one-off local run, CHAMPIONSHIP_ID can restrict the sync to an already
 configured championship. CHAMPIONSHIP_SOURCE_BASE, CHAMPIONSHIP_CONFIG_PATH,
 and CHAMPIONSHIP_DATA_PATH are available for controlled testing.
 
-No confidential or unapproved future championship is configured.
+Only public championships are configured.

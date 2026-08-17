@@ -14,6 +14,11 @@ const requiredFiles = [
   ...publicPages,
   "assets/championship.css",
   "assets/championship.js",
+  "assets/venue/ethiopian-esport-venue-01.jpg",
+  "assets/venue/ethiopian-esport-venue-02.jpg",
+  "assets/venue/ethiopian-esport-venue-03.jpg",
+  "assets/venue/ethiopian-esport-venue-04.jpg",
+  "assets/venue/ethiopian-esport-venue-05.jpg",
   "data/championship.json",
   "data/championship-f4.json",
   "sitemap.xml",
@@ -69,6 +74,18 @@ const digitalGrandPrixHtml = await readFile(path.join(projectRoot, "digital-gran
   }
 });
 
+const eventsHtml = await readFile(path.join(projectRoot, "events.html"), "utf8");
+[
+  "id=\"venue\"",
+  "Ethiopian Esport Venue",
+  "assets/venue/ethiopian-esport-venue-01.jpg",
+  "assets/venue/ethiopian-esport-venue-05.jpg"
+].forEach((marker) => {
+  if (!eventsHtml.includes(marker)) {
+    failures.push("Events page is missing venue gallery marker: " + marker);
+  }
+});
+
 const sitemap = await readFile(path.join(projectRoot, "sitemap.xml"), "utf8");
 if (!sitemap.includes("/championship.html")) {
   failures.push("Championship page is missing from sitemap.xml");
@@ -98,3 +115,4 @@ if (failures.length) {
 } else {
   console.log("Static site, navigation, SEO discovery and workflow checks passed.");
 }
+

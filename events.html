@@ -200,6 +200,50 @@
             line-height: 1.6;
         }
 
+        .venue-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        #venue {
+            scroll-margin-top: 130px;
+        }
+
+        .venue-photo {
+            margin: 0;
+            overflow: hidden;
+            border: 1px solid #2b2b2b;
+            border-radius: 16px;
+            background: #111111;
+        }
+
+        .venue-photo:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .venue-photo a {
+            display: block;
+            height: 100%;
+        }
+
+        .venue-photo img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            display: block;
+            object-fit: cover;
+            transition: transform 180ms ease;
+        }
+
+        .venue-photo:first-child img {
+            aspect-ratio: 16 / 9;
+        }
+
+        .venue-photo a:hover img,
+        .venue-photo a:focus-visible img {
+            transform: scale(1.015);
+        }
+
         .black-section {
             background: var(--black);
             color: white;
@@ -440,6 +484,19 @@
                 grid-template-columns: 1fr;
             }
 
+            .venue-gallery {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .venue-photo:first-child {
+                grid-column: auto;
+            }
+
+            .venue-photo:first-child img {
+                aspect-ratio: 4 / 3;
+            }
+
             .section {
                 padding: 58px 6%;
             }
@@ -642,6 +699,46 @@
         </div>
     </section>
 
+    <section class="section black-section" id="venue">
+        <div class="section-inner">
+            <div class="section-title">
+                <small>Ethiopian Esport Venue</small>
+                <h2>Inside the Ethiopian sim-racing venue.</h2>
+                <p>
+                    A look inside the simulator space supporting Ethiopian esport activity, driver participation and technical development.
+                </p>
+            </div>
+
+            <div class="venue-gallery" aria-label="Photos of the Ethiopian Esport venue">
+                <figure class="venue-photo">
+                    <a href="assets/venue/ethiopian-esport-venue-01.jpg" target="_blank" rel="noopener" aria-label="Open full-size overview of the Ethiopian Esport venue">
+                        <img src="assets/venue/ethiopian-esport-venue-01.jpg" width="1071" height="803" loading="lazy" decoding="async" alt="Wide overview of four simulator rigs in use inside the Ethiopian Esport venue.">
+                    </a>
+                </figure>
+                <figure class="venue-photo">
+                    <a href="assets/venue/ethiopian-esport-venue-02.jpg" target="_blank" rel="noopener" aria-label="Open full-size photo of a driver using a simulator rig">
+                        <img src="assets/venue/ethiopian-esport-venue-02.jpg" width="1031" height="766" loading="lazy" decoding="async" alt="Driver using a rally simulator among several rigs at the Ethiopian Esport venue.">
+                    </a>
+                </figure>
+                <figure class="venue-photo">
+                    <a href="assets/venue/ethiopian-esport-venue-03.jpg" target="_blank" rel="noopener" aria-label="Open full-size photo of two active simulator stations">
+                        <img src="assets/venue/ethiopian-esport-venue-03.jpg" width="1070" height="806" loading="lazy" decoding="async" alt="Two active rally simulator stations inside the Ethiopian Esport venue.">
+                    </a>
+                </figure>
+                <figure class="venue-photo">
+                    <a href="assets/venue/ethiopian-esport-venue-04.jpg" target="_blank" rel="noopener" aria-label="Open full-size view through the venue entrance">
+                        <img src="assets/venue/ethiopian-esport-venue-04.jpg" width="1073" height="801" loading="lazy" decoding="async" alt="View through the entrance toward active simulator rigs at the Ethiopian Esport venue.">
+                    </a>
+                </figure>
+                <figure class="venue-photo">
+                    <a href="assets/venue/ethiopian-esport-venue-05.jpg" target="_blank" rel="noopener" aria-label="Open full-size portrait view of two simulator rigs">
+                        <img src="assets/venue/ethiopian-esport-venue-05.jpg" width="579" height="769" loading="lazy" decoding="async" alt="Portrait entrance view of two simulator rigs inside the Ethiopian Esport venue.">
+                    </a>
+                </figure>
+            </div>
+        </div>
+    </section>
+
     <section class="section black-section">
         <div class="section-inner">
 
@@ -727,3 +824,4 @@
 
 </body>
 </html>
+

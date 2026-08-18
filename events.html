@@ -211,6 +211,45 @@
             gap: 18px;
         }
 
+        .venue-feature {
+            margin: 0 0 30px;
+            overflow: hidden;
+            border: 1px solid #2b2b2b;
+            border-radius: 18px;
+            background: #090909;
+            box-shadow: 0 24px 70px rgba(0,0,0,0.32);
+        }
+
+        .venue-feature video {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            display: block;
+            background: #000000;
+            object-fit: cover;
+        }
+
+        .venue-feature-copy {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 20px 22px;
+            border-top: 1px solid #2b2b2b;
+        }
+
+        .venue-feature-copy strong {
+            color: var(--gold);
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .venue-feature-copy p {
+            margin: 0;
+            color: #d0d0d0;
+            line-height: 1.5;
+        }
+
         #venue {
             scroll-margin-top: 130px;
         }
@@ -663,6 +702,21 @@
                 grid-column: auto;
             }
 
+            .venue-feature {
+                margin-bottom: 24px;
+                border-radius: 14px;
+            }
+
+            .venue-feature-copy {
+                display: block;
+                padding: 15px 16px 17px;
+            }
+
+            .venue-feature-copy p {
+                margin-top: 6px;
+                font-size: 14px;
+            }
+
             .venue-gallery.swipe-cards .venue-photo {
                 height: auto;
                 aspect-ratio: 4 / 3;
@@ -1020,11 +1074,22 @@
         <div class="section-inner">
             <div class="section-title">
                 <small>Ethiopian Esport Venue</small>
-                <h2>Inside the Ethiopian sim-racing venue.</h2>
+                <h2>Experience the Ethiopian Esport Centre.</h2>
                 <p>
-                    A look inside the simulator space supporting Ethiopian esport activity, driver participation and technical development.
+                    Step inside the simulator space supporting Ethiopian esport activity, driver participation and technical development.
                 </p>
             </div>
+
+            <figure class="venue-feature">
+                <video controls playsinline preload="metadata" poster="assets/venue/ethiopian-esport-centre-showcase-poster.jpg" aria-label="A 51-second presentation of the Ethiopian Esport Centre">
+                    <source src="assets/venue/ethiopian-esport-centre-showcase.mp4" type="video/mp4">
+                    Your browser cannot play this video. <a href="assets/venue/ethiopian-esport-centre-showcase.mp4">Open the centre presentation</a>.
+                </video>
+                <figcaption class="venue-feature-copy">
+                    <strong>Centre presentation · 51 seconds</strong>
+                    <p>Press play with sound to experience the rigs, drivers and competitive environment.</p>
+                </figcaption>
+            </figure>
 
             <p class="mobile-swipe-hint">Swipe through the venue <span aria-hidden="true">&rarr;</span></p>
             <div class="venue-gallery swipe-cards" role="region" tabindex="0" aria-label="Photos of the Ethiopian Esport venue. Scroll horizontally to explore on mobile.">

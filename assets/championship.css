@@ -696,8 +696,8 @@ a { color: inherit; }
     }
 
     .hero-inner {
-        min-height: 400px;
-        padding: 62px 0;
+        min-height: 250px;
+        padding: 42px 0 38px;
     }
 
     .hero h1 {
@@ -719,13 +719,14 @@ a { color: inherit; }
     }
 
     .source-inner {
-        padding-block: 13px;
+        padding-block: 10px;
         gap: 6px;
     }
 
     .championship-switcher-inner {
-        padding-block: 16px;
-        gap: 12px;
+        min-height: 0;
+        padding-block: 12px;
+        gap: 8px;
     }
 
     .championship-select-control {
@@ -733,7 +734,23 @@ a { color: inherit; }
     }
 
     .section {
-        padding-block: 58px;
+        padding-block: 42px;
+    }
+
+    .section-heading {
+        margin-bottom: 22px;
+        gap: 16px;
+    }
+
+    .section-heading h2,
+    .official-cta h2 {
+        font-size: 34px;
+        line-height: 1.08;
+        letter-spacing: -1px;
+    }
+
+    .section-heading p {
+        margin-top: 9px;
     }
 
     .overview-grid,
@@ -743,7 +760,21 @@ a { color: inherit; }
     }
 
     .metric-card {
-        min-height: 116px;
+        min-height: 104px;
+        padding: 20px;
+    }
+
+    .highlight-card,
+    .event-card {
+        padding: 20px;
+    }
+
+    .official-cta {
+        padding-block: 46px;
+    }
+
+    .footer {
+        padding-block: 26px;
     }
 
     .table-shell {

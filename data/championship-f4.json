@@ -41,7 +41,7 @@
       "startDate": "2026-08-22T21:00:00.000Z",
       "endDate": "2026-08-23T20:59:00.000Z",
       "status": "live",
-      "sourceStatus": "practice",
+      "sourceStatus": "time_attack",
       "pointsMultiplier": 0,
       "resultUrl": null
     },
@@ -119,9 +119,9 @@
     "startDate": "2026-08-22T21:00:00.000Z",
     "endDate": "2026-08-23T20:59:00.000Z",
     "status": "live",
-    "sourceStatus": "practice",
+    "sourceStatus": "time_attack",
     "pointsMultiplier": 0,
     "resultUrl": null
   },
-  "lastUpdated": "2026-08-17T15:30:42.548Z"
+  "lastUpdated": "2026-08-23T06:44:43.542Z"
 }

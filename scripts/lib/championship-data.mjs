@@ -358,7 +358,7 @@ export function validateChampionshipData(data) {
 
   const eventIds = new Set();
   const roundNumbers = new Set();
-  let completedRounds = 0;
+  const completedEvents = [];
 
   data.events.forEach((event) => {
     assert(Number.isInteger(event.id) && event.id > 0, "Event ID is invalid.");
@@ -376,14 +376,26 @@ export function validateChampionshipData(data) {
     assert(Date.parse(event.practiceStart) <= Date.parse(event.practiceEnd), "Practice dates are reversed for round " + event.round + ".");
     assert(Date.parse(event.startDate) <= Date.parse(event.endDate), "Competition dates are reversed for round " + event.round + ".");
     assert(VALID_EVENT_STATUSES.has(event.status), "Event status is invalid for round " + event.round + ".");
-    if (event.status === "completed") completedRounds += 1;
+    if (event.status === "completed") completedEvents.push(event);
   });
 
   assert(data.championship.totalRounds === data.events.length, "Championship round count does not match events.");
-  assert(data.championship.completedRounds === completedRounds, "Completed round count does not match events.");
-  if (completedRounds > 0) {
-    assert(data.standings.length > 0, "Standings are empty despite completed rounds.");
-    assert(data.latestResult && data.latestResult.podium.length > 0, "Latest completed round has no result.");
+  assert(data.championship.completedRounds === completedEvents.length, "Completed round count does not match events.");
+
+  // A completed round with a zero points multiplier (a shakedown/test round,
+  // e.g. Championship 2's Okayama "Test" round) legitimately awards no
+  // championship points and may carry no competitive result at all, so it
+  // must not be held to the same result/standings requirements as a scored
+  // round. "Latest" mirrors normalizeChampionship's own latestEvent pick:
+  // the completed round with the highest round number, not just any of them.
+  if (completedEvents.length > 0) {
+    const latestCompleted = completedEvents.reduce((a, b) => (b.round > a.round ? b : a));
+    if (Number(latestCompleted.pointsMultiplier) > 0) {
+      assert(data.latestResult && data.latestResult.podium.length > 0, "Latest completed round has no result.");
+    }
+  }
+  if (completedEvents.some((event) => Number(event.pointsMultiplier) > 0)) {
+    assert(data.standings.length > 0, "Standings are empty despite completed scored rounds.");
   }
 
   const driverIds = new Set();

@@ -163,6 +163,60 @@ test("supports a live championship before its first classified round", () => {
   assert.doesNotThrow(() => validateChampionshipData(data));
 });
 
+test("supports a completed zero-point shakedown round with no result yet", () => {
+  // Mirrors real Championship 2 data: a "Test" round can be marked closed/
+  // completed before any championship points exist, because it carries a
+  // zero points multiplier and never had a competitive result recorded.
+  const source = sourceFixture();
+  source.metadata = {
+    title: "F4 Challenge",
+    selectedChampId: 2,
+    championships: [{ id: 2, name: "F4 Challenge" }]
+  };
+  source.schedule.rounds = [{
+    ...source.schedule.rounds[0],
+    id: 8,
+    championship_id: 2,
+    number: 1,
+    title: "Test",
+    stage_name: "Okayama",
+    car_name: "F4",
+    status: "closed",
+    completed: true,
+    points_multiplier: 0
+  }];
+  source.standings = { rounds: [{ id: 8, number: 1, title: "Test" }], standings: [] };
+  // The provider still returns a real (matching) result page for the round --
+  // it's simply an empty board, not a missing/mismatched result.
+  source.result = { round: { id: 8 }, board: [] };
+
+  const data = normalizeChampionship(source, {
+    championshipId: 2,
+    baseUrl: "https://simracing.ethiopianmotorsport.com",
+    lastUpdated: "2026-08-17T12:00:00.000Z"
+  });
+
+  assert.equal(data.championship.completedRounds, 1);
+  assert.equal(data.events[0].pointsMultiplier, 0);
+  assert.equal(data.standings.length, 0);
+  assert.equal(data.latestResult.podium.length, 0);
+  assert.doesNotThrow(() => validateChampionshipData(data));
+});
+
+test("still rejects a missing result for a completed scored round", () => {
+  // The relaxation above must not swallow real data problems: a completed
+  // round that DOES award points still needs a result.
+  const data = snapshot();
+  data.latestResult.podium = [];
+  assert.throws(() => validateChampionshipData(data), /Latest completed round has no result/);
+});
+
+test("still rejects empty standings when a scored round has completed", () => {
+  const data = snapshot();
+  data.standings = [];
+  assert.throws(() => validateChampionshipData(data), /Standings are empty/);
+});
+
 test("rejects duplicate drivers and events", () => {
   const duplicateDriver = snapshot();
   duplicateDriver.standings.push({ ...duplicateDriver.standings[0], position: 2 });

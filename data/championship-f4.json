@@ -6,7 +6,8 @@
     "publicUrl": "https://simracing.ethiopianmotorsport.com/schedule?champ=2",
     "endpoints": {
       "schedule": "https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=2",
-      "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=2"
+      "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=2",
+      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=2&round=8&week=time_attack"
     }
   },
   "championship": {
@@ -15,13 +16,17 @@
     "season": null,
     "timezone": "Africa/Addis_Ababa",
     "totalRounds": 4,
-    "completedRounds": 0,
+    "completedRounds": 1,
     "currentLeader": null,
-    "lastCompletedEvent": null,
-    "upcomingRound": {
+    "lastCompletedEvent": {
       "round": 1,
       "name": "Test",
-      "date": "2026-08-16T21:00:00.000Z"
+      "date": "2026-08-23T20:59:00.000Z"
+    },
+    "upcomingRound": {
+      "round": 2,
+      "name": "TBD",
+      "date": "2026-09-20T21:00:00.000Z"
     }
   },
   "standings": [],
@@ -40,10 +45,10 @@
       "practiceEnd": "2026-08-22T20:59:00.000Z",
       "startDate": "2026-08-22T21:00:00.000Z",
       "endDate": "2026-08-23T20:59:00.000Z",
-      "status": "live",
-      "sourceStatus": "time_attack",
+      "status": "completed",
+      "sourceStatus": "closed",
       "pointsMultiplier": 0,
-      "resultUrl": null
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=8&week=time_attack"
     },
     {
       "id": 9,
@@ -55,10 +60,10 @@
       "surface": null,
       "notes": null,
       "car": "F4",
-      "practiceStart": "2026-09-13T21:00:00.000Z",
-      "practiceEnd": "2026-09-19T20:59:00.000Z",
-      "startDate": "2026-09-19T21:00:00.000Z",
-      "endDate": "2026-09-20T20:59:00.000Z",
+      "practiceStart": "2026-09-20T21:00:00.000Z",
+      "practiceEnd": "2026-09-26T20:59:00.000Z",
+      "startDate": "2026-09-26T21:00:00.000Z",
+      "endDate": "2026-09-27T20:59:00.000Z",
       "status": "upcoming",
       "sourceStatus": "upcoming",
       "pointsMultiplier": 1,
@@ -103,25 +108,33 @@
       "resultUrl": null
     }
   ],
-  "latestResult": null,
-  "upcomingEvent": {
-    "id": 8,
+  "latestResult": {
     "round": 1,
-    "name": "Test",
+    "eventName": "Test",
+    "date": "2026-08-23T20:59:00.000Z",
     "track": "Okayama",
-    "country": "JP",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=8&week=time_attack",
+    "winner": null,
+    "podium": []
+  },
+  "upcomingEvent": {
+    "id": 9,
+    "round": 2,
+    "name": "TBD",
+    "track": "TBD",
+    "country": null,
     "lengthKm": null,
     "surface": null,
     "notes": null,
     "car": "F4",
-    "practiceStart": "2026-08-16T21:00:00.000Z",
-    "practiceEnd": "2026-08-22T20:59:00.000Z",
-    "startDate": "2026-08-22T21:00:00.000Z",
-    "endDate": "2026-08-23T20:59:00.000Z",
-    "status": "live",
-    "sourceStatus": "time_attack",
-    "pointsMultiplier": 0,
+    "practiceStart": "2026-09-20T21:00:00.000Z",
+    "practiceEnd": "2026-09-26T20:59:00.000Z",
+    "startDate": "2026-09-26T21:00:00.000Z",
+    "endDate": "2026-09-27T20:59:00.000Z",
+    "status": "upcoming",
+    "sourceStatus": "upcoming",
+    "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-08-23T06:44:43.542Z"
+  "lastUpdated": "2026-09-16T16:54:04.002Z"
 }

@@ -95,7 +95,7 @@
       "driver": "Lukas Missailidis",
       "country": "GR",
       "racingNumber": 7,
-      "points": 26,
+      "points": 30,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 4,
@@ -107,7 +107,7 @@
       "driver": "Menale Taye",
       "country": "ET",
       "racingNumber": null,
-      "points": 23.5,
+      "points": 21.5,
       "wins": 0,
       "podiums": 1,
       "eventsEntered": 3,
@@ -119,7 +119,7 @@
       "driver": "Emilio Graffi",
       "country": "IT",
       "racingNumber": null,
-      "points": 22,
+      "points": 20,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 2,
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-16T16:49:53.670Z"
+  "lastUpdated": "2026-09-17T11:14:04.974Z"
 }

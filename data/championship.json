@@ -18,13 +18,13 @@
     "totalRounds": 7,
     "completedRounds": 3,
     "currentLeader": {
-      "id": 1,
+      "id": 11,
       "position": 1,
-      "driver": "Simone Ferrari",
+      "driver": "Saverio Gulla",
       "country": "IT",
-      "racingNumber": 16,
-      "points": 54.5,
-      "wins": 1,
+      "racingNumber": 13,
+      "points": 61.5,
+      "wins": 2,
       "podiums": 4,
       "eventsEntered": 4,
       "withdrawn": false
@@ -42,25 +42,25 @@
   },
   "standings": [
     {
-      "id": 1,
+      "id": 11,
       "position": 1,
-      "driver": "Simone Ferrari",
+      "driver": "Saverio Gulla",
       "country": "IT",
-      "racingNumber": 16,
-      "points": 54.5,
-      "wins": 1,
+      "racingNumber": 13,
+      "points": 61.5,
+      "wins": 2,
       "podiums": 4,
       "eventsEntered": 4,
       "withdrawn": false
     },
     {
-      "id": 11,
+      "id": 1,
       "position": 2,
-      "driver": "Saverio Gulla",
+      "driver": "Simone Ferrari",
       "country": "IT",
-      "racingNumber": 13,
-      "points": 52.5,
-      "wins": 2,
+      "racingNumber": 16,
+      "points": 51.5,
+      "wins": 1,
       "podiums": 3,
       "eventsEntered": 4,
       "withdrawn": false
@@ -95,7 +95,7 @@
       "driver": "Lukas Missailidis",
       "country": "GR",
       "racingNumber": 7,
-      "points": 28,
+      "points": 24,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 4,
@@ -107,7 +107,7 @@
       "driver": "Menale Taye",
       "country": "ET",
       "racingNumber": null,
-      "points": 23.5,
+      "points": 21.5,
       "wins": 0,
       "podiums": 1,
       "eventsEntered": 3,
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-18T10:46:52.213Z"
+  "lastUpdated": "2026-09-19T10:31:06.673Z"
 }

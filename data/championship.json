@@ -23,8 +23,8 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 61.5,
-      "wins": 2,
+      "points": 71.5,
+      "wins": 3,
       "podiums": 4,
       "eventsEntered": 4,
       "withdrawn": false
@@ -47,8 +47,8 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 61.5,
-      "wins": 2,
+      "points": 71.5,
+      "wins": 3,
       "podiums": 4,
       "eventsEntered": 4,
       "withdrawn": false
@@ -83,8 +83,8 @@
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
-      "points": 43,
-      "wins": 1,
+      "points": 33,
+      "wins": 0,
       "podiums": 1,
       "eventsEntered": 4,
       "withdrawn": false
@@ -102,27 +102,27 @@
       "withdrawn": false
     },
     {
-      "id": 15,
-      "position": 6,
-      "driver": "Menale Taye",
-      "country": "ET",
-      "racingNumber": null,
-      "points": 21.5,
-      "wins": 0,
-      "podiums": 1,
-      "eventsEntered": 3,
-      "withdrawn": false
-    },
-    {
       "id": 7,
-      "position": 7,
+      "position": 6,
       "driver": "Emilio Graffi",
       "country": "IT",
       "racingNumber": null,
-      "points": 20,
+      "points": 22,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 2,
+      "withdrawn": false
+    },
+    {
+      "id": 15,
+      "position": 7,
+      "driver": "Menale Taye",
+      "country": "ET",
+      "racingNumber": null,
+      "points": 19.5,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 3,
       "withdrawn": false
     },
     {
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-19T10:31:06.673Z"
+  "lastUpdated": "2026-09-20T10:53:23.248Z"
 }

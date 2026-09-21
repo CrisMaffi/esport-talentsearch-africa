@@ -7,7 +7,7 @@
     "endpoints": {
       "schedule": "https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=1",
       "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1",
-      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=1&round=3&week=time_attack"
+      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=1&round=4&week=time_attack"
     }
   },
   "championship": {
@@ -16,7 +16,7 @@
     "season": "2026",
     "timezone": "Africa/Addis_Ababa",
     "totalRounds": 7,
-    "completedRounds": 3,
+    "completedRounds": 4,
     "currentLeader": {
       "id": 11,
       "position": 1,
@@ -30,14 +30,14 @@
       "withdrawn": false
     },
     "lastCompletedEvent": {
-      "round": 3,
-      "name": "France/Alsace",
-      "date": "2026-08-16T20:59:00.000Z"
-    },
-    "upcomingRound": {
       "round": 4,
       "name": "Wales",
-      "date": "2026-08-30T21:00:00.000Z"
+      "date": "2026-09-20T20:59:00.000Z"
+    },
+    "upcomingRound": {
+      "round": 5,
+      "name": "Greece 2",
+      "date": "2026-09-27T21:00:00.000Z"
     }
   },
   "standings": [
@@ -68,9 +68,9 @@
     {
       "id": 5,
       "position": 3,
-      "driver": "Mike Luigi Gentile",
+      "driver": "Mike Gentile",
       "country": "ET",
-      "racingNumber": null,
+      "racingNumber": 96,
       "points": 44.5,
       "wins": 0,
       "podiums": 3,
@@ -222,10 +222,10 @@
       "practiceEnd": "2026-09-06T20:59:00.000Z",
       "startDate": "2026-09-13T21:00:00.000Z",
       "endDate": "2026-09-20T20:59:00.000Z",
-      "status": "live",
-      "sourceStatus": "time_attack",
+      "status": "completed",
+      "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": null
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=4&week=time_attack"
     },
     {
       "id": 5,
@@ -286,17 +286,17 @@
     }
   ],
   "latestResult": {
-    "round": 3,
-    "eventName": "France/Alsace",
-    "date": "2026-08-16T20:59:00.000Z",
-    "track": "Vallèe de Munster - Luttenbach près Munster",
-    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=3&week=time_attack",
+    "round": 4,
+    "eventName": "Wales",
+    "date": "2026-09-20T20:59:00.000Z",
+    "track": "Hafren South — Afon Bidno - Severn",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=4&week=time_attack",
     "winner": {
       "position": 1,
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "timeMs": 208303
+      "timeMs": 168543
     },
     "podium": [
       {
@@ -304,42 +304,42 @@
         "driver": "Saverio Gulla",
         "country": "IT",
         "racingNumber": 13,
-        "timeMs": 208303
+        "timeMs": 168543
       },
       {
         "position": 2,
-        "driver": "Simone Ferrari",
-        "country": "IT",
-        "racingNumber": 16,
-        "timeMs": 210076
+        "driver": "Mike Gentile",
+        "country": "ET",
+        "racingNumber": 96,
+        "timeMs": 169010
       },
       {
         "position": 3,
-        "driver": "Mike Luigi Gentile",
-        "country": "ET",
+        "driver": "Matteo Rossetto",
+        "country": "IT",
         "racingNumber": null,
-        "timeMs": 212777
+        "timeMs": 169422
       }
     ]
   },
   "upcomingEvent": {
-    "id": 4,
-    "round": 4,
-    "name": "Wales",
-    "track": "Hafren South — Afon Bidno - Severn",
-    "country": "GB",
-    "lengthKm": 4,
+    "id": 5,
+    "round": 5,
+    "name": "Greece 2",
+    "track": "Loutraki - Aghii Theodori",
+    "country": "GR",
+    "lengthKm": 5,
     "surface": "Gravel",
-    "notes": "dry (follow time attack settings)",
-    "car": "Skoda Fabia",
-    "practiceStart": "2026-08-30T21:00:00.000Z",
-    "practiceEnd": "2026-09-06T20:59:00.000Z",
-    "startDate": "2026-09-13T21:00:00.000Z",
-    "endDate": "2026-09-20T20:59:00.000Z",
-    "status": "live",
-    "sourceStatus": "time_attack",
+    "notes": "2pm, dry",
+    "car": "Alfa GTA 1300 Junior",
+    "practiceStart": "2026-09-27T21:00:00.000Z",
+    "practiceEnd": "2026-10-04T20:59:00.000Z",
+    "startDate": "2026-10-04T21:00:00.000Z",
+    "endDate": "2026-10-11T20:59:00.000Z",
+    "status": "upcoming",
+    "sourceStatus": "upcoming",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-20T10:53:23.248Z"
+  "lastUpdated": "2026-09-21T12:18:35.709Z"
 }

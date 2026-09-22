@@ -25,7 +25,7 @@
     },
     "upcomingRound": {
       "round": 2,
-      "name": "TBD",
+      "name": "Oschersleben",
       "date": "2026-09-20T21:00:00.000Z"
     }
   },
@@ -53,8 +53,8 @@
     {
       "id": 9,
       "round": 2,
-      "name": "TBD",
-      "track": "TBD",
+      "name": "Oschersleben",
+      "track": "Circuit",
       "country": null,
       "lengthKm": null,
       "surface": null,
@@ -120,8 +120,8 @@
   "upcomingEvent": {
     "id": 9,
     "round": 2,
-    "name": "TBD",
-    "track": "TBD",
+    "name": "Oschersleben",
+    "track": "Circuit",
     "country": null,
     "lengthKm": null,
     "surface": null,
@@ -136,5 +136,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-21T12:18:35.997Z"
+  "lastUpdated": "2026-09-22T11:10:40.893Z"
 }

@@ -17,7 +17,18 @@
     "timezone": "Africa/Addis_Ababa",
     "totalRounds": 4,
     "completedRounds": 1,
-    "currentLeader": null,
+    "currentLeader": {
+      "id": 17,
+      "position": 1,
+      "driver": "Cristian Maffi",
+      "country": "ET",
+      "racingNumber": 83,
+      "points": 25,
+      "wins": 1,
+      "podiums": 1,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
     "lastCompletedEvent": {
       "round": 1,
       "name": "Test",
@@ -29,7 +40,20 @@
       "date": "2026-09-20T21:00:00.000Z"
     }
   },
-  "standings": [],
+  "standings": [
+    {
+      "id": 17,
+      "position": 1,
+      "driver": "Cristian Maffi",
+      "country": "ET",
+      "racingNumber": 83,
+      "points": 25,
+      "wins": 1,
+      "podiums": 1,
+      "eventsEntered": 1,
+      "withdrawn": false
+    }
+  ],
   "events": [
     {
       "id": 8,
@@ -65,7 +89,7 @@
       "startDate": "2026-09-26T21:00:00.000Z",
       "endDate": "2026-09-27T20:59:00.000Z",
       "status": "live",
-      "sourceStatus": "practice",
+      "sourceStatus": "time_attack",
       "pointsMultiplier": 1,
       "resultUrl": null
     },
@@ -132,9 +156,9 @@
     "startDate": "2026-09-26T21:00:00.000Z",
     "endDate": "2026-09-27T20:59:00.000Z",
     "status": "live",
-    "sourceStatus": "practice",
+    "sourceStatus": "time_attack",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-23T11:01:30.862Z"
+  "lastUpdated": "2026-09-27T11:39:36.199Z"
 }

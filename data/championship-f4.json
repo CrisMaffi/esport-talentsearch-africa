@@ -7,7 +7,7 @@
     "endpoints": {
       "schedule": "https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=2",
       "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=2",
-      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=2&round=8&week=time_attack"
+      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=2&round=9&week=time_attack"
     }
   },
   "championship": {
@@ -16,7 +16,7 @@
     "season": null,
     "timezone": "Africa/Addis_Ababa",
     "totalRounds": 4,
-    "completedRounds": 1,
+    "completedRounds": 2,
     "currentLeader": {
       "id": 17,
       "position": 1,
@@ -30,14 +30,14 @@
       "withdrawn": false
     },
     "lastCompletedEvent": {
-      "round": 1,
-      "name": "Test",
-      "date": "2026-08-23T20:59:00.000Z"
-    },
-    "upcomingRound": {
       "round": 2,
       "name": "Germany",
-      "date": "2026-09-20T21:00:00.000Z"
+      "date": "2026-09-27T20:59:00.000Z"
+    },
+    "upcomingRound": {
+      "round": 3,
+      "name": "TBD",
+      "date": "2026-10-11T21:00:00.000Z"
     }
   },
   "standings": [
@@ -88,10 +88,10 @@
       "practiceEnd": "2026-09-26T20:59:00.000Z",
       "startDate": "2026-09-26T21:00:00.000Z",
       "endDate": "2026-09-27T20:59:00.000Z",
-      "status": "live",
-      "sourceStatus": "time_attack",
+      "status": "completed",
+      "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": null
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=9&week=time_attack"
     },
     {
       "id": 10,
@@ -133,32 +133,46 @@
     }
   ],
   "latestResult": {
-    "round": 1,
-    "eventName": "Test",
-    "date": "2026-08-23T20:59:00.000Z",
-    "track": "Okayama",
-    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=8&week=time_attack",
-    "winner": null,
-    "podium": []
+    "round": 2,
+    "eventName": "Germany",
+    "date": "2026-09-27T20:59:00.000Z",
+    "track": "Motorsport Arena Oschersleben",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=9&week=time_attack",
+    "winner": {
+      "position": 1,
+      "driver": "Cristian Maffi",
+      "country": "ET",
+      "racingNumber": 83,
+      "timeMs": 85198
+    },
+    "podium": [
+      {
+        "position": 1,
+        "driver": "Cristian Maffi",
+        "country": "ET",
+        "racingNumber": 83,
+        "timeMs": 85198
+      }
+    ]
   },
   "upcomingEvent": {
-    "id": 9,
-    "round": 2,
-    "name": "Germany",
-    "track": "Motorsport Arena Oschersleben",
-    "country": "DE",
-    "lengthKm": 3.69,
+    "id": 10,
+    "round": 3,
+    "name": "TBD",
+    "track": "TDB",
+    "country": null,
+    "lengthKm": null,
     "surface": null,
-    "notes": "Grand Prix Layout",
+    "notes": null,
     "car": "F4",
-    "practiceStart": "2026-09-20T21:00:00.000Z",
-    "practiceEnd": "2026-09-26T20:59:00.000Z",
-    "startDate": "2026-09-26T21:00:00.000Z",
-    "endDate": "2026-09-27T20:59:00.000Z",
-    "status": "live",
-    "sourceStatus": "time_attack",
+    "practiceStart": "2026-10-11T21:00:00.000Z",
+    "practiceEnd": "2026-10-17T20:59:00.000Z",
+    "startDate": "2026-10-17T21:00:00.000Z",
+    "endDate": "2026-10-18T20:59:00.000Z",
+    "status": "upcoming",
+    "sourceStatus": "upcoming",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-27T11:39:36.199Z"
+  "lastUpdated": "2026-09-28T13:15:01.415Z"
 }

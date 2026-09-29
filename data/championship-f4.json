@@ -18,11 +18,11 @@
     "totalRounds": 4,
     "completedRounds": 2,
     "currentLeader": {
-      "id": 17,
+      "id": 24,
       "position": 1,
-      "driver": "Cristian Maffi",
-      "country": "ET",
-      "racingNumber": 83,
+      "driver": "Kebron Bereket",
+      "country": "ER",
+      "racingNumber": 21,
       "points": 25,
       "wins": 1,
       "podiums": 1,
@@ -42,14 +42,62 @@
   },
   "standings": [
     {
-      "id": 17,
+      "id": 24,
       "position": 1,
-      "driver": "Cristian Maffi",
-      "country": "ET",
-      "racingNumber": 83,
+      "driver": "Kebron Bereket",
+      "country": "ER",
+      "racingNumber": 21,
       "points": 25,
       "wins": 1,
       "podiums": 1,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 5,
+      "position": 2,
+      "driver": "Mike Gentile",
+      "country": "ET",
+      "racingNumber": 96,
+      "points": 18,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 17,
+      "position": 3,
+      "driver": "Cristian Maffi",
+      "country": "ET",
+      "racingNumber": 83,
+      "points": 15,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 10,
+      "position": 4,
+      "driver": "Mohammed kedir Isaac",
+      "country": "ET",
+      "racingNumber": 777,
+      "points": 12,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 7,
+      "position": 5,
+      "driver": "Emilio Graffi",
+      "country": "IT",
+      "racingNumber": null,
+      "points": 10,
+      "wins": 0,
+      "podiums": 0,
       "eventsEntered": 1,
       "withdrawn": false
     }
@@ -140,18 +188,32 @@
     "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=9&week=time_attack",
     "winner": {
       "position": 1,
-      "driver": "Cristian Maffi",
-      "country": "ET",
-      "racingNumber": 83,
-      "timeMs": 85198
+      "driver": "Kebron Bereket",
+      "country": "ER",
+      "racingNumber": 21,
+      "timeMs": 86222
     },
     "podium": [
       {
         "position": 1,
+        "driver": "Kebron Bereket",
+        "country": "ER",
+        "racingNumber": 21,
+        "timeMs": 86222
+      },
+      {
+        "position": 2,
+        "driver": "Mike Gentile",
+        "country": "ET",
+        "racingNumber": 96,
+        "timeMs": 88196
+      },
+      {
+        "position": 3,
         "driver": "Cristian Maffi",
         "country": "ET",
         "racingNumber": 83,
-        "timeMs": 85198
+        "timeMs": 89730
       }
     ]
   },
@@ -174,5 +236,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-28T13:15:01.415Z"
+  "lastUpdated": "2026-09-29T12:22:40.343Z"
 }

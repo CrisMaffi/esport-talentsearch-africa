@@ -235,8 +235,8 @@
       "country": "GR",
       "lengthKm": 5,
       "surface": "Gravel",
-      "notes": "2pm, dry",
-      "car": "Alfa GTA 1300 Junior",
+      "notes": "as time attack",
+      "car": "Audi Quattro",
       "practiceStart": "2026-09-27T21:00:00.000Z",
       "practiceEnd": "2026-10-04T20:59:00.000Z",
       "startDate": "2026-10-04T21:00:00.000Z",
@@ -330,8 +330,8 @@
     "country": "GR",
     "lengthKm": 5,
     "surface": "Gravel",
-    "notes": "2pm, dry",
-    "car": "Alfa GTA 1300 Junior",
+    "notes": "as time attack",
+    "car": "Audi Quattro",
     "practiceStart": "2026-09-27T21:00:00.000Z",
     "practiceEnd": "2026-10-04T20:59:00.000Z",
     "startDate": "2026-10-04T21:00:00.000Z",
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-28T13:15:01.131Z"
+  "lastUpdated": "2026-09-29T12:22:40.049Z"
 }

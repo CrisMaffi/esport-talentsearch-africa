@@ -57,7 +57,7 @@
       "id": 1,
       "position": 2,
       "driver": "Simone Ferrari",
-      "country": "IT",
+      "country": "GR",
       "racingNumber": 16,
       "points": 51.5,
       "wins": 1,
@@ -236,7 +236,7 @@
       "lengthKm": 5,
       "surface": "Gravel",
       "notes": "as time attack",
-      "car": "Audi Quattro",
+      "car": "Audi Quattro Gr4",
       "practiceStart": "2026-09-27T21:00:00.000Z",
       "practiceEnd": "2026-10-04T20:59:00.000Z",
       "startDate": "2026-10-04T21:00:00.000Z",
@@ -331,7 +331,7 @@
     "lengthKm": 5,
     "surface": "Gravel",
     "notes": "as time attack",
-    "car": "Audi Quattro",
+    "car": "Audi Quattro Gr4",
     "practiceStart": "2026-09-27T21:00:00.000Z",
     "practiceEnd": "2026-10-04T20:59:00.000Z",
     "startDate": "2026-10-04T21:00:00.000Z",
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-09-29T12:22:40.049Z"
+  "lastUpdated": "2026-10-01T12:41:34.394Z"
 }

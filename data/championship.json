@@ -66,8 +66,20 @@
       "withdrawn": false
     },
     {
-      "id": 5,
+      "id": 15,
       "position": 3,
+      "driver": "Menale Taye",
+      "country": "ET",
+      "racingNumber": null,
+      "points": 44.5,
+      "wins": 1,
+      "podiums": 2,
+      "eventsEntered": 4,
+      "withdrawn": false
+    },
+    {
+      "id": 5,
+      "position": 4,
       "driver": "Mike Gentile",
       "country": "ET",
       "racingNumber": 96,
@@ -79,7 +91,7 @@
     },
     {
       "id": 13,
-      "position": 4,
+      "position": 5,
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
@@ -91,7 +103,7 @@
     },
     {
       "id": 4,
-      "position": 5,
+      "position": 6,
       "driver": "Lukas Missailidis",
       "country": "GR",
       "racingNumber": 7,
@@ -103,7 +115,7 @@
     },
     {
       "id": 7,
-      "position": 6,
+      "position": 7,
       "driver": "Emilio Graffi",
       "country": "IT",
       "racingNumber": null,
@@ -111,18 +123,6 @@
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 2,
-      "withdrawn": false
-    },
-    {
-      "id": 15,
-      "position": 7,
-      "driver": "Menale Taye",
-      "country": "ET",
-      "racingNumber": null,
-      "points": 19.5,
-      "wins": 0,
-      "podiums": 1,
-      "eventsEntered": 3,
       "withdrawn": false
     },
     {
@@ -242,7 +242,7 @@
       "startDate": "2026-10-04T21:00:00.000Z",
       "endDate": "2026-10-11T20:59:00.000Z",
       "status": "live",
-      "sourceStatus": "practice",
+      "sourceStatus": "time_attack",
       "pointsMultiplier": 1,
       "resultUrl": null
     },
@@ -337,9 +337,9 @@
     "startDate": "2026-10-04T21:00:00.000Z",
     "endDate": "2026-10-11T20:59:00.000Z",
     "status": "live",
-    "sourceStatus": "practice",
+    "sourceStatus": "time_attack",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-04T11:57:02.603Z"
+  "lastUpdated": "2026-10-05T13:57:42.219Z"
 }

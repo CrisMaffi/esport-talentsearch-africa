@@ -23,10 +23,10 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 71.5,
-      "wins": 3,
-      "podiums": 4,
-      "eventsEntered": 4,
+      "points": 96.5,
+      "wins": 4,
+      "podiums": 5,
+      "eventsEntered": 5,
       "withdrawn": false
     },
     "lastCompletedEvent": {
@@ -47,10 +47,10 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 71.5,
-      "wins": 3,
-      "podiums": 4,
-      "eventsEntered": 4,
+      "points": 96.5,
+      "wins": 4,
+      "podiums": 5,
+      "eventsEntered": 5,
       "withdrawn": false
     },
     {
@@ -59,27 +59,15 @@
       "driver": "Simone Ferrari",
       "country": "IT",
       "racingNumber": 16,
-      "points": 51.5,
+      "points": 63.5,
       "wins": 1,
       "podiums": 3,
-      "eventsEntered": 4,
-      "withdrawn": false
-    },
-    {
-      "id": 15,
-      "position": 3,
-      "driver": "Menale Taye",
-      "country": "ET",
-      "racingNumber": null,
-      "points": 44.5,
-      "wins": 1,
-      "podiums": 2,
-      "eventsEntered": 4,
+      "eventsEntered": 5,
       "withdrawn": false
     },
     {
       "id": 5,
-      "position": 4,
+      "position": 3,
       "driver": "Mike Gentile",
       "country": "ET",
       "racingNumber": 96,
@@ -91,19 +79,43 @@
     },
     {
       "id": 13,
-      "position": 5,
+      "position": 4,
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
-      "points": 33,
+      "points": 43,
       "wins": 0,
       "podiums": 1,
+      "eventsEntered": 5,
+      "withdrawn": false
+    },
+    {
+      "id": 15,
+      "position": 5,
+      "driver": "Menale Taye",
+      "country": "ET",
+      "racingNumber": null,
+      "points": 37.5,
+      "wins": 0,
+      "podiums": 2,
       "eventsEntered": 4,
       "withdrawn": false
     },
     {
-      "id": 4,
+      "id": 7,
       "position": 6,
+      "driver": "Emilio Graffi",
+      "country": "IT",
+      "racingNumber": null,
+      "points": 37,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 3,
+      "withdrawn": false
+    },
+    {
+      "id": 4,
+      "position": 7,
       "driver": "Lukas Missailidis",
       "country": "GR",
       "racingNumber": 7,
@@ -111,18 +123,6 @@
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 4,
-      "withdrawn": false
-    },
-    {
-      "id": 7,
-      "position": 7,
-      "driver": "Emilio Graffi",
-      "country": "IT",
-      "racingNumber": null,
-      "points": 22,
-      "wins": 0,
-      "podiums": 0,
-      "eventsEntered": 2,
       "withdrawn": false
     },
     {
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-05T13:57:42.219Z"
+  "lastUpdated": "2026-10-06T12:58:54.523Z"
 }

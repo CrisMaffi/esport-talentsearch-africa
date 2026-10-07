@@ -59,9 +59,9 @@
       "driver": "Simone Ferrari",
       "country": "IT",
       "racingNumber": 16,
-      "points": 63.5,
+      "points": 66.5,
       "wins": 1,
-      "podiums": 3,
+      "podiums": 4,
       "eventsEntered": 5,
       "withdrawn": false
     },
@@ -107,9 +107,9 @@
       "driver": "Emilio Graffi",
       "country": "IT",
       "racingNumber": null,
-      "points": 37,
+      "points": 34,
       "wins": 0,
-      "podiums": 1,
+      "podiums": 0,
       "eventsEntered": 3,
       "withdrawn": false
     },
@@ -341,5 +341,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-06T12:58:54.523Z"
+  "lastUpdated": "2026-10-07T12:53:11.788Z"
 }

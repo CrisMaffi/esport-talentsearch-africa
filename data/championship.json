@@ -23,8 +23,8 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 96.5,
-      "wins": 4,
+      "points": 89.5,
+      "wins": 3,
       "podiums": 5,
       "eventsEntered": 5,
       "withdrawn": false
@@ -47,8 +47,8 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 96.5,
-      "wins": 4,
+      "points": 89.5,
+      "wins": 3,
       "podiums": 5,
       "eventsEntered": 5,
       "withdrawn": false
@@ -66,8 +66,20 @@
       "withdrawn": false
     },
     {
-      "id": 5,
+      "id": 15,
       "position": 3,
+      "driver": "Menale Taye",
+      "country": "ET",
+      "racingNumber": null,
+      "points": 44.5,
+      "wins": 1,
+      "podiums": 2,
+      "eventsEntered": 4,
+      "withdrawn": false
+    },
+    {
+      "id": 5,
+      "position": 4,
       "driver": "Mike Gentile",
       "country": "ET",
       "racingNumber": 96,
@@ -79,7 +91,7 @@
     },
     {
       "id": 13,
-      "position": 4,
+      "position": 5,
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
@@ -87,18 +99,6 @@
       "wins": 0,
       "podiums": 1,
       "eventsEntered": 5,
-      "withdrawn": false
-    },
-    {
-      "id": 15,
-      "position": 5,
-      "driver": "Menale Taye",
-      "country": "ET",
-      "racingNumber": null,
-      "points": 37.5,
-      "wins": 0,
-      "podiums": 2,
-      "eventsEntered": 4,
       "withdrawn": false
     },
     {
@@ -138,8 +138,20 @@
       "withdrawn": false
     },
     {
-      "id": 10,
+      "id": 17,
       "position": 9,
+      "driver": "Cristian Maffi",
+      "country": "ET",
+      "racingNumber": 83,
+      "points": 8,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 10,
+      "position": 10,
       "driver": "Mohammed kedir Isaac",
       "country": "ET",
       "racingNumber": 777,
@@ -341,5 +353,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-07T12:53:11.788Z"
+  "lastUpdated": "2026-10-08T13:01:38.444Z"
 }

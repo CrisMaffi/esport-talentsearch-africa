@@ -59,9 +59,9 @@
       "driver": "Simone Ferrari",
       "country": "IT",
       "racingNumber": 16,
-      "points": 66.5,
+      "points": 63.5,
       "wins": 1,
-      "podiums": 4,
+      "podiums": 3,
       "eventsEntered": 5,
       "withdrawn": false
     },
@@ -71,10 +71,10 @@
       "driver": "Mike Gentile",
       "country": "ET",
       "racingNumber": 96,
-      "points": 44.5,
+      "points": 54.5,
       "wins": 0,
       "podiums": 3,
-      "eventsEntered": 4,
+      "eventsEntered": 5,
       "withdrawn": false
     },
     {
@@ -83,7 +83,7 @@
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
-      "points": 43,
+      "points": 41,
       "wins": 0,
       "podiums": 1,
       "eventsEntered": 5,
@@ -107,9 +107,9 @@
       "driver": "Emilio Graffi",
       "country": "IT",
       "racingNumber": null,
-      "points": 34,
+      "points": 37,
       "wins": 0,
-      "podiums": 0,
+      "podiums": 1,
       "eventsEntered": 3,
       "withdrawn": false
     },
@@ -131,7 +131,7 @@
       "driver": "Emmanuel Adane",
       "country": "ET",
       "racingNumber": 17,
-      "points": 22,
+      "points": 20,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 3,
@@ -155,7 +155,7 @@
       "driver": "Cristian Maffi",
       "country": "ET",
       "racingNumber": 83,
-      "points": 6,
+      "points": 4,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 1,
@@ -353,5 +353,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-10T12:06:29.370Z"
+  "lastUpdated": "2026-10-11T12:19:57.763Z"
 }

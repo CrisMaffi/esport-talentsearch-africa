@@ -7,7 +7,7 @@
     "endpoints": {
       "schedule": "https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=1",
       "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1",
-      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=1&round=4&week=time_attack"
+      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=1&round=5&week=time_attack"
     }
   },
   "championship": {
@@ -16,7 +16,7 @@
     "season": "2026",
     "timezone": "Africa/Addis_Ababa",
     "totalRounds": 7,
-    "completedRounds": 4,
+    "completedRounds": 5,
     "currentLeader": {
       "id": 11,
       "position": 1,
@@ -30,14 +30,14 @@
       "withdrawn": false
     },
     "lastCompletedEvent": {
-      "round": 4,
-      "name": "Wales",
-      "date": "2026-09-20T20:59:00.000Z"
-    },
-    "upcomingRound": {
       "round": 5,
       "name": "Greece 2",
-      "date": "2026-09-27T21:00:00.000Z"
+      "date": "2026-10-11T20:59:00.000Z"
+    },
+    "upcomingRound": {
+      "round": 6,
+      "name": "Wales 2",
+      "date": "2026-10-25T21:00:00.000Z"
     }
   },
   "standings": [
@@ -253,10 +253,10 @@
       "practiceEnd": "2026-10-04T20:59:00.000Z",
       "startDate": "2026-10-04T21:00:00.000Z",
       "endDate": "2026-10-11T20:59:00.000Z",
-      "status": "live",
-      "sourceStatus": "time_attack",
+      "status": "completed",
+      "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": null
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=5&week=time_attack"
     },
     {
       "id": 6,
@@ -298,17 +298,17 @@
     }
   ],
   "latestResult": {
-    "round": 4,
-    "eventName": "Wales",
-    "date": "2026-09-20T20:59:00.000Z",
-    "track": "Hafren South — Afon Bidno - Severn",
-    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=4&week=time_attack",
+    "round": 5,
+    "eventName": "Greece 2",
+    "date": "2026-10-11T20:59:00.000Z",
+    "track": "Loutraki - Aghii Theodori",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=5&week=time_attack",
     "winner": {
       "position": 1,
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "timeMs": 168543
+      "timeMs": 219076
     },
     "podium": [
       {
@@ -316,42 +316,42 @@
         "driver": "Saverio Gulla",
         "country": "IT",
         "racingNumber": 13,
-        "timeMs": 168543
+        "timeMs": 219076
       },
       {
         "position": 2,
-        "driver": "Mike Gentile",
+        "driver": "Menale Taye",
         "country": "ET",
-        "racingNumber": 96,
-        "timeMs": 169010
+        "racingNumber": null,
+        "timeMs": 222799
       },
       {
         "position": 3,
-        "driver": "Matteo Rossetto",
+        "driver": "Emilio Graffi",
         "country": "IT",
         "racingNumber": null,
-        "timeMs": 169422
+        "timeMs": 223671
       }
     ]
   },
   "upcomingEvent": {
-    "id": 5,
-    "round": 5,
-    "name": "Greece 2",
-    "track": "Loutraki - Aghii Theodori",
-    "country": "GR",
-    "lengthKm": 5,
+    "id": 6,
+    "round": 6,
+    "name": "Wales 2",
+    "track": "Wales - Severn - Afon Bidno",
+    "country": "GB",
+    "lengthKm": 4,
     "surface": "Gravel",
-    "notes": "as time attack",
-    "car": "Audi Quattro Gr4",
-    "practiceStart": "2026-09-27T21:00:00.000Z",
-    "practiceEnd": "2026-10-04T20:59:00.000Z",
-    "startDate": "2026-10-04T21:00:00.000Z",
-    "endDate": "2026-10-11T20:59:00.000Z",
-    "status": "live",
-    "sourceStatus": "time_attack",
+    "notes": "mid afternoon, clear, 10% wet at start",
+    "car": "Citroen Xara WRC",
+    "practiceStart": "2026-10-25T21:00:00.000Z",
+    "practiceEnd": "2026-11-01T20:59:00.000Z",
+    "startDate": "2026-11-01T21:00:00.000Z",
+    "endDate": "2026-11-08T20:59:00.000Z",
+    "status": "upcoming",
+    "sourceStatus": "upcoming",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-11T12:19:57.763Z"
+  "lastUpdated": "2026-10-12T14:46:43.034Z"
 }

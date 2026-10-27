@@ -67,17 +67,40 @@ async function main() {
     throw new Error("No enabled championship matches the requested configuration.");
   }
 
+  // Each championship is synced independently so a problem with one (for
+  // example a new round format) never blocks updates to the others. The job
+  // still fails at the end so the problem is visible and gets fixed.
+  const failures = [];
   for (const championship of championships) {
     const configuredOutput = path.resolve(projectRoot, championship.output);
     const outputPath = process.env.CHAMPIONSHIP_DATA_PATH
       ? path.resolve(process.env.CHAMPIONSHIP_DATA_PATH)
       : configuredOutput;
-    await syncChampionship(championship, sourceBaseUrl, outputPath);
+    try {
+      await syncChampionship(championship, sourceBaseUrl, outputPath);
+    } catch (error) {
+      failures.push({ id: championship.id, message: error.message });
+      reportFailure("Championship " + championship.id + " sync failed: " + error.message);
+      console.error("The last verified snapshot for championship " + championship.id + " has been preserved.");
+    }
+  }
+
+  if (failures.length) {
+    throw new Error(failures.length + " of " + championships.length + " championship(s) failed to sync.");
   }
 }
 
+// In GitHub Actions, "::error::" lines become annotations shown on the run
+// summary page, so the cause is readable without downloading the job log.
+function reportFailure(message) {
+  const oneLine = String(message).replace(/\r?\n/g, " ");
+  if (process.env.GITHUB_ACTIONS === "true") {
+    console.log("::error title=Championship sync::" + oneLine);
+  }
+  console.error(oneLine);
+}
+
 main().catch((error) => {
-  console.error("Championship sync failed:", error.message);
-  console.error("The last verified snapshot has been preserved.");
+  reportFailure("Championship sync failed: " + error.message);
   process.exitCode = 1;
 });

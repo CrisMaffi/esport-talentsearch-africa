@@ -3,11 +3,11 @@
   "source": {
     "provider": "Ethiopian Motorsport",
     "championshipId": 1,
-    "publicUrl": "https://simracing.ethiopianmotorsport.com/schedule?champ=1",
+    "publicUrl": "https://simracing.ethiopianmotorsport.com/championships/1/calendar",
     "endpoints": {
-      "schedule": "https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=1",
-      "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1",
-      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=1&round=5&week=time_attack"
+      "schedule": "https://simracing.ethiopianmotorsport.com/championships/1/calendar/__data.json",
+      "standings": "https://simracing.ethiopianmotorsport.com/championships/1/standings/__data.json",
+      "latestResult": "https://simracing.ethiopianmotorsport.com/championships/1/__data.json?round=5&week=time_attack"
     }
   },
   "championship": {
@@ -173,6 +173,7 @@
       "surface": "Gravel",
       "notes": "Night time",
       "car": "Lancia Delta HF Integrale EVO",
+      "format": "time_attack",
       "practiceStart": "2026-07-05T21:00:00.000Z",
       "practiceEnd": "2026-07-12T20:59:00.000Z",
       "startDate": "2026-07-12T21:00:00.000Z",
@@ -180,7 +181,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 0.5,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=1&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=1&week=time_attack"
     },
     {
       "id": 2,
@@ -192,6 +193,7 @@
       "surface": "Gravel",
       "notes": "Night time",
       "car": "Lancia Delta HF Integrale EVO",
+      "format": "time_attack",
       "practiceStart": "2026-07-15T21:00:00.000Z",
       "practiceEnd": "2026-07-16T20:59:00.000Z",
       "startDate": "2026-07-16T21:00:00.000Z",
@@ -199,7 +201,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 0.5,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=2&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=2&week=time_attack"
     },
     {
       "id": 3,
@@ -211,6 +213,7 @@
       "surface": "Asphalt",
       "notes": "Dry, Day",
       "car": "Peugeot 306 Maxi",
+      "format": "time_attack",
       "practiceStart": "2026-08-02T21:00:00.000Z",
       "practiceEnd": "2026-08-09T20:59:00.000Z",
       "startDate": "2026-08-09T21:00:00.000Z",
@@ -218,7 +221,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=3&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=3&week=time_attack"
     },
     {
       "id": 4,
@@ -230,6 +233,7 @@
       "surface": "Gravel",
       "notes": "dry (follow time attack settings)",
       "car": "Skoda Fabia",
+      "format": "time_attack",
       "practiceStart": "2026-08-30T21:00:00.000Z",
       "practiceEnd": "2026-09-06T20:59:00.000Z",
       "startDate": "2026-09-13T21:00:00.000Z",
@@ -237,7 +241,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=4&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=4&week=time_attack"
     },
     {
       "id": 5,
@@ -249,6 +253,7 @@
       "surface": "Gravel",
       "notes": "as time attack",
       "car": "Audi Quattro Gr4",
+      "format": "time_attack",
       "practiceStart": "2026-09-27T21:00:00.000Z",
       "practiceEnd": "2026-10-04T20:59:00.000Z",
       "startDate": "2026-10-04T21:00:00.000Z",
@@ -256,7 +261,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=5&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=5&week=time_attack"
     },
     {
       "id": 6,
@@ -266,14 +271,15 @@
       "country": "GB",
       "lengthKm": 4,
       "surface": "Gravel",
-      "notes": "mid afternoon, clear, 10% wet at start",
+      "notes": "Time attack also for practice",
       "car": "Citroen Xara WRC",
+      "format": "time_attack",
       "practiceStart": "2026-10-25T21:00:00.000Z",
       "practiceEnd": "2026-11-01T20:59:00.000Z",
       "startDate": "2026-11-01T21:00:00.000Z",
       "endDate": "2026-11-08T20:59:00.000Z",
-      "status": "upcoming",
-      "sourceStatus": "upcoming",
+      "status": "live",
+      "sourceStatus": "practice",
       "pointsMultiplier": 1,
       "resultUrl": null
     },
@@ -287,6 +293,7 @@
       "surface": "Asphalt",
       "notes": "2pm, snow",
       "car": "Hyundai i20 N Rally2",
+      "format": "time_attack",
       "practiceStart": "2026-11-29T21:00:00.000Z",
       "practiceEnd": "2026-12-06T20:59:00.000Z",
       "startDate": "2026-12-06T21:00:00.000Z",
@@ -302,7 +309,8 @@
     "eventName": "Greece 2",
     "date": "2026-10-11T20:59:00.000Z",
     "track": "Loutraki - Aghii Theodori",
-    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=1&round=5&week=time_attack",
+    "format": "time_attack",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=5&week=time_attack",
     "winner": {
       "position": 1,
       "driver": "Saverio Gulla",
@@ -342,16 +350,17 @@
     "country": "GB",
     "lengthKm": 4,
     "surface": "Gravel",
-    "notes": "mid afternoon, clear, 10% wet at start",
+    "notes": "Time attack also for practice",
     "car": "Citroen Xara WRC",
+    "format": "time_attack",
     "practiceStart": "2026-10-25T21:00:00.000Z",
     "practiceEnd": "2026-11-01T20:59:00.000Z",
     "startDate": "2026-11-01T21:00:00.000Z",
     "endDate": "2026-11-08T20:59:00.000Z",
-    "status": "upcoming",
-    "sourceStatus": "upcoming",
+    "status": "live",
+    "sourceStatus": "practice",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-12T14:46:43.034Z"
+  "lastUpdated": "2026-10-27T16:55:57.433Z"
 }

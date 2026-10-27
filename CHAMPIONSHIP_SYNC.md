@@ -8,8 +8,8 @@ sim-racing championships.
 - Public ETSA page: championship.html
 - Rally snapshot: data/championship.json
 - F4 snapshot: data/championship-f4.json
-- Rally page: https://simracing.ethiopianmotorsport.com/schedule?champ=1
-- F4 page: https://simracing.ethiopianmotorsport.com/schedule?champ=2
+- Rally page: https://simracing.ethiopianmotorsport.com/championships/1/calendar
+- F4 page: https://simracing.ethiopianmotorsport.com/championships/2/calendar
 - Configuration: config/championships.json
 
 The browser never parses the remote website. It only reads the local verified
@@ -22,9 +22,20 @@ It exposes structured SvelteKit data responses used by the official pages:
 
 | Purpose | Endpoint |
 |---|---|
-| Championship metadata and rounds | https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ={championshipId} |
-| Driver standings and round points | https://simracing.ethiopianmotorsport.com/standings/__data.json?champ={championshipId} |
-| Latest round result | https://simracing.ethiopianmotorsport.com/__data.json?champ={championshipId}&round={roundId}&week=time_attack |
+| Championship metadata and rounds | https://simracing.ethiopianmotorsport.com/championships/{championshipId}/calendar/__data.json |
+| Driver standings and round points | https://simracing.ethiopianmotorsport.com/championships/{championshipId}/standings/__data.json |
+| Latest round result | https://simracing.ethiopianmotorsport.com/championships/{championshipId}/__data.json?round={roundId}&week=time_attack |
+
+These routes changed on about 2026-10-20 (previously `/schedule/__data.json?champ=…`,
+`/standings/__data.json?champ=…` and `/__data.json?champ=…&round=…`). The old
+routes now answer with a SvelteKit redirect payload
+(`{"type":"redirect","location":"…"}`). The sync follows such payloads
+automatically (same origin only, at most 3 hops), so a future route move does
+not stop the job; update the endpoints here when that happens.
+
+The championship metadata node is accepted in both the current shape
+(`champ: {id, name}`) and the legacy shape (`title`, `selectedChampId`,
+`championships`).
 
 The sync decodes the SvelteKit flattened data format. It does not parse remote
 DOM markup.
@@ -37,7 +48,11 @@ Fields used:
   multiplier
 - Standings: driver ID/name/nationality/racing number, rank, total points and
   per-round result details
-- Latest result: rank, driver, nationality and official time
+- Latest result: for Time Attack rounds, the `board` (rank, driver,
+  nationality and official time); for race-format rounds (`format: "race"`),
+  the `race.rows` finishing order using `emsa_position`, finishers only, with
+  nationality and racing number joined from the standings. Race podiums may have
+  no time; the page then shows positions only.
 
 The source does not currently expose team names, so ETSA does not display them.
 
@@ -66,7 +81,8 @@ Workflow: .github/workflows/sync-championship.yml
 - Scheduled daily at 06:00 UTC
 - Supports workflow_dispatch
 - Runs unit and failure-protection tests
-- Fetches all enabled championships
+- Fetches all enabled championships, each independently: one failing
+  championship does not block updates to the others, but the job still fails
 - Validates the normalized candidate
 - Writes through a temporary file
 - Commits only changed data/*.json files
@@ -103,8 +119,16 @@ The sync fails without replacing the current file when:
 - points or dates are invalid;
 - duplicate drivers, event IDs or round numbers are detected.
 
-The GitHub Action exits with an error and creates no data commit. Cloudflare
-continues serving the last verified snapshot.
+The GitHub Action exits with an error and creates no commit for the failed
+championship. Cloudflare continues serving the last verified snapshot.
+
+The failure reason is posted as an error annotation on the workflow run page
+(Actions → the failed run → Annotations), so it can be read without opening the
+job log. GitHub emails the repository owner when a scheduled run fails.
+
+The Checks workflow (.github/workflows/checks.yml) runs `npm run check` on every
+push and pull request, so parser changes are tested before they reach the daily
+sync.
 
 ## Validation and local checks
 
@@ -114,6 +138,11 @@ continues serving the last verified snapshot.
 
 The tests cover decoding, normalization, latest/upcoming logic, duplicate
 rejection, last-good-file preservation and no-change detection.
+tests/source-2026-10.test.mjs replays real provider responses captured on
+2026-10-27 (tests/fixtures/source-2026-10): new routes, redirects from the old
+routes, the new metadata shape and a race-format result. When the provider
+changes again, capture fresh responses into a new fixtures folder and add a
+test alongside.
 
 ## Changing or adding a championship
 

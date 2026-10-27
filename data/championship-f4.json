@@ -3,41 +3,41 @@
   "source": {
     "provider": "Ethiopian Motorsport",
     "championshipId": 2,
-    "publicUrl": "https://simracing.ethiopianmotorsport.com/schedule?champ=2",
+    "publicUrl": "https://simracing.ethiopianmotorsport.com/championships/2/calendar",
     "endpoints": {
-      "schedule": "https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=2",
-      "standings": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=2",
-      "latestResult": "https://simracing.ethiopianmotorsport.com/__data.json?champ=2&round=9&week=time_attack"
+      "schedule": "https://simracing.ethiopianmotorsport.com/championships/2/calendar/__data.json",
+      "standings": "https://simracing.ethiopianmotorsport.com/championships/2/standings/__data.json",
+      "latestResult": "https://simracing.ethiopianmotorsport.com/championships/2/__data.json?round=10&week=time_attack"
     }
   },
   "championship": {
     "id": 2,
-    "name": "F4 Challenge",
-    "season": null,
+    "name": "F4 Challenge 2026",
+    "season": "2026",
     "timezone": "Africa/Addis_Ababa",
-    "totalRounds": 4,
-    "completedRounds": 2,
+    "totalRounds": 5,
+    "completedRounds": 3,
     "currentLeader": {
       "id": 24,
       "position": 1,
       "driver": "Kebron Bereket",
       "country": "ER",
       "racingNumber": 21,
-      "points": 25,
-      "wins": 1,
-      "podiums": 1,
-      "eventsEntered": 1,
+      "points": 50,
+      "wins": 2,
+      "podiums": 2,
+      "eventsEntered": 2,
       "withdrawn": false
     },
     "lastCompletedEvent": {
-      "round": 2,
-      "name": "Germany",
-      "date": "2026-09-27T20:59:00.000Z"
-    },
-    "upcomingRound": {
       "round": 3,
       "name": "Great Britain",
-      "date": "2026-10-11T21:00:00.000Z"
+      "date": "2026-10-23T20:59:00.000Z"
+    },
+    "upcomingRound": {
+      "round": 4,
+      "name": "Spain",
+      "date": "2026-11-15T21:00:00.000Z"
     }
   },
   "standings": [
@@ -47,10 +47,10 @@
       "driver": "Kebron Bereket",
       "country": "ER",
       "racingNumber": 21,
-      "points": 25,
-      "wins": 1,
-      "podiums": 1,
-      "eventsEntered": 1,
+      "points": 50,
+      "wins": 2,
+      "podiums": 2,
+      "eventsEntered": 2,
       "withdrawn": false
     },
     {
@@ -59,10 +59,10 @@
       "driver": "Mike Gentile",
       "country": "ET",
       "racingNumber": 96,
-      "points": 18,
+      "points": 28,
       "wins": 0,
       "podiums": 1,
-      "eventsEntered": 1,
+      "eventsEntered": 2,
       "withdrawn": false
     },
     {
@@ -71,7 +71,31 @@
       "driver": "Cristian Maffi",
       "country": "ET",
       "racingNumber": 83,
-      "points": 15,
+      "points": 27,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 2,
+      "withdrawn": false
+    },
+    {
+      "id": 7,
+      "position": 4,
+      "driver": "Emilio Graffi",
+      "country": "IT",
+      "racingNumber": null,
+      "points": 25,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 2,
+      "withdrawn": false
+    },
+    {
+      "id": 11,
+      "position": 5,
+      "driver": "Saverio Gulla",
+      "country": "IT",
+      "racingNumber": 13,
+      "points": 18,
       "wins": 0,
       "podiums": 1,
       "eventsEntered": 1,
@@ -79,23 +103,59 @@
     },
     {
       "id": 10,
-      "position": 4,
+      "position": 6,
       "driver": "Mohammed kedir Isaac",
       "country": "ET",
       "racingNumber": 777,
-      "points": 12,
+      "points": 18,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 2,
+      "withdrawn": false
+    },
+    {
+      "id": 31,
+      "position": 7,
+      "driver": "Henok",
+      "country": "ET",
+      "racingNumber": 80,
+      "points": 8,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 1,
       "withdrawn": false
     },
     {
-      "id": 7,
-      "position": 5,
-      "driver": "Emilio Graffi",
+      "id": 3,
+      "position": 8,
+      "driver": "Ernesto Molinari",
       "country": "IT",
+      "racingNumber": 7,
+      "points": 4,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 1,
+      "position": 9,
+      "driver": "Simone Ferrari",
+      "country": "IT",
+      "racingNumber": 16,
+      "points": 2,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 33,
+      "position": 10,
+      "driver": "Kirubel Demes",
+      "country": "ET",
       "racingNumber": null,
-      "points": 10,
+      "points": 1,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 1,
@@ -113,6 +173,7 @@
       "surface": null,
       "notes": null,
       "car": "F4",
+      "format": "time_attack",
       "practiceStart": "2026-08-16T21:00:00.000Z",
       "practiceEnd": "2026-08-22T20:59:00.000Z",
       "startDate": "2026-08-22T21:00:00.000Z",
@@ -120,7 +181,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 0,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=8&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/2?round=8&week=time_attack"
     },
     {
       "id": 9,
@@ -132,6 +193,7 @@
       "surface": null,
       "notes": "Grand Prix Layout",
       "car": "F4",
+      "format": "time_attack",
       "practiceStart": "2026-09-20T21:00:00.000Z",
       "practiceEnd": "2026-09-26T20:59:00.000Z",
       "startDate": "2026-09-26T21:00:00.000Z",
@@ -139,7 +201,7 @@
       "status": "completed",
       "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=9&week=time_attack"
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/2?round=9&week=time_attack"
     },
     {
       "id": 10,
@@ -151,29 +213,51 @@
       "surface": null,
       "notes": null,
       "car": "F4",
+      "format": "race",
       "practiceStart": "2026-10-11T21:00:00.000Z",
       "practiceEnd": "2026-10-18T20:59:00.000Z",
-      "startDate": "2026-10-18T21:00:00.000Z",
-      "endDate": "2026-10-19T20:59:00.000Z",
-      "status": "live",
-      "sourceStatus": "time_attack",
+      "startDate": "2026-10-22T21:00:00.000Z",
+      "endDate": "2026-10-23T20:59:00.000Z",
+      "status": "completed",
+      "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": null
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/2?round=10"
     },
     {
       "id": 11,
       "round": 4,
-      "name": "TBD",
-      "track": "TBD",
-      "country": null,
+      "name": "Spain",
+      "track": "Circuito de Navarra",
+      "country": "ES",
       "lengthKm": null,
       "surface": null,
       "notes": null,
       "car": "F4",
-      "practiceStart": "2026-11-01T21:00:00.000Z",
-      "practiceEnd": "2026-11-07T20:59:00.000Z",
-      "startDate": "2026-11-07T21:00:00.000Z",
-      "endDate": "2026-11-08T20:59:00.000Z",
+      "format": "race",
+      "practiceStart": "2026-11-15T21:00:00.000Z",
+      "practiceEnd": "2026-11-21T20:59:00.000Z",
+      "startDate": "2026-11-21T21:00:00.000Z",
+      "endDate": "2026-11-22T20:59:00.000Z",
+      "status": "upcoming",
+      "sourceStatus": "upcoming",
+      "pointsMultiplier": 1,
+      "resultUrl": null
+    },
+    {
+      "id": 13,
+      "round": 5,
+      "name": "Norway",
+      "track": "Rudskogen Motorsenter",
+      "country": "NO",
+      "lengthKm": null,
+      "surface": null,
+      "notes": null,
+      "car": "FIA F4",
+      "format": "race",
+      "practiceStart": "2026-12-13T21:00:00.000Z",
+      "practiceEnd": "2026-12-19T20:59:00.000Z",
+      "startDate": "2026-12-19T21:00:00.000Z",
+      "endDate": "2026-12-20T20:59:00.000Z",
       "status": "upcoming",
       "sourceStatus": "upcoming",
       "pointsMultiplier": 1,
@@ -181,17 +265,18 @@
     }
   ],
   "latestResult": {
-    "round": 2,
-    "eventName": "Germany",
-    "date": "2026-09-27T20:59:00.000Z",
-    "track": "Motorsport Arena Oschersleben",
-    "resultUrl": "https://simracing.ethiopianmotorsport.com/?champ=2&round=9&week=time_attack",
+    "round": 3,
+    "eventName": "Great Britain",
+    "date": "2026-10-23T20:59:00.000Z",
+    "track": "Oulton-Park",
+    "format": "race",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/2?round=10",
     "winner": {
       "position": 1,
       "driver": "Kebron Bereket",
       "country": "ER",
       "racingNumber": 21,
-      "timeMs": 86222
+      "timeMs": null
     },
     "podium": [
       {
@@ -199,42 +284,43 @@
         "driver": "Kebron Bereket",
         "country": "ER",
         "racingNumber": 21,
-        "timeMs": 86222
+        "timeMs": null
       },
       {
         "position": 2,
-        "driver": "Mike Gentile",
-        "country": "ET",
-        "racingNumber": 96,
-        "timeMs": 88196
+        "driver": "Saverio Gulla",
+        "country": "IT",
+        "racingNumber": 13,
+        "timeMs": null
       },
       {
         "position": 3,
-        "driver": "Cristian Maffi",
-        "country": "ET",
-        "racingNumber": 83,
-        "timeMs": 89730
+        "driver": "Emilio Graffi",
+        "country": "IT",
+        "racingNumber": null,
+        "timeMs": null
       }
     ]
   },
   "upcomingEvent": {
-    "id": 10,
-    "round": 3,
-    "name": "Great Britain",
-    "track": "Oulton-Park",
-    "country": "GB",
+    "id": 11,
+    "round": 4,
+    "name": "Spain",
+    "track": "Circuito de Navarra",
+    "country": "ES",
     "lengthKm": null,
     "surface": null,
     "notes": null,
     "car": "F4",
-    "practiceStart": "2026-10-11T21:00:00.000Z",
-    "practiceEnd": "2026-10-18T20:59:00.000Z",
-    "startDate": "2026-10-18T21:00:00.000Z",
-    "endDate": "2026-10-19T20:59:00.000Z",
-    "status": "live",
-    "sourceStatus": "time_attack",
+    "format": "race",
+    "practiceStart": "2026-11-15T21:00:00.000Z",
+    "practiceEnd": "2026-11-21T20:59:00.000Z",
+    "startDate": "2026-11-21T21:00:00.000Z",
+    "endDate": "2026-11-22T20:59:00.000Z",
+    "status": "upcoming",
+    "sourceStatus": "upcoming",
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-10-19T12:31:42.532Z"
+  "lastUpdated": "2026-10-27T16:55:57.718Z"
 }

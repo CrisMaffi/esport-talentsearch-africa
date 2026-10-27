@@ -2,6 +2,7 @@ import { mkdir, readFile, rename, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const MAX_SOURCE_BYTES = 5_000_000;
+const MAX_SOURCE_REDIRECTS = 3;
 const VALID_EVENT_STATUSES = new Set(["completed", "live", "upcoming"]);
 
 function assert(condition, message) {
@@ -95,7 +96,44 @@ export function decodeSvelteData(input) {
   return hydrate(0);
 }
 
+// SvelteKit answers a moved page's __data.json with HTTP 200 and a
+// {"type":"redirect","location":"/new/path?query"} payload instead of an HTTP
+// redirect. The provider moved its routes in October 2026 (/schedule ->
+// /championships/{id}/calendar, etc.), which broke the sync. Following these
+// payloads (same origin only, bounded hops) keeps future route moves from
+// breaking the job, while the endpoints below point at the current routes.
+export function svelteDataUrlForLocation(currentUrl, location) {
+  const current = new URL(currentUrl);
+  const target = new URL(String(location), current);
+  assert(target.origin === current.origin, "Source redirected to a different origin: " + target.origin);
+  const pagePath = target.pathname.replace(/\/__data\.json$/, "").replace(/\/+$/, "");
+  target.pathname = (pagePath || "") + "/__data.json";
+  return target.toString();
+}
+
 export async function fetchSveltePageData(url, fetchImpl = fetch) {
+  let currentUrl = url;
+  for (let hop = 0; hop <= MAX_SOURCE_REDIRECTS; hop += 1) {
+    const payload = await fetchSveltePayload(currentUrl, fetchImpl);
+    if (payload && payload.type === "redirect" && typeof payload.location === "string") {
+      currentUrl = svelteDataUrlForLocation(currentUrl, payload.location);
+      continue;
+    }
+
+    assert(
+      payload && payload.type === "data" && Array.isArray(payload.nodes),
+      "Unexpected source schema for " + currentUrl + " (payload type: " + (payload && payload.type) + ")."
+    );
+
+    return payload.nodes
+      .filter((node) => node && node.type === "data" && Array.isArray(node.data))
+      .map((node) => decodeSvelteData(node.data));
+  }
+
+  throw new Error("Source redirected more than " + MAX_SOURCE_REDIRECTS + " times starting from " + url);
+}
+
+async function fetchSveltePayload(url, fetchImpl) {
   const response = await fetchImpl(url, {
     headers: {
       accept: "application/json",
@@ -115,18 +153,11 @@ export async function fetchSveltePageData(url, fetchImpl = fetch) {
   const text = await response.text();
   assert(text.length > 0 && text.length <= MAX_SOURCE_BYTES, "Source response size is invalid.");
 
-  let payload;
   try {
-    payload = JSON.parse(text);
+    return JSON.parse(text);
   } catch {
     throw new Error("Source returned malformed JSON for " + url);
   }
-
-  assert(payload && payload.type === "data" && Array.isArray(payload.nodes), "Unexpected source schema.");
-
-  return payload.nodes
-    .filter((node) => node && node.type === "data" && Array.isArray(node.data))
-    .map((node) => decodeSvelteData(node.data));
 }
 
 export function sourceEndpoints(baseUrl, championshipId, roundId = null) {
@@ -135,13 +166,12 @@ export function sourceEndpoints(baseUrl, championshipId, roundId = null) {
   assert(Number.isInteger(id) && id > 0, "Championship ID must be a positive integer.");
 
   const endpoints = {
-    schedule: trustedUrl(base, "/schedule/__data.json", { champ: id }),
-    standings: trustedUrl(base, "/standings/__data.json", { champ: id })
+    schedule: trustedUrl(base, "/championships/" + id + "/calendar/__data.json", {}),
+    standings: trustedUrl(base, "/championships/" + id + "/standings/__data.json", {})
   };
 
   if (roundId !== null) {
-    endpoints.latestResult = trustedUrl(base, "/__data.json", {
-      champ: id,
+    endpoints.latestResult = trustedUrl(base, "/championships/" + id + "/__data.json", {
       round: roundId,
       week: "time_attack"
     });
@@ -150,9 +180,39 @@ export function sourceEndpoints(baseUrl, championshipId, roundId = null) {
   return endpoints;
 }
 
+export function publicPageUrls(baseUrl, championshipId) {
+  const base = new URL(baseUrl);
+  const id = Number(championshipId);
+  return {
+    calendar: trustedUrl(base, "/championships/" + id + "/calendar", {}),
+    result: (roundId, format) => trustedUrl(base, "/championships/" + id, format === "race"
+      ? { round: roundId }
+      : { round: roundId, week: "time_attack" })
+  };
+}
+
+// The provider has used two shapes for championship metadata:
+//   legacy:  { title, selectedChampId, championships: [{ id, name }] }
+//   current: { champ: { id, name, game }, roundCount, ... }
+function championshipIdentity(metadata) {
+  if (metadata && metadata.champ && typeof metadata.champ === "object") {
+    return { id: finiteNumber(metadata.champ.id), name: cleanText(metadata.champ.name) };
+  }
+  const selected = (metadata.championships || []).find(
+    (item) => Number(item.id) === Number(metadata.selectedChampId)
+  );
+  return {
+    id: finiteNumber(metadata.selectedChampId),
+    name: cleanText(selected && selected.name) || cleanText(metadata.title)
+  };
+}
+
 export function selectSourceRecords(scheduleNodes, standingsNodes, resultNodes = []) {
   const metadata = scheduleNodes.find(
-    (node) => node && node.title && Array.isArray(node.championships)
+    (node) => node && (
+      (node.champ && typeof node.champ === "object" && node.champ.id !== undefined) ||
+      (node.title && Array.isArray(node.championships))
+    )
   );
   const schedule = scheduleNodes.find(
     (node) => node && Array.isArray(node.rounds) && node.rounds.some((round) => round.practice_start)
@@ -161,7 +221,7 @@ export function selectSourceRecords(scheduleNodes, standingsNodes, resultNodes =
     (node) => node && Array.isArray(node.standings) && Array.isArray(node.rounds)
   );
   const result = resultNodes.find(
-    (node) => node && Array.isArray(node.board) && node.round
+    (node) => node && node.round && (Array.isArray(node.board) || (node.race && Array.isArray(node.race.rows)))
   ) || null;
 
   assert(metadata, "Championship metadata is missing from the schedule source.");
@@ -171,7 +231,7 @@ export function selectSourceRecords(scheduleNodes, standingsNodes, resultNodes =
   return { metadata, schedule, standings, result };
 }
 
-function normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime) {
+function normalizeEvent(round, pages, timezone, referenceTime) {
     const rawStatus = cleanText(round.status) || "unknown";
     let status = "upcoming";
     const practiceStart = isoOrNull(round.practice_start, timezone);
@@ -179,7 +239,7 @@ function normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime)
 
     if (round.completed || ["closed", "completed", "final"].includes(rawStatus.toLowerCase())) {
       status = "completed";
-    } else if (["live", "active", "open", "running"].includes(rawStatus.toLowerCase())) {
+    } else if (["live", "active", "open", "running", "practice", "time_attack", "race"].includes(rawStatus.toLowerCase())) {
       status = "live";
     } else if (
       Number.isFinite(referenceTime) &&
@@ -191,13 +251,8 @@ function normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime)
       status = "live";
   }
 
-  const resultUrl = status === "completed"
-    ? trustedUrl(baseUrl, "/", {
-        champ: championshipId,
-        round: round.id,
-        week: "time_attack"
-      })
-    : null;
+  const format = cleanText(round.format) || "time_attack";
+  const resultUrl = status === "completed" ? pages.result(round.id, format) : null;
 
   return {
     id: finiteNumber(round.id),
@@ -209,6 +264,7 @@ function normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime)
     surface: cleanText(round.stage_surface),
     notes: cleanText(round.stage_notes),
     car: cleanText(round.car_name),
+    format,
     practiceStart,
     practiceEnd: isoOrNull(round.practice_end, timezone),
     startDate: isoOrNull(round.ta_start, timezone),
@@ -240,8 +296,45 @@ function normalizeStanding(row, index) {
   };
 }
 
-function normalizePodium(board) {
-  return [...(board || [])]
+function normalizePodium(result, standingsRows) {
+  if (!result) return [];
+  if (Array.isArray(result.board) && result.board.length > 0) {
+    return normalizeBoardPodium(result.board);
+  }
+  if (result.race && Array.isArray(result.race.rows)) {
+    return normalizeRacePodium(result.race.rows, standingsRows);
+  }
+  return [];
+}
+
+// Race-format rounds (introduced for F4 in October 2026) publish a finishing
+// order in race.rows instead of a time-attack board. emsa_position is the
+// classification used for EMSA points; driver nationality/number come from
+// the standings because race rows only carry the driver's name and id.
+function normalizeRacePodium(rows, standingsRows) {
+  const drivers = new Map(
+    (standingsRows || []).map((row) => [finiteNumber(row.driverId), row.driver || {}])
+  );
+  return rows
+    .map((row) => ({ row, position: finiteNumber(row.emsa_position, finiteNumber(row.position)) }))
+    .filter(({ row, position }) =>
+      Number.isInteger(position) && position >= 1 && position <= 3 &&
+      String(row.status || "finished").toLowerCase() === "finished")
+    .sort((a, b) => a.position - b.position)
+    .map(({ row, position }) => {
+      const driver = drivers.get(finiteNumber(row.driver_id)) || {};
+      return {
+        position,
+        driver: cleanText(row.driver_name) || cleanText(driver.name),
+        country: cleanText(driver.nationality),
+        racingNumber: finiteNumber(driver.racing_number),
+        timeMs: finiteNumber(row.total_time_ms)
+      };
+    });
+}
+
+function normalizeBoardPodium(board) {
+  return [...board]
     .filter((entry) => Number.isInteger(finiteNumber(entry.rank)) && finiteNumber(entry.rank) <= 3)
     .sort((a, b) => finiteNumber(a.rank) - finiteNumber(b.rank))
     .map((entry) => ({
@@ -256,22 +349,23 @@ function normalizePodium(board) {
 export function normalizeChampionship(source, options) {
   const championshipId = Number(options.championshipId);
   const baseUrl = new URL(options.baseUrl).toString();
-  const publicUrl = trustedUrl(baseUrl, "/schedule", { champ: championshipId });
   const { metadata, schedule, standings, result } = source;
 
+  const identity = championshipIdentity(metadata);
   assert(
-    Number(metadata.selectedChampId) === championshipId,
+    identity.id === championshipId,
     "The source returned a different championship than requested."
   );
 
-  const selected = metadata.championships.find((item) => Number(item.id) === championshipId);
-  const championshipName = cleanText(selected && selected.name) || cleanText(metadata.title);
+  const championshipName = identity.name;
+  const pages = publicPageUrls(baseUrl, championshipId);
+  const publicUrl = pages.calendar;
   const timezone = cleanText(schedule.timezone) || "Africa/Addis_Ababa";
   const lastUpdated = options.lastUpdated || new Date().toISOString();
   const referenceTime = Date.parse(lastUpdated);
   const events = schedule.rounds
     .filter((round) => Number(round.championship_id) === championshipId)
-    .map((round) => normalizeEvent(round, championshipId, baseUrl, timezone, referenceTime))
+    .map((round) => normalizeEvent(round, pages, timezone, referenceTime))
     .sort((a, b) => a.round - b.round);
   const completedEvents = events.filter((event) => event.status === "completed");
   const pendingEvents = events.filter((event) => event.status !== "completed");
@@ -281,7 +375,7 @@ export function normalizeChampionship(source, options) {
   const normalizedStandings = standings.standings
     .map(normalizeStanding)
     .sort((a, b) => a.position - b.position);
-  const podium = normalizePodium(result && result.board);
+  const podium = normalizePodium(result, standings.standings);
 
   if (latestEvent) {
     assert(result && Number(result.round.id) === latestEvent.id, "Latest result does not match the latest completed round.");
@@ -293,6 +387,7 @@ export function normalizeChampionship(source, options) {
         eventName: latestEvent.name,
         date: latestEvent.endDate,
         track: latestEvent.track,
+        format: latestEvent.format,
         resultUrl: latestEvent.resultUrl,
         winner: podium[0] || null,
         podium

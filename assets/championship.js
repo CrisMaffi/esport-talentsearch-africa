@@ -115,7 +115,9 @@
             const row = element("li");
             row.append(element("b", "", text(entry.position)));
             row.append(element("span", "", entry.driver + (entry.country ? " · " + entry.country : "")));
-            row.append(element("time", "", formatTime(entry.timeMs)));
+            if (Number.isFinite(entry.timeMs) || result.format !== "race") {
+                row.append(element("time", "", formatTime(entry.timeMs)));
+            }
             podium.append(row);
         });
         target.append(podium);

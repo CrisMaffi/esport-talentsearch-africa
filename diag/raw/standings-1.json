@@ -1,0 +1,7 @@
+{
+ "url": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1",
+ "status": 200,
+ "contentType": "application/json",
+ "finalUrl": "https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1",
+ "body": "{\"type\":\"redirect\",\"location\":\"/championships/1/standings\"}"
+}

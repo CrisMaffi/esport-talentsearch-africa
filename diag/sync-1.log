@@ -1,0 +1,9 @@
+
+> etsa-public-website@1.0.0 championship:sync
+> node scripts/sync-championship.mjs
+
+Fetching schedule: https://simracing.ethiopianmotorsport.com/schedule/__data.json?champ=1
+Fetching standings: https://simracing.ethiopianmotorsport.com/standings/__data.json?champ=1
+Championship sync failed: Unexpected source schema.
+The last verified snapshot has been preserved.
+exit 1

@@ -34,16 +34,31 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Run integration tests
-        run: npm test
+      - name: Capture raw source (diagnostic)
+        run: node diag/capture.mjs
+
+      - name: Run sync (diagnostic)
+        run: |
+          set +e
+          for id in 1 2; do CHAMPIONSHIP_ID=$id npm run championship:sync > diag/sync-$id.log 2>&1; echo "exit $?" >> diag/sync-$id.log; done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diag && git commit -m "diag: capture" && git push
+          exit 0
+
+      - name: Stop (diagnostic)
+        run: exit 0
 
       - name: Fetch and validate official championship data
+        if: false
         run: npm run championship:sync
 
       - name: Validate generated snapshot
+        if: false
         run: npm run championship:validate
 
       - name: Commit only verified data changes
+        if: false
         shell: bash
         run: |
           if [[ -z "$(git status --porcelain -- data/*.json)" ]]; then

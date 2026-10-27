@@ -148,9 +148,11 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             align-items: stretch;
+            max-width: 880px;
+            margin: 0 auto;
         }
 
         .contact-card {
@@ -207,7 +209,7 @@
         .founder-card {
             grid-column: 1 / -1;
             max-width: 420px;
-            margin: 10px auto 0;
+            margin: 0 auto 10px;
             background: var(--black);
             color: #ffffff;
             border-color: #222222;
@@ -327,36 +329,20 @@
 
             <div class="contact-grid">
 
-                <div class="contact-card">
-                    <img src="kamto.jpg" alt="Kamto Chukwureh">
+                <div class="contact-card founder-card">
+                    <img src="cristian.jpg" alt="Cristian Maffi">
 
-                    <h3>Kamto Chukwureh</h3>
+                    <h3>Cristian Maffi</h3>
 
-                    <div class="role">Marketing & Social Media</div>
+                    <div class="role">Founder, ETSA</div>
 
                     <p>
-                        <a href="mailto:k.chukwureh@maffiracing.com">
-                            k.chukwureh@maffiracing.com
+                        <a href="mailto:c.maffi@maffiracing.com">
+                            c.maffi@maffiracing.com
                         </a>
                     </p>
 
-                    <p>Ireland</p>
-                </div>
-
-                <div class="contact-card">
-                    <img src="dylan.jpg" alt="Dylan Stebler">
-
-                    <h3>Dylan Stebler</h3>
-
-                    <div class="role">Technical Inquiry</div>
-
-                    <p>
-                        <a href="mailto:d.stebler@maffiracing.com">
-                            d.stebler@maffiracing.com
-                        </a>
-                    </p>
-
-                    <p>Switzerland</p>
+                    <p>Geneva, Switzerland</p>
                 </div>
 
                 <div class="contact-card">
@@ -375,20 +361,20 @@
                     <p>Switzerland</p>
                 </div>
 
-                <div class="contact-card founder-card">
-                    <img src="cristian.jpg" alt="Cristian Maffi">
+                <div class="contact-card">
+                    <img src="kamto.jpg" alt="Kamto Chukwureh">
 
-                    <h3>Cristian Maffi</h3>
+                    <h3>Kamto Chukwureh</h3>
 
-                    <div class="role">Founder, ETSA</div>
+                    <div class="role">Marketing & Social Media</div>
 
                     <p>
-                        <a href="mailto:c.maffi@maffiracing.com">
-                            c.maffi@maffiracing.com
+                        <a href="mailto:k.chukwureh@maffiracing.com">
+                            k.chukwureh@maffiracing.com
                         </a>
                     </p>
 
-                    <p>Geneva, Switzerland</p>
+                    <p>Ireland</p>
                 </div>
 
             </div>

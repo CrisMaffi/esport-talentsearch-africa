@@ -20,7 +20,7 @@ concurrency:
 jobs:
   sync:
     name: Validate and update championship data
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       CHAMPIONSHIP_ID: ${{ inputs.championship_id }}

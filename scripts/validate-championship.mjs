@@ -33,6 +33,9 @@ try {
     console.log("Championship snapshot is valid:", dataPath);
   }
 } catch (error) {
+  if (process.env.GITHUB_ACTIONS === "true") {
+    console.log("::error title=Championship validation::" + String(error.message).replace(/\r?\n/g, " "));
+  }
   console.error("Championship validation failed:", error.message);
   process.exitCode = 1;
 }

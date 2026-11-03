@@ -54,8 +54,20 @@
       "withdrawn": false
     },
     {
-      "id": 1,
+      "id": 5,
       "position": 2,
+      "driver": "Mike Gentile",
+      "country": "ET",
+      "racingNumber": 96,
+      "points": 79.5,
+      "wins": 1,
+      "podiums": 4,
+      "eventsEntered": 6,
+      "withdrawn": false
+    },
+    {
+      "id": 1,
+      "position": 3,
       "driver": "Simone Ferrari",
       "country": "IT",
       "racingNumber": 16,
@@ -66,12 +78,12 @@
       "withdrawn": false
     },
     {
-      "id": 5,
-      "position": 3,
-      "driver": "Mike Gentile",
+      "id": 15,
+      "position": 4,
+      "driver": "Menale Taye",
       "country": "ET",
-      "racingNumber": 96,
-      "points": 54.5,
+      "racingNumber": null,
+      "points": 55.5,
       "wins": 0,
       "podiums": 3,
       "eventsEntered": 5,
@@ -79,7 +91,7 @@
     },
     {
       "id": 13,
-      "position": 4,
+      "position": 5,
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
@@ -87,18 +99,6 @@
       "wins": 0,
       "podiums": 1,
       "eventsEntered": 5,
-      "withdrawn": false
-    },
-    {
-      "id": 15,
-      "position": 5,
-      "driver": "Menale Taye",
-      "country": "ET",
-      "racingNumber": null,
-      "points": 37.5,
-      "wins": 0,
-      "podiums": 2,
-      "eventsEntered": 4,
       "withdrawn": false
     },
     {
@@ -362,5 +362,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-11-02T15:03:35.354Z"
+  "lastUpdated": "2026-11-03T13:49:31.953Z"
 }

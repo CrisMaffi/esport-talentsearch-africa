@@ -23,10 +23,10 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 96.5,
-      "wins": 4,
-      "podiums": 5,
-      "eventsEntered": 5,
+      "points": 121.5,
+      "wins": 5,
+      "podiums": 6,
+      "eventsEntered": 6,
       "withdrawn": false
     },
     "lastCompletedEvent": {
@@ -47,10 +47,10 @@
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "points": 96.5,
-      "wins": 4,
-      "podiums": 5,
-      "eventsEntered": 5,
+      "points": 121.5,
+      "wins": 5,
+      "podiums": 6,
+      "eventsEntered": 6,
       "withdrawn": false
     },
     {
@@ -59,7 +59,7 @@
       "driver": "Simone Ferrari",
       "country": "IT",
       "racingNumber": 16,
-      "points": 75.5,
+      "points": 71.5,
       "wins": 1,
       "podiums": 3,
       "eventsEntered": 6,
@@ -71,7 +71,7 @@
       "driver": "Mike Gentile",
       "country": "ET",
       "racingNumber": 96,
-      "points": 72.5,
+      "points": 69.5,
       "wins": 0,
       "podiums": 4,
       "eventsEntered": 6,
@@ -83,34 +83,34 @@
       "driver": "Menale Taye",
       "country": "ET",
       "racingNumber": null,
-      "points": 62.5,
-      "wins": 1,
+      "points": 55.5,
+      "wins": 0,
       "podiums": 3,
       "eventsEntered": 5,
       "withdrawn": false
     },
     {
-      "id": 7,
-      "position": 5,
-      "driver": "Emilio Graffi",
-      "country": "IT",
-      "racingNumber": null,
-      "points": 52,
-      "wins": 0,
-      "podiums": 2,
-      "eventsEntered": 4,
-      "withdrawn": false
-    },
-    {
       "id": 13,
-      "position": 6,
+      "position": 5,
       "driver": "Matteo Rossetto",
       "country": "IT",
       "racingNumber": null,
-      "points": 41,
+      "points": 53,
       "wins": 0,
       "podiums": 1,
-      "eventsEntered": 5,
+      "eventsEntered": 6,
+      "withdrawn": false
+    },
+    {
+      "id": 7,
+      "position": 6,
+      "driver": "Emilio Graffi",
+      "country": "IT",
+      "racingNumber": null,
+      "points": 47,
+      "wins": 0,
+      "podiums": 1,
+      "eventsEntered": 4,
       "withdrawn": false
     },
     {
@@ -138,20 +138,8 @@
       "withdrawn": false
     },
     {
-      "id": 3,
-      "position": 9,
-      "driver": "Ernesto Molinari",
-      "country": "IT",
-      "racingNumber": 7,
-      "points": 10,
-      "wins": 0,
-      "podiums": 0,
-      "eventsEntered": 1,
-      "withdrawn": false
-    },
-    {
       "id": 10,
-      "position": 10,
+      "position": 9,
       "driver": "Mohammed kedir Isaac",
       "country": "ET",
       "racingNumber": 777,
@@ -159,6 +147,18 @@
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 2,
+      "withdrawn": false
+    },
+    {
+      "id": 3,
+      "position": 10,
+      "driver": "Ernesto Molinari",
+      "country": "IT",
+      "racingNumber": 7,
+      "points": 6,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 1,
       "withdrawn": false
     },
     {
@@ -374,5 +374,5 @@
     "pointsMultiplier": 1,
     "resultUrl": null
   },
-  "lastUpdated": "2026-11-04T13:56:57.824Z"
+  "lastUpdated": "2026-11-05T14:15:11.306Z"
 }

@@ -139,7 +139,7 @@
         target.append(element("h3", "", "R" + event.round + " · " + event.name));
         target.append(element("p", "", text(event.track) + (event.country ? " · " + event.country : "")));
         target.append(element("p", "", "Practice: " + formatRange(event.practiceStart, event.practiceEnd, timezone)));
-        target.append(element("p", "", "Time Attack: " + formatRange(event.startDate, event.endDate, timezone)));
+        target.append(element("p", "", (event.format === "race" ? "Race: " : "Time Attack: ") + formatRange(event.startDate, event.endDate, timezone)));
         if (event.car) target.append(element("p", "", "Car: " + event.car));
         addLink(target, "Open official schedule", data.source.publicUrl);
     }
@@ -218,7 +218,7 @@
             const meta = element("ul", "event-meta");
             addMeta(meta, "Track", text(event.track) + (event.country ? " · " + event.country : ""));
             addMeta(meta, "Practice", formatRange(event.practiceStart, event.practiceEnd, timezone));
-            addMeta(meta, "Time Attack", formatRange(event.startDate, event.endDate, timezone));
+            addMeta(meta, event.format === "race" ? "Race" : "Time Attack", formatRange(event.startDate, event.endDate, timezone));
             addMeta(meta, "Surface", text(event.surface));
             addMeta(meta, "Car", text(event.car));
             if (event.pointsMultiplier !== 1) addMeta(meta, "Points", event.pointsMultiplier + "× multiplier");

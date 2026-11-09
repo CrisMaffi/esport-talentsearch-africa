@@ -883,3 +883,23 @@ a { color: inherit; }
         grid-template-columns: 1fr;
     }
 }
+
+.championship-banner {
+    padding: 56px 0 0;
+}
+
+.championship-banner h2 {
+    margin: 0 0 6px;
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.05;
+}
+
+.championship-banner a {
+    color: inherit;
+    font-weight: 700;
+}
+
+.championship-block + .championship-block {
+    margin-top: 40px;
+    border-top: 4px solid var(--gold);
+}

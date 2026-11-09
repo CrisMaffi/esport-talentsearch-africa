@@ -52,9 +52,8 @@ const championshipHtml = await readFile(path.join(projectRoot, "championship.htm
   "standings-body",
   "schedule-grid",
   "last-updated",
-  "id=\"championship-select\"",
-  "option value=\"rally\"",
-  "option value=\"f4\"",
+  "href=\"#rally\"",
+  "href=\"#f4\"",
   "https://esport.ethiopianmotorsport.com/"
 ].forEach((marker) => {
   if (!championshipHtml.includes(marker)) {

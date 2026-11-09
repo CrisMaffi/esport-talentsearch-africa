@@ -7,16 +7,10 @@
     };
     const slot = (root, name) => root.querySelector('[data-slot="' + name + '"]');
     const requestedChampionship = new URLSearchParams(window.location.search).get("champ");
-    const championshipSelect = document.getElementById("championship-select");
     const jumpTo = (key) => {
         const target = document.getElementById(key);
         if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     };
-    if (championshipSelect) {
-        championshipSelect.addEventListener("change", () => {
-            if (Object.hasOwn(championships, championshipSelect.value)) jumpTo(championshipSelect.value);
-        });
-    }
     const text = (value, fallback = "—") => {
         if (value === null || value === undefined || value === "") return fallback;
         return String(value);

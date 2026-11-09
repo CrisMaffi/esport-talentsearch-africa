@@ -76,7 +76,7 @@
 
         <section class="championship-switcher" aria-label="Choose a championship">
             <div class="page-width championship-switcher-inner">
-                <label for="championship-select">Choose championship</label>
+                <label for="championship-select">Jump to championship</label>
                 <div class="championship-select-control">
                     <select id="championship-select" aria-label="Choose championship">
                         <option value="rally">AC Rally Challenge 2026</option>
@@ -89,15 +89,17 @@
         <section class="source-bar" aria-label="Current championship">
             <div class="page-width source-inner">
                 <p>
-                    <strong>Current championship:</strong>
-                    <a id="official-source-top" href="https://simracing.ethiopianmotorsport.com/championships/1/calendar" target="_blank" rel="noopener">Loading…</a>
+                    <strong>Championships:</strong>
+                    <a href="#rally">Rally Challenge 2026</a> · <a href="#f4">F4 Challenge 2026</a>
                 </p>
                 <p id="last-updated" aria-live="polite">Loading championship information…</p>
             </div>
         </section>
     </div>
 
-    <main>
+    <main id="championships">
+        <template id="championship-template">
+        <div class="championship-banner page-width"><h2 data-slot="block-name">Championship</h2><a data-slot="block-source" href="#" target="_blank" rel="noopener">Official championship page</a></div>
         <section class="section page-width mobile-page" aria-labelledby="overview-title" data-mobile-page-label="Overview">
             <div class="section-heading">
                 <div>
@@ -185,6 +187,8 @@
                 </div>
             </div>
         </section>
+
+        </template>
 
         <section class="official-cta mobile-page" data-mobile-page-label="Join and compete">
             <div class="page-width official-inner">

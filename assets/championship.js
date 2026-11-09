@@ -5,20 +5,16 @@
         rally: { dataUrl: "data/championship.json" },
         f4: { dataUrl: "data/championship-f4.json" }
     };
+    const slot = (root, name) => root.querySelector('[data-slot="' + name + '"]');
     const requestedChampionship = new URLSearchParams(window.location.search).get("champ");
-    const championshipKey = Object.hasOwn(championships, requestedChampionship)
-        ? requestedChampionship
-        : "rally";
-    const dataUrl = championships[championshipKey].dataUrl;
-
     const championshipSelect = document.getElementById("championship-select");
+    const jumpTo = (key) => {
+        const target = document.getElementById(key);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
     if (championshipSelect) {
-        championshipSelect.value = championshipKey;
         championshipSelect.addEventListener("change", () => {
-            if (!Object.hasOwn(championships, championshipSelect.value)) return;
-            const nextUrl = new URL(window.location.href);
-            nextUrl.searchParams.set("champ", championshipSelect.value);
-            window.location.assign(nextUrl.toString());
+            if (Object.hasOwn(championships, championshipSelect.value)) jumpTo(championshipSelect.value);
         });
     }
     const text = (value, fallback = "—") => {
@@ -79,12 +75,12 @@
         return card;
     }
 
-    function renderOverview(data) {
+    function renderOverview(root, data) {
         const championship = data.championship;
         const leader = championship.currentLeader;
         const upcoming = championship.upcomingRound;
         const last = championship.lastCompletedEvent;
-        const grid = document.getElementById("overview-grid");
+        const grid = slot(root, "overview-grid");
 
         grid.replaceChildren(
             metric("Championship", text(championship.name), "Ethiopian sim racing series"),
@@ -96,8 +92,8 @@
         );
     }
 
-    function renderLatestResult(data) {
-        const target = document.getElementById("latest-result");
+    function renderLatestResult(root, data) {
+        const target = slot(root, "latest-result");
         const result = data.latestResult;
         const timezone = data.championship.timezone;
         target.replaceChildren(element("span", "panel-label", "Latest result"));
@@ -124,8 +120,8 @@
         addLink(target, "View complete official result", result.resultUrl);
     }
 
-    function renderUpcoming(data) {
-        const target = document.getElementById("upcoming-event");
+    function renderUpcoming(root, data) {
+        const target = slot(root, "upcoming-event");
         const event = data.upcomingEvent;
         const timezone = data.championship.timezone;
         target.replaceChildren(element(
@@ -148,8 +144,8 @@
         addLink(target, "Open official schedule", data.source.publicUrl);
     }
 
-    function renderStandings(data) {
-        const body = document.getElementById("standings-body");
+    function renderStandings(root, data) {
+        const body = slot(root, "standings-body");
         body.replaceChildren();
 
         if (!data.standings.length) {
@@ -204,8 +200,8 @@
         list.append(item);
     }
 
-    function renderSchedule(data) {
-        const grid = document.getElementById("schedule-grid");
+    function renderSchedule(root, data) {
+        const grid = slot(root, "schedule-grid");
         const timezone = data.championship.timezone;
         grid.replaceChildren();
 
@@ -233,20 +229,16 @@
         });
     }
 
-    function renderSource(data) {
-        document.getElementById("last-updated").textContent =
-            "Schedule, standings and results";
-
-        document.getElementById("official-source-top").href = data.source.publicUrl;
-        document.getElementById("official-source-top").textContent = data.championship.name;
-        document.title = data.championship.name + " | ETSA Live Championship";
+    function renderSource(root, data) {
+        const name = slot(root, "block-name");
+        if (name) name.textContent = data.championship.name;
+        const link = slot(root, "block-source");
+        if (link) link.href = data.source.publicUrl;
     }
 
-    function showFailure(error) {
+    function showFailure(root, error) {
         console.error(error);
-        document.getElementById("last-updated").textContent =
-            "Verified snapshot is temporarily unavailable. Use the official source link.";
-        const body = document.getElementById("standings-body");
+        const body = slot(root, "standings-body");
         const row = element("tr", "error-row");
         const cell = element("td", "", "Championship data could not be displayed. The ETSA website remains available.");
         cell.colSpan = 7;
@@ -254,18 +246,43 @@
         body.replaceChildren(row);
     }
 
-    fetch(dataUrl, { cache: "no-cache" })
-        .then((response) => {
-            if (!response.ok) throw new Error("Championship snapshot request failed: " + response.status);
-            return response.json();
-        })
-        .then((data) => {
-            renderSource(data);
-            renderOverview(data);
-            renderLatestResult(data);
-            renderUpcoming(data);
-            renderStandings(data);
-            renderSchedule(data);
-        })
-        .catch(showFailure);
+    function mount(key, template) {
+        const root = document.createElement("div");
+        root.className = "championship-block";
+        root.id = key;
+        root.append(template.content.cloneNode(true));
+        root.querySelectorAll("[id]").forEach((node) => {
+            node.dataset.slot = node.id;
+            node.id = node.id + "-" + key;
+        });
+        root.querySelectorAll("[aria-labelledby]").forEach((node) => {
+            node.setAttribute("aria-labelledby", node.getAttribute("aria-labelledby") + "-" + key);
+        });
+        template.before(root);
+
+        return fetch(championships[key].dataUrl, { cache: "no-cache" })
+            .then((response) => {
+                if (!response.ok) throw new Error("Championship snapshot request failed: " + response.status);
+                return response.json();
+            })
+            .then((data) => {
+                renderSource(root, data);
+                renderOverview(root, data);
+                renderLatestResult(root, data);
+                renderUpcoming(root, data);
+                renderStandings(root, data);
+                renderSchedule(root, data);
+            })
+            .catch((error) => showFailure(root, error));
+    }
+
+    const template = document.getElementById("championship-template");
+    document.title = "Rally and F4 Challenges | ETSA Live Championship";
+    const done = Object.keys(championships).map((key) => mount(key, template));
+    Promise.all(done).then(() => {
+        if (Object.hasOwn(championships, requestedChampionship)) jumpTo(requestedChampionship);
+        else if (window.location.hash) jumpTo(window.location.hash.slice(1));
+        const status = document.getElementById("last-updated");
+        if (status) status.textContent = "Schedule, standings and results";
+    });
 })();

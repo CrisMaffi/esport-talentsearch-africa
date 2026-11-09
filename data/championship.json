@@ -7,7 +7,7 @@
     "endpoints": {
       "schedule": "https://simracing.ethiopianmotorsport.com/championships/1/calendar/__data.json",
       "standings": "https://simracing.ethiopianmotorsport.com/championships/1/standings/__data.json",
-      "latestResult": "https://simracing.ethiopianmotorsport.com/championships/1/__data.json?round=5&week=time_attack"
+      "latestResult": "https://simracing.ethiopianmotorsport.com/championships/1/__data.json?round=6&week=time_attack"
     }
   },
   "championship": {
@@ -16,7 +16,7 @@
     "season": "2026",
     "timezone": "Africa/Addis_Ababa",
     "totalRounds": 7,
-    "completedRounds": 5,
+    "completedRounds": 6,
     "currentLeader": {
       "id": 11,
       "position": 1,
@@ -30,14 +30,14 @@
       "withdrawn": false
     },
     "lastCompletedEvent": {
-      "round": 5,
-      "name": "Greece 2",
-      "date": "2026-10-11T20:59:00.000Z"
-    },
-    "upcomingRound": {
       "round": 6,
       "name": "Wales 2",
-      "date": "2026-10-25T21:00:00.000Z"
+      "date": "2026-11-08T20:59:00.000Z"
+    },
+    "upcomingRound": {
+      "round": 7,
+      "name": "FINALE",
+      "date": "2026-11-29T21:00:00.000Z"
     }
   },
   "standings": [
@@ -162,12 +162,24 @@
       "withdrawn": false
     },
     {
-      "id": 3,
+      "id": 40,
       "position": 11,
+      "driver": "Maxime Maffi",
+      "country": "CH",
+      "racingNumber": 11,
+      "points": 4,
+      "wins": 0,
+      "podiums": 0,
+      "eventsEntered": 1,
+      "withdrawn": false
+    },
+    {
+      "id": 3,
+      "position": 12,
       "driver": "Ernesto Molinari",
       "country": "IT",
       "racingNumber": 7,
-      "points": 4,
+      "points": 2,
       "wins": 0,
       "podiums": 0,
       "eventsEntered": 1,
@@ -290,10 +302,10 @@
       "practiceEnd": "2026-11-01T20:59:00.000Z",
       "startDate": "2026-11-01T21:00:00.000Z",
       "endDate": "2026-11-08T20:59:00.000Z",
-      "status": "live",
-      "sourceStatus": "time_attack",
+      "status": "completed",
+      "sourceStatus": "closed",
       "pointsMultiplier": 1,
-      "resultUrl": null
+      "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=6&week=time_attack"
     },
     {
       "id": 7,
@@ -317,18 +329,18 @@
     }
   ],
   "latestResult": {
-    "round": 5,
-    "eventName": "Greece 2",
-    "date": "2026-10-11T20:59:00.000Z",
-    "track": "Loutraki - Aghii Theodori",
+    "round": 6,
+    "eventName": "Wales 2",
+    "date": "2026-11-08T20:59:00.000Z",
+    "track": "Wales - Severn - Afon Bidno",
     "format": "time_attack",
-    "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=5&week=time_attack",
+    "resultUrl": "https://simracing.ethiopianmotorsport.com/championships/1?round=6&week=time_attack",
     "winner": {
       "position": 1,
       "driver": "Saverio Gulla",
       "country": "IT",
       "racingNumber": 13,
-      "timeMs": 219076
+      "timeMs": 168458
     },
     "podium": [
       {
@@ -336,43 +348,43 @@
         "driver": "Saverio Gulla",
         "country": "IT",
         "racingNumber": 13,
-        "timeMs": 219076
+        "timeMs": 168458
       },
       {
         "position": 2,
-        "driver": "Menale Taye",
-        "country": "ET",
-        "racingNumber": null,
-        "timeMs": 222799
+        "driver": "Simone Ferrari",
+        "country": "IT",
+        "racingNumber": 16,
+        "timeMs": 170285
       },
       {
         "position": 3,
-        "driver": "Emilio Graffi",
-        "country": "IT",
+        "driver": "Menale Taye",
+        "country": "ET",
         "racingNumber": null,
-        "timeMs": 223671
+        "timeMs": 170308
       }
     ]
   },
   "upcomingEvent": {
-    "id": 6,
-    "round": 6,
-    "name": "Wales 2",
-    "track": "Wales - Severn - Afon Bidno",
-    "country": "GB",
-    "lengthKm": 4,
-    "surface": "Gravel",
-    "notes": "Time attack also for practice",
-    "car": "Citroen Xara WRC",
+    "id": 7,
+    "round": 7,
+    "name": "FINALE",
+    "track": "Monte Carlo - Sisteron - St. Geniez",
+    "country": "MC",
+    "lengthKm": 13,
+    "surface": "Asphalt",
+    "notes": "2pm, snow",
+    "car": "Hyundai i20 N Rally2",
     "format": "time_attack",
-    "practiceStart": "2026-10-25T21:00:00.000Z",
-    "practiceEnd": "2026-11-01T20:59:00.000Z",
-    "startDate": "2026-11-01T21:00:00.000Z",
-    "endDate": "2026-11-08T20:59:00.000Z",
-    "status": "live",
-    "sourceStatus": "time_attack",
-    "pointsMultiplier": 1,
+    "practiceStart": "2026-11-29T21:00:00.000Z",
+    "practiceEnd": "2026-12-06T20:59:00.000Z",
+    "startDate": "2026-12-06T21:00:00.000Z",
+    "endDate": "2026-12-13T20:59:00.000Z",
+    "status": "upcoming",
+    "sourceStatus": "upcoming",
+    "pointsMultiplier": 1.5,
     "resultUrl": null
   },
-  "lastUpdated": "2026-11-08T12:56:26.404Z"
+  "lastUpdated": "2026-11-09T15:33:50.795Z"
 }

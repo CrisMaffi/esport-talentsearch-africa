@@ -475,6 +475,21 @@
             border-color: #282828;
         }
 
+        .join-pilot {
+            background: #fff8e6;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .join-pilot .steps { grid-template-columns: repeat(4, 1fr); }
+
+        .join-note {
+            margin: 26px 0 0;
+            font-weight: 700;
+        }
+
+        .join-pilot .step a { color: inherit; font-weight: 700; }
+
         .steps {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -638,6 +653,7 @@
         <div class="nav-links">
             <a href="#challenge-announcement">Digital GP</a>
             <a href="championship.html">Live Championship</a>
+            <a href="#join-pilot">Join</a>
             <a href="#vision">Vision</a>
             <a href="#pilot">Pilot</a>
             <a href="#pathway">Pathway</a>
@@ -677,8 +693,8 @@
             </p>
 
             <div class="hero-actions">
-                <a href="#pathway" class="btn btn-primary">Explore the ETSA Pathway</a>
-                <a href="events.html" class="btn btn-secondary">View Rally Challenge</a>
+                <a href="#join-pilot" class="btn btn-primary">Join the Pilot</a>
+                <a href="#pathway" class="btn btn-secondary">Explore the ETSA Pathway</a>
             </div>
         </div>
 
@@ -691,6 +707,51 @@
             </div>
         </div>
     </header>
+
+    <section class="section join-pilot mobile-page" id="join-pilot" data-mobile-page-label="Join the pilot">
+        <div class="section-narrow">
+            <div class="section-title">
+                <small>Everyone Is Welcome</small>
+                <h2>Join the ETSA pilot project.</h2>
+                <p>
+                    Anyone can take part in the ETSA pilot. Getting started takes four simple steps.
+                </p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Join your local ASN</h3>
+                    <p>Become a member of your national motorsport authority (ASN). Your membership is what allows you to receive an iRacing license.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get your iRacing license</h3>
+                    <p>Once you are an ASN member, you can receive your iRacing license and race on the platform.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Assetto Corsa Rally</h3>
+                    <p>Create a free Steam account if you do not have one yet, then get Assetto Corsa Rally on Steam.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Subscribe to compete</h3>
+                    <p>Register to take part in the Rally Challenge 2026 or the F4 Challenge 2026.</p>
+                </div>
+            </div>
+
+            <p class="join-note">The calendar is almost finished. Stay tuned for the upcoming dates.</p>
+
+            <div class="hero-actions" style="margin-top:20px;">
+                <a href="contact.html" class="btn btn-primary">Contact Us to Subscribe</a>
+                <a href="events.html" class="btn btn-secondary">View Rally Challenge</a>
+            </div>
+        </div>
+    </section>
 
     <section class="section challenge-announcement mobile-page" id="digital-challenge" data-mobile-page-label="Digital Grand Prix">
         <div class="section-narrow">

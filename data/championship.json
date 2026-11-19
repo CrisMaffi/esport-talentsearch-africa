@@ -57,7 +57,7 @@
       "id": 1,
       "position": 2,
       "driver": "Simone Ferrari",
-      "country": "IT",
+      "country": "GR",
       "racingNumber": 16,
       "points": 81.5,
       "wins": 1,
@@ -353,7 +353,7 @@
       {
         "position": 2,
         "driver": "Simone Ferrari",
-        "country": "IT",
+        "country": "GR",
         "racingNumber": 16,
         "timeMs": 170285
       },
@@ -386,5 +386,5 @@
     "pointsMultiplier": 1.5,
     "resultUrl": null
   },
-  "lastUpdated": "2026-11-09T15:33:50.795Z"
+  "lastUpdated": "2026-11-19T15:25:55.133Z"
 }
